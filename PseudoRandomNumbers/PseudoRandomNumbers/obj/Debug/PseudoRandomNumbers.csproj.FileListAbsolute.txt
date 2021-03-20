@@ -8,3 +8,13 @@ C:\Users\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\PseudoRandomNumbers\Pseud
 C:\Users\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.exe
 C:\Users\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.pdb
 C:\Users\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.Main.resources
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\bin\Debug\PseudoRandomNumbers.exe.config
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\bin\Debug\PseudoRandomNumbers.exe
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\bin\Debug\PseudoRandomNumbers.pdb
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.csprojAssemblyReference.cache
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.Main.resources
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.Properties.Resources.resources
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.csproj.GenerateResource.cache
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.csproj.CoreCompileInputs.cache
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.exe
+C:\Users\note\Desktop\sim2021\TPSim\PseudoRandomNumbers\PseudoRandomNumbers\obj\Debug\PseudoRandomNumbers.pdb
