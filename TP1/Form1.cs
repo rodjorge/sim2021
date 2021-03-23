@@ -40,7 +40,7 @@ namespace simulacion_tp1
 
         private void rbLineal_CheckedChanged(object sender, EventArgs e)
         {
-            tipo = "mixto";
+            tipo = "lineal";
             lblFormula.Text = "Xi+1 = ( a * Xi + c ) mod m";
             lblFormulaA.Text = "a = 1 + 4 * k";
             lblFormulaC1.Visible = true;
@@ -78,6 +78,8 @@ namespace simulacion_tp1
             txtK.Enabled = false;
             txtC.Enabled = false;
             txtG.Enabled = false;
+
+            
         }
 
         private void limpiarCampos()
@@ -103,7 +105,7 @@ namespace simulacion_tp1
 
                 switch (tipo)
                 {
-                    case "mixto":
+                    case "lineal":
                         generador = new Generador(int.Parse(txtK.Text), int.Parse(txtG.Text), int.Parse(txtC.Text));
                         x = int.Parse(txtX.Text);
                         lista = generador.mixtoLista(x, tamanio);

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSiguienteRND = new System.Windows.Forms.Button();
@@ -72,9 +72,16 @@
             this.btnHistograma = new System.Windows.Forms.Button();
             this.cmbIntervalo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.Integrantes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grilla)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrGrafico)).BeginInit();
@@ -251,10 +258,16 @@
             // Integrantes
             // 
             this.Integrantes.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Integrantes.Controls.Add(this.label17);
+            this.Integrantes.Controls.Add(this.label16);
+            this.Integrantes.Controls.Add(this.label10);
+            this.Integrantes.Controls.Add(this.label9);
+            this.Integrantes.Controls.Add(this.label8);
+            this.Integrantes.Controls.Add(this.label7);
             this.Integrantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Integrantes.Location = new System.Drawing.Point(8, 557);
+            this.Integrantes.Location = new System.Drawing.Point(8, 505);
             this.Integrantes.Name = "Integrantes";
-            this.Integrantes.Size = new System.Drawing.Size(185, 126);
+            this.Integrantes.Size = new System.Drawing.Size(185, 178);
             this.Integrantes.TabIndex = 14;
             this.Integrantes.TabStop = false;
             this.Integrantes.Text = "Grupo N2";
@@ -416,7 +429,6 @@
             this.rbLenguaje.TabStop = true;
             this.rbLenguaje.Text = "Lenguaje";
             this.rbLenguaje.UseVisualStyleBackColor = true;
-            this.rbLenguaje.Visible = false;
             this.rbLenguaje.CheckedChanged += new System.EventHandler(this.rbLenguaje_CheckedChanged);
             // 
             // rbMultiplicativo
@@ -438,10 +450,10 @@
             this.rbMixto.Location = new System.Drawing.Point(5, 18);
             this.rbMixto.Margin = new System.Windows.Forms.Padding(2);
             this.rbMixto.Name = "rbMixto";
-            this.rbMixto.Size = new System.Drawing.Size(50, 17);
+            this.rbMixto.Size = new System.Drawing.Size(53, 17);
             this.rbMixto.TabIndex = 0;
             this.rbMixto.TabStop = true;
-            this.rbMixto.Text = "Mixto";
+            this.rbMixto.Text = "Lineal";
             this.rbMixto.UseVisualStyleBackColor = true;
             this.rbMixto.CheckedChanged += new System.EventHandler(this.rbLineal_CheckedChanged);
             // 
@@ -484,26 +496,26 @@
             // 
             // chrGrafico
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chrGrafico.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chrGrafico.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chrGrafico.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chrGrafico.Legends.Add(legend2);
             this.chrGrafico.Location = new System.Drawing.Point(4, 299);
             this.chrGrafico.Margin = new System.Windows.Forms.Padding(2);
             this.chrGrafico.Name = "chrGrafico";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series2";
-            this.chrGrafico.Series.Add(series1);
-            this.chrGrafico.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series2";
+            this.chrGrafico.Series.Add(series3);
+            this.chrGrafico.Series.Add(series4);
             this.chrGrafico.Size = new System.Drawing.Size(668, 366);
             this.chrGrafico.TabIndex = 4;
             this.chrGrafico.Text = "chart1";
-            title1.Name = "Histograma de frecuencias";
-            this.chrGrafico.Titles.Add(title1);
+            title2.Name = "Histograma de frecuencias";
+            this.chrGrafico.Titles.Add(title2);
             // 
             // dgvTablaFecuencia
             // 
@@ -544,6 +556,60 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Intervalos";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Ardiles Hernan";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Gaiga Marcela";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Chavez Juan";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(15, 97);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Gomez Benjamin";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 119);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(79, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Panero Agustin";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 146);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(84, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Rodriguez Jorge";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,6 +627,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.Integrantes.ResumeLayout(false);
+            this.Integrantes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grilla)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -611,6 +679,12 @@
         private System.Windows.Forms.Label lblFormulaA;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
 
