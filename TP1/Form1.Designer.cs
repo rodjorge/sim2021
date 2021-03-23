@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSiguienteRND = new System.Windows.Forms.Button();
@@ -71,6 +71,7 @@
             this.rbMultiplicativo = new System.Windows.Forms.RadioButton();
             this.rbMixto = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnMostrarFe = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.lblGradosLibertad = new System.Windows.Forms.Label();
             this.chrGrafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -78,7 +79,6 @@
             this.btnHistograma = new System.Windows.Forms.Button();
             this.cmbIntervalo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnMostrarFe = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -531,6 +531,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Histograma";
             // 
+            // btnMostrarFe
+            // 
+            this.btnMostrarFe.Location = new System.Drawing.Point(593, 598);
+            this.btnMostrarFe.Name = "btnMostrarFe";
+            this.btnMostrarFe.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrarFe.TabIndex = 27;
+            this.btnMostrarFe.Text = "mostrar fe";
+            this.btnMostrarFe.UseVisualStyleBackColor = true;
+            this.btnMostrarFe.Visible = false;
+            this.btnMostrarFe.Click += new System.EventHandler(this.btnMostrarFe_Click);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -552,27 +563,27 @@
             // 
             // chrGrafico
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chrGrafico.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chrGrafico.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chrGrafico.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chrGrafico.Legends.Add(legend1);
             this.chrGrafico.Location = new System.Drawing.Point(4, 299);
             this.chrGrafico.Margin = new System.Windows.Forms.Padding(2);
             this.chrGrafico.Name = "chrGrafico";
             this.chrGrafico.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series2";
-            this.chrGrafico.Series.Add(series5);
-            this.chrGrafico.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            this.chrGrafico.Series.Add(series1);
+            this.chrGrafico.Series.Add(series2);
             this.chrGrafico.Size = new System.Drawing.Size(668, 366);
             this.chrGrafico.TabIndex = 4;
             this.chrGrafico.Text = "chart1";
-            title3.Name = "Histograma de frecuencias";
-            this.chrGrafico.Titles.Add(title3);
+            title1.Name = "Histograma de frecuencias";
+            this.chrGrafico.Titles.Add(title1);
             // 
             // dgvTablaFecuencia
             // 
@@ -580,6 +591,7 @@
             this.dgvTablaFecuencia.Location = new System.Drawing.Point(5, 44);
             this.dgvTablaFecuencia.Name = "dgvTablaFecuencia";
             this.dgvTablaFecuencia.RowHeadersWidth = 51;
+            this.dgvTablaFecuencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTablaFecuencia.Size = new System.Drawing.Size(668, 249);
             this.dgvTablaFecuencia.TabIndex = 3;
             // 
@@ -612,17 +624,6 @@
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Intervalos";
-            // 
-            // btnMostrarFe
-            // 
-            this.btnMostrarFe.Location = new System.Drawing.Point(593, 598);
-            this.btnMostrarFe.Name = "btnMostrarFe";
-            this.btnMostrarFe.Size = new System.Drawing.Size(75, 23);
-            this.btnMostrarFe.TabIndex = 27;
-            this.btnMostrarFe.Text = "mostrar fe";
-            this.btnMostrarFe.UseVisualStyleBackColor = true;
-            this.btnMostrarFe.Visible = false;
-            this.btnMostrarFe.Click += new System.EventHandler(this.btnMostrarFe_Click);
             // 
             // Form1
             // 
