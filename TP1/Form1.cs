@@ -50,6 +50,7 @@ namespace simulacion_tp1
             txtK.Enabled = true;
             txtC.Enabled = true;
             txtG.Enabled = true;
+            groupBox4.Show();
         }
 
         private void rbMultiplicativo_CheckedChanged(object sender, EventArgs e)
@@ -64,6 +65,7 @@ namespace simulacion_tp1
             txtK.Enabled = true;
             txtC.Enabled = false;
             txtG.Enabled = true;
+            groupBox4.Show();
         }
 
         private void rbLenguaje_CheckedChanged(object sender, EventArgs e)
@@ -78,7 +80,7 @@ namespace simulacion_tp1
             txtK.Enabled = false;
             txtC.Enabled = false;
             txtG.Enabled = false;
-
+            groupBox4.Hide();
             
         }
 
@@ -133,6 +135,7 @@ namespace simulacion_tp1
                 }
 
                 grilla.DataSource = lista;
+                cmbIntervalo.SelectedIndex = 0;
             }
             else {
                 MessageBox.Show("Todos los campos son obligatorios");
@@ -231,6 +234,7 @@ namespace simulacion_tp1
                 }
                 dgvTablaFecuencia.DataSource = intervalos;
                 generarGrafico();
+                btnMostrarFe.Visible = true;
             }
         }
 
@@ -244,15 +248,17 @@ namespace simulacion_tp1
 
             for (int i = 0; i < intervalos.Count; i++)
             {
-                serieFo.Add(intervalos[i].Inf.ToString());// + "-" + intervalos[i].Sup.ToString());
+                serieFo.Add(intervalos[i].Inf.ToString() + "-" + intervalos[i].Sup.ToString());
                 fo.Add(intervalos[i].Fo);
-                serieFe.Add(intervalos[i].Inf.ToString() + "-" + intervalos[i].Sup.ToString());
+            serieFe.Add(intervalos[i].Inf.ToString()); //+ "-" + intervalos[i].Sup.ToString());
                 fe.Add(intervalos[i].Fe);
             }
-            chrGrafico.Series[0].Points.DataBindY(fo);
-            chrGrafico.Series[1].Points.DataBindXY(serieFe, fe);
+            chrGrafico.Series[0].Points.DataBindXY(serieFo, fo);
+            chrGrafico.Series[1].Points.DataBindY(fe);
             chrGrafico.Series[0]["PointWidth"] = "1";
             chrGrafico.Series[1]["PointWidth"] = "1";
+
+            chrGrafico.Series[1].Enabled = false;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -264,6 +270,11 @@ namespace simulacion_tp1
         {
             lista = generador.SiguienteRND(tipo);
             grilla.DataSource = new BindingSource(lista, "");
+        }
+
+        private void btnMostrarFe_Click(object sender, EventArgs e)
+        {
+            chrGrafico.Series[1].Enabled = !chrGrafico.Series[1].Enabled;
         }
     }
 }
