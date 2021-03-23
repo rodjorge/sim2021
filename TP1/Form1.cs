@@ -251,6 +251,8 @@ namespace simulacion_tp1
             }
             chrGrafico.Series[0].Points.DataBindY(fo);
             chrGrafico.Series[1].Points.DataBindXY(serieFe, fe);
+            chrGrafico.Series[0]["PointWidth"] = "1";
+            chrGrafico.Series[1]["PointWidth"] = "1";
         }
 
         private void btnClear_Click(object sender, EventArgs e)
