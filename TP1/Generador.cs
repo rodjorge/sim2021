@@ -11,7 +11,7 @@ namespace simulacion_tp1
         private int k;
         private int g;
         private int c;
-        private Random random = new Random();
+        private Random random;
         List<NroRandom> lista;
 
         public Generador()
@@ -78,16 +78,16 @@ namespace simulacion_tp1
 
         public NroRandom lenguaje()
         {
-            //Random random = new Random();
             double nro = Math.Round(random.NextDouble(), 4, MidpointRounding.AwayFromZero);
             NroRandom nroRnd = new NroRandom(0, 0, nro);
             return nroRnd;
         }
 
-        public List<NroRandom> lenguajeLista(int cantidadGenerar)
+        public List<NroRandom> lenguajeLista(int cantidadGenerar, int semilla)
         {
             List<NroRandom> lista = new List<NroRandom>();
             NroRandom nroRandom;
+            this.random = new Random(semilla);
             for (int i = 0; i < cantidadGenerar; i++)
             {
                 nroRandom = lenguaje();

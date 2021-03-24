@@ -564,6 +564,8 @@
             // 
             // chrGrafico
             // 
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.IsStaggered = true;
             chartArea1.Name = "ChartArea1";
             this.chrGrafico.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";

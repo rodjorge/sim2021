@@ -78,3 +78,17 @@ C:\Users\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP1\obj\Debug\simulacion_
 C:\Users\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP1\obj\Debug\simulacion_tp1.application
 C:\Users\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP1\obj\Debug\simulacion_tp1.exe
 C:\Users\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP1\obj\Debug\simulacion_tp1.pdb
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\bin\Debug\simulacion_tp1.exe.config
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\bin\Debug\simulacion_tp1.exe.manifest
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\bin\Debug\simulacion_tp1.application
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\bin\Debug\simulacion_tp1.exe
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\bin\Debug\simulacion_tp1.pdb
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.csprojAssemblyReference.cache
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.Form1.resources
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.Properties.Resources.resources
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.csproj.GenerateResource.cache
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.csproj.CoreCompileInputs.cache
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.exe.manifest
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.application
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.exe
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP1\obj\Debug\simulacion_tp1.pdb

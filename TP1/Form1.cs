@@ -76,7 +76,7 @@ namespace simulacion_tp1
             txtK.Text = "0";
             txtC.Text = "0";
             txtG.Text = "0";
-            txtX.Enabled = false;
+            txtX.Enabled = true;
             txtK.Enabled = false;
             txtC.Enabled = false;
             txtG.Enabled = false;
@@ -102,24 +102,22 @@ namespace simulacion_tp1
         {
             if (isValid())
             {
-                int x;
+                int x = int.Parse(txtX.Text);
                 tamanio = int.Parse(txtTamanio.Text);
 
                 switch (tipo)
                 {
                     case "lineal":
                         generador = new Generador(int.Parse(txtK.Text), int.Parse(txtG.Text), int.Parse(txtC.Text));
-                        x = int.Parse(txtX.Text);
                         lista = generador.mixtoLista(x, tamanio);
                         break;
                     case "multiplicativo":
                         generador = new Generador(int.Parse(txtK.Text), int.Parse(txtG.Text), int.Parse(txtC.Text));
-                        x = int.Parse(txtX.Text);
                         lista = generador.multiplicativoLista(x, tamanio);
                         break;
                     case "lenguaje":
                         generador = new Generador();
-                        lista = generador.lenguajeLista(tamanio);
+                        lista = generador.lenguajeLista(tamanio, x);
                         break;
                 }
 
@@ -258,6 +256,8 @@ namespace simulacion_tp1
             chrGrafico.Series[0]["PointWidth"] = "1";
             chrGrafico.Series[1]["PointWidth"] = "1";
 
+            chrGrafico.ChartAreas["ChartArea1"].AxisX.Interval = 1;
+            
             chrGrafico.Series[1].Enabled = false;
         }
 
