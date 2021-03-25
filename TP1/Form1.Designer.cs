@@ -382,10 +382,10 @@
             // 
             // txtTamanio
             // 
-            this.txtTamanio.Location = new System.Drawing.Point(68, 110);
+            this.txtTamanio.Location = new System.Drawing.Point(54, 110);
             this.txtTamanio.Margin = new System.Windows.Forms.Padding(2);
             this.txtTamanio.Name = "txtTamanio";
-            this.txtTamanio.Size = new System.Drawing.Size(27, 20);
+            this.txtTamanio.Size = new System.Drawing.Size(72, 20);
             this.txtTamanio.TabIndex = 12;
             // 
             // label5
