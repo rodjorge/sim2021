@@ -10,8 +10,8 @@ namespace simulacion_tp1
     {
         private double inf;
         private double sup;
-        private int fo;
-        private int fe;
+        private double fo;
+        private double fe;
         private double c;
         private double ca;
 
@@ -37,18 +37,6 @@ namespace simulacion_tp1
             set { sup = value; }
         }
 
-        public int Fo
-        {
-            get { return fo; }
-            set { fo = value; }
-        }
-
-        public int Fe
-        {
-            get { return fe; }
-            set { fe = value; }
-        }
-
         public double C
         {
             get { return c; }
@@ -60,6 +48,9 @@ namespace simulacion_tp1
             get { return ca; }
             set { ca = value; }
         }
+
+        public double Fo { get => fo; set => fo = value; }
+        public double Fe { get => fe; set => fe = value; }
 
         public void calcularC()
         {
