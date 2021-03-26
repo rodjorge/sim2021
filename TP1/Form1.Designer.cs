@@ -551,7 +551,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(225, 13);
             this.label13.TabIndex = 26;
-            this.label13.Text = "Intervalos: Inferior (abierto) - Superior (cerrado)";
+            this.label13.Text = "Intervalos: Inferior (cerrado) - Superior (abierto)";
             // 
             // lblGradosLibertad
             // 

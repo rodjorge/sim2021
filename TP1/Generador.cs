@@ -78,7 +78,7 @@ namespace simulacion_tp1
 
         public NroRandom lenguaje()
         {
-            double nro = Math.Round(random.NextDouble(), 4, MidpointRounding.AwayFromZero);
+            double nro = truncarACuatro(random.NextDouble());
             NroRandom nroRnd = new NroRandom(0, 0, nro);
             return nroRnd;
         }
@@ -101,10 +101,13 @@ namespace simulacion_tp1
         private double dividir(int nro, double m)
         {
             double resultado = (double) nro / (m); // si se borra el 1 de le ecuacion no se incluye el 1 en la lista de randoms 
-            return Math.Round(resultado, 4, MidpointRounding.AwayFromZero);
+            return truncarACuatro(resultado);
         }
 
-
+        private double truncarACuatro(double nro)
+        {
+            return Math.Truncate(nro * 10000) / 10000;
+        }
         public List<NroRandom> SiguienteRND(string metodo)
         {
             NroRandom nroRandom;
