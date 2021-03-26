@@ -225,7 +225,7 @@ namespace simulacion_tp1
                 }
                 for (int i = 0; i < intervalos.Count; i++)
                 {
-                    intervalos[i].Fe = tamanio / cantIntervalos;
+                    intervalos[i].Fe = Math.Round((float) tamanio / cantIntervalos, 2, MidpointRounding.AwayFromZero);
                     intervalos[i].calcularC();
                     caAcumulado += intervalos[i].C;
                     intervalos[i].Ca = Math.Round(caAcumulado, 2, MidpointRounding.AwayFromZero);
