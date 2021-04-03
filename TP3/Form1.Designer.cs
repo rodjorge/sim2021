@@ -57,19 +57,20 @@ namespace Simulacion_tp3
             this.txtSemilla = new System.Windows.Forms.TextBox();
             this.lblSemilla = new System.Windows.Forms.Label();
             this.grpHistograma = new System.Windows.Forms.GroupBox();
+            this.btnFe = new System.Windows.Forms.Button();
             this.graficoHistograma = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblGradosLibertad = new System.Windows.Forms.Label();
             this.cmbIntervalos = new System.Windows.Forms.ComboBox();
             this.lblIntervalos = new System.Windows.Forms.Label();
             this.btnHistograma = new System.Windows.Forms.Button();
             this.dtgHistograma = new System.Windows.Forms.DataGridView();
-            this.btnFe = new System.Windows.Forms.Button();
             this.limInf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.limSup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radPoisson = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVariables)).BeginInit();
             this.grpTipoDistribucion.SuspendLayout();
             this.grpParametros.SuspendLayout();
@@ -108,12 +109,13 @@ namespace Simulacion_tp3
             // 
             // grpTipoDistribucion
             // 
+            this.grpTipoDistribucion.Controls.Add(this.radPoisson);
             this.grpTipoDistribucion.Controls.Add(this.radNormal);
             this.grpTipoDistribucion.Controls.Add(this.radExponencial);
             this.grpTipoDistribucion.Controls.Add(this.radUniforme);
             this.grpTipoDistribucion.Location = new System.Drawing.Point(10, 10);
             this.grpTipoDistribucion.Name = "grpTipoDistribucion";
-            this.grpTipoDistribucion.Size = new System.Drawing.Size(180, 79);
+            this.grpTipoDistribucion.Size = new System.Drawing.Size(180, 98);
             this.grpTipoDistribucion.TabIndex = 1;
             this.grpTipoDistribucion.TabStop = false;
             this.grpTipoDistribucion.Text = "Tipo de distribución a generar";
@@ -128,6 +130,7 @@ namespace Simulacion_tp3
             this.radNormal.TabStop = true;
             this.radNormal.Text = "Normal";
             this.radNormal.UseVisualStyleBackColor = true;
+            this.radNormal.Click += new System.EventHandler(this.cambioDistribucion);
             // 
             // radExponencial
             // 
@@ -139,6 +142,7 @@ namespace Simulacion_tp3
             this.radExponencial.TabStop = true;
             this.radExponencial.Text = "Exponencial negativa";
             this.radExponencial.UseVisualStyleBackColor = true;
+            this.radExponencial.Click += new System.EventHandler(this.cambioDistribucion);
             // 
             // radUniforme
             // 
@@ -151,6 +155,7 @@ namespace Simulacion_tp3
             this.radUniforme.TabStop = true;
             this.radUniforme.Text = "Uniforme continua";
             this.radUniforme.UseVisualStyleBackColor = true;
+            this.radUniforme.Click += new System.EventHandler(this.cambioDistribucion);
             // 
             // grpParametros
             // 
@@ -169,7 +174,7 @@ namespace Simulacion_tp3
             this.grpParametros.Controls.Add(this.lblLimInf);
             this.grpParametros.Controls.Add(this.txtSemilla);
             this.grpParametros.Controls.Add(this.lblSemilla);
-            this.grpParametros.Location = new System.Drawing.Point(10, 94);
+            this.grpParametros.Location = new System.Drawing.Point(10, 114);
             this.grpParametros.Name = "grpParametros";
             this.grpParametros.Size = new System.Drawing.Size(180, 250);
             this.grpParametros.TabIndex = 2;
@@ -240,6 +245,7 @@ namespace Simulacion_tp3
             this.txtMedia.Name = "txtMedia";
             this.txtMedia.Size = new System.Drawing.Size(86, 20);
             this.txtMedia.TabIndex = 8;
+            this.txtMedia.TextChanged += new System.EventHandler(this.txtMedia_TextChanged);
             // 
             // lblMedia
             // 
@@ -313,6 +319,17 @@ namespace Simulacion_tp3
             this.grpHistograma.TabIndex = 3;
             this.grpHistograma.TabStop = false;
             this.grpHistograma.Text = "Histograma";
+            // 
+            // btnFe
+            // 
+            this.btnFe.Location = new System.Drawing.Point(628, 479);
+            this.btnFe.Name = "btnFe";
+            this.btnFe.Size = new System.Drawing.Size(75, 23);
+            this.btnFe.TabIndex = 6;
+            this.btnFe.Text = "Mostrar Fe";
+            this.btnFe.UseVisualStyleBackColor = true;
+            this.btnFe.Visible = false;
+            this.btnFe.Click += new System.EventHandler(this.btnFe_Click);
             // 
             // graficoHistograma
             // 
@@ -399,17 +416,6 @@ namespace Simulacion_tp3
             this.dtgHistograma.Size = new System.Drawing.Size(717, 161);
             this.dtgHistograma.TabIndex = 0;
             // 
-            // btnFe
-            // 
-            this.btnFe.Location = new System.Drawing.Point(628, 479);
-            this.btnFe.Name = "btnFe";
-            this.btnFe.Size = new System.Drawing.Size(75, 23);
-            this.btnFe.TabIndex = 6;
-            this.btnFe.Text = "Mostrar Fe";
-            this.btnFe.UseVisualStyleBackColor = true;
-            this.btnFe.Visible = false;
-            this.btnFe.Click += new System.EventHandler(this.btnFe_Click);
-            // 
             // limInf
             // 
             this.limInf.HeaderText = "Limite Inferior";
@@ -446,6 +452,18 @@ namespace Simulacion_tp3
             this.ca.Name = "ca";
             this.ca.ReadOnly = true;
             // 
+            // radPoisson
+            // 
+            this.radPoisson.AutoSize = true;
+            this.radPoisson.Location = new System.Drawing.Point(5, 73);
+            this.radPoisson.Name = "radPoisson";
+            this.radPoisson.Size = new System.Drawing.Size(62, 17);
+            this.radPoisson.TabIndex = 5;
+            this.radPoisson.TabStop = true;
+            this.radPoisson.Text = "Poisson";
+            this.radPoisson.UseVisualStyleBackColor = true;
+            this.radPoisson.Click += new System.EventHandler(this.cambioDistribucion);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +473,7 @@ namespace Simulacion_tp3
             this.Controls.Add(this.grpParametros);
             this.Controls.Add(this.grpTipoDistribucion);
             this.Controls.Add(this.dtgVariables);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "SIM TP2";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -510,6 +529,7 @@ namespace Simulacion_tp3
         private System.Windows.Forms.DataGridViewTextBoxColumn fe;
         private System.Windows.Forms.DataGridViewTextBoxColumn c;
         private System.Windows.Forms.DataGridViewTextBoxColumn ca;
+        private System.Windows.Forms.RadioButton radPoisson;
     }
 }
 

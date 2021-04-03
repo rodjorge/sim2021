@@ -8,3 +8,6 @@ C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\obj\Debug\Simu
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\obj\Debug\Simulacion_tp3.csproj.CoreCompileInputs.cache
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\obj\Debug\Simulacion_tp2.exe
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\obj\Debug\Simulacion_tp2.pdb
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\bin\Debug\MathNet.Numerics.dll
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\bin\Debug\MathNet.Numerics.xml
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\obj\Debug\Simulacion_tp3.csproj.CopyComplete

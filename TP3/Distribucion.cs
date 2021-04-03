@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
+using MathNet.Numerics;
 
 namespace Simulacion_tp3
 {
@@ -12,6 +13,8 @@ namespace Simulacion_tp3
         {
             return this.calcularPe(limInfIntervalo, limSupIntervalo) * tamanioMuestra;
         }
+
+        public virtual bool esDiscreta() => false;
     }
 
     public class DistribucionUniforme : Distribucion
@@ -42,6 +45,34 @@ namespace Simulacion_tp3
         override public double calcularPe(double limInfIntervalo, double limSupIntervalo)
         {
             return Math.Exp(-this.lambda * limInfIntervalo) - Math.Exp(-this.lambda * limSupIntervalo);
+        }
+    }
+
+    public class DistribucionPoisson : Distribucion
+    {
+        private double lambda;
+
+        public DistribucionPoisson(double lambda)
+        {
+            this.lambda = lambda;
+        }
+
+        public override bool esDiscreta() => true;
+
+        public override double calcularPe(double limInfIntervalo, double limSupIntervalo)
+        {
+            int limInfEntero = (int) Math.Ceiling(limInfIntervalo);
+            int limSupEntero = (int) Math.Ceiling(limSupIntervalo);
+
+            double peAcum = 0;
+            double pe;
+            for (int x = limInfEntero; x < limSupEntero; x++)
+            {
+                pe = Math.Pow(lambda, x) * Math.Exp(-lambda) / SpecialFunctions.Factorial(x);
+                peAcum += pe;
+            }
+
+            return peAcum;
         }
     }
 

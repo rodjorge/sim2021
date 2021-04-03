@@ -71,6 +71,24 @@ namespace Simulacion_tp3
             return variablesGeneradas;
         }
 
+        public int generarVariablePoisson(double lambda)
+        {
+            //Algoritmo que generar una variable con distribucion de Poisson
+            //Hace uso de numeros pseudoaleatorios y un ciclo do while
+            double p = 1;
+            int varGenerada = -1;
+            double a = Math.Exp(-lambda);
+            double random;
+            do
+            {
+                random = this.generadorRandom.NextDouble();
+                p = p * random;
+                varGenerada++;
+            } while (p >= a);
+
+            return varGenerada;
+        }
+
         public List<double> generarListaVariablesUniformes(double limInf, double limSup, int tamanio)
         {
             List<double> variablesGeneradas = new List<double>();
@@ -106,6 +124,18 @@ namespace Simulacion_tp3
 
             if (tamanio % 2 != 0)
                 variablesGeneradas.Add(this.generarVariableNormal(media, desviacion)[0]);
+
+            return variablesGeneradas;
+        }
+
+        public List<double> generarListaVariablesPoisson(double lambda, int tamanio)
+        {
+            List<double> variablesGeneradas = new List<double>();
+
+            for (int i = 0; i < tamanio; i++)
+            {
+                variablesGeneradas.Add((double)this.generarVariablePoisson(lambda));
+            }
 
             return variablesGeneradas;
         }

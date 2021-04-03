@@ -31,6 +31,7 @@ namespace Simulacion_tp3
         private void Form1_Load(object sender, EventArgs e)
         {
             this.cmbIntervalos.SelectedIndex = 0;
+            this.cambioDistribucion(sender, e);
         }
 
         private void refrescarTablaVariables()
@@ -43,8 +44,55 @@ namespace Simulacion_tp3
             }
         }
 
+        private bool validarParametros()
+        {
+            DialogResult errorValidacion = DialogResult.Cancel;
+            if (radUniforme.Checked)
+            {
+                if (String.IsNullOrWhiteSpace(txtLimInf.Text) || String.IsNullOrWhiteSpace(txtLimSup.Text))
+                    errorValidacion = MessageBox.Show("Los limites inferior y superior no pueden quedar vacios", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (! (Double.TryParse(txtLimInf.Text, out double inf) && Double.TryParse(txtLimSup.Text, out double sup)))
+                    errorValidacion = MessageBox.Show("Los limites inferior y superior deben ser numeros", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (inf >= sup)
+                    errorValidacion = MessageBox.Show("El limite inferior no puede ser mayor o igual al limite superior", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (radExponencial.Checked || radPoisson.Checked)
+            {
+                if (String.IsNullOrWhiteSpace(txtLambda.Text))
+                    errorValidacion = MessageBox.Show("Lambda no puede quedar vacio", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (! Double.TryParse(txtLambda.Text, out double lambda))
+                    errorValidacion = MessageBox.Show("Lambda debe ser un numero", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (lambda <= 0)
+                    errorValidacion = MessageBox.Show("Lambda debe ser positivo", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else if (radNormal.Checked)
+            {
+                if (String.IsNullOrWhiteSpace(txtMedia.Text) || String.IsNullOrWhiteSpace(txtDesviacion.Text))
+                    errorValidacion = MessageBox.Show("La media y la desviación no pueden quedar vacias", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (!(Double.TryParse(txtMedia.Text, out double media) && Double.TryParse(txtDesviacion.Text, out double desviacion)))
+                    errorValidacion = MessageBox.Show("La media y la desviación deben ser numeros", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (desviacion <= 0)
+                    errorValidacion = MessageBox.Show("La desviación debe ser positiva", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (String.IsNullOrWhiteSpace(txtTamanio.Text))
+                errorValidacion = MessageBox.Show("El tamaño de la muestra no puede quedar vacio", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (!Int32.TryParse(txtTamanio.Text, out int tamanio))
+                errorValidacion = MessageBox.Show("El tamaño de la muestra debe ser un numero entero", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (tamanio <= 0)
+                errorValidacion = MessageBox.Show("El tamaño de la muestra debe ser positivo", "Error de parametros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            if (errorValidacion == DialogResult.OK)
+                return false;
+            return true;
+        }
+
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+            if (!this.validarParametros())
+                return;
+
             if (String.IsNullOrWhiteSpace(txtSemilla.Text))
                 this.generador = new GeneradorVariables();
             else
@@ -67,7 +115,6 @@ namespace Simulacion_tp3
                 this.variablesGeneradas = generador.generarListaVariablesExponenciales(lambda, this.tamanioMuestra);
                 this.distribucion = new DistribucionExponencial(lambda);
             }
-
             else if (radNormal.Checked)
             {
                 double media = Convert.ToDouble(txtMedia.Text);
@@ -75,6 +122,13 @@ namespace Simulacion_tp3
 
                 this.variablesGeneradas = generador.generarListaVariablesNormales(media, desviacion, this.tamanioMuestra);
                 this.distribucion = new DistribucionNormal(media, desviacion);
+            }
+            else if (radPoisson.Checked)
+            {
+                double lambda = Convert.ToDouble(txtLambda.Text);
+
+                this.variablesGeneradas = this.generador.generarListaVariablesPoisson(lambda, this.tamanioMuestra);
+                this.distribucion = new DistribucionPoisson(lambda);
             }
 
             this.refrescarTablaVariables();
@@ -88,6 +142,9 @@ namespace Simulacion_tp3
             double anchoMuestra = maximo - minimo;
             int cantIntervalos = Convert.ToInt32(cmbIntervalos.SelectedItem);
             double anchoIntervalos = anchoMuestra / cantIntervalos;
+
+            if (distribucion.esDiscreta())
+                anchoIntervalos = Math.Ceiling(anchoIntervalos);
 
             //Creacion intervalos
             for (int i = 0; i < cantIntervalos; i++)
@@ -149,6 +206,80 @@ namespace Simulacion_tp3
         private void btnFe_Click(object sender, EventArgs e)
         {
             graficoHistograma.Series[1].Enabled = !graficoHistograma.Series[1].Enabled;
+        }
+
+        private void cambioDistribucion(object sender, EventArgs e)
+        {
+            if (radUniforme.Checked)
+            {
+                txtLimInf.Enabled = true;
+                txtLimSup.Enabled = true;
+
+                txtMedia.Enabled = false;
+                txtDesviacion.Enabled = false;
+                txtLambda.Enabled = false;
+
+                this.limpiarCampos();
+            }
+            else if (radExponencial.Checked || radPoisson.Checked)
+            {
+                txtLambda.Enabled = true;
+                txtMedia.Enabled = true;
+
+                txtDesviacion.Enabled = false;
+                txtLimInf.Enabled = false;
+                txtLimSup.Enabled = false;
+
+                this.limpiarCampos();
+            }
+            else if (radNormal.Checked)
+            {
+                txtMedia.Enabled = true;
+                txtDesviacion.Enabled = true;
+
+                txtLimInf.Enabled = false;
+                txtLimSup.Enabled = false;
+                txtLambda.Enabled = false;
+
+                this.limpiarCampos();
+            }
+        }
+
+        private void limpiarCampos()
+        {
+            txtLimInf.Text = "";
+            txtLimSup.Text = "";
+            txtMedia.Text = "";
+            txtDesviacion.Text = "";
+            txtLambda.Text = "";
+        }
+
+        private void txtLambda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMedia_TextChanged(object sender, EventArgs e)
+        {
+            if (Double.TryParse(txtMedia.Text, out double media))
+            {
+                if (radExponencial.Checked)
+                {
+                    txtLambda.Text = Math.Round(1.0 / media, 4).ToString();
+                }
+                else if (radPoisson.Checked)
+                {
+                    txtLambda.Text = media.ToString();
+                }
+            }
+
+            if (String.IsNullOrEmpty(txtMedia.Text))
+                txtLambda.Text = "";
+        }
+
+        private void bgWorkerGenerador_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }
