@@ -29,14 +29,15 @@ namespace Simulacion_tp3
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dtgVariables = new System.Windows.Forms.DataGridView();
             this.orden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.variable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpTipoDistribucion = new System.Windows.Forms.GroupBox();
+            this.radPoisson = new System.Windows.Forms.RadioButton();
             this.radNormal = new System.Windows.Forms.RadioButton();
             this.radExponencial = new System.Windows.Forms.RadioButton();
             this.radUniforme = new System.Windows.Forms.RadioButton();
@@ -70,13 +71,20 @@ namespace Simulacion_tp3
             this.fe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.radPoisson = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVariables)).BeginInit();
             this.grpTipoDistribucion.SuspendLayout();
             this.grpParametros.SuspendLayout();
             this.grpHistograma.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graficoHistograma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHistograma)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtgVariables
@@ -119,6 +127,18 @@ namespace Simulacion_tp3
             this.grpTipoDistribucion.TabIndex = 1;
             this.grpTipoDistribucion.TabStop = false;
             this.grpTipoDistribucion.Text = "Tipo de distribución a generar";
+            // 
+            // radPoisson
+            // 
+            this.radPoisson.AutoSize = true;
+            this.radPoisson.Location = new System.Drawing.Point(5, 73);
+            this.radPoisson.Name = "radPoisson";
+            this.radPoisson.Size = new System.Drawing.Size(62, 17);
+            this.radPoisson.TabIndex = 5;
+            this.radPoisson.TabStop = true;
+            this.radPoisson.Text = "Poisson";
+            this.radPoisson.UseVisualStyleBackColor = true;
+            this.radPoisson.Click += new System.EventHandler(this.cambioDistribucion);
             // 
             // radNormal
             // 
@@ -333,22 +353,22 @@ namespace Simulacion_tp3
             // 
             // graficoHistograma
             // 
-            chartArea3.AxisX.IsLabelAutoFit = false;
-            chartArea3.AxisX.LabelStyle.IsStaggered = true;
-            chartArea3.Name = "ChartArea1";
-            this.graficoHistograma.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.graficoHistograma.Legends.Add(legend3);
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.IsStaggered = true;
+            chartArea1.Name = "ChartArea1";
+            this.graficoHistograma.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.graficoHistograma.Legends.Add(legend1);
             this.graficoHistograma.Location = new System.Drawing.Point(9, 241);
             this.graficoHistograma.Name = "graficoHistograma";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series2";
-            this.graficoHistograma.Series.Add(series5);
-            this.graficoHistograma.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            this.graficoHistograma.Series.Add(series1);
+            this.graficoHistograma.Series.Add(series2);
             this.graficoHistograma.Size = new System.Drawing.Size(714, 311);
             this.graficoHistograma.TabIndex = 5;
             this.graficoHistograma.Text = "chart1";
@@ -452,23 +472,82 @@ namespace Simulacion_tp3
             this.ca.Name = "ca";
             this.ca.ReadOnly = true;
             // 
-            // radPoisson
+            // groupBox1
             // 
-            this.radPoisson.AutoSize = true;
-            this.radPoisson.Location = new System.Drawing.Point(5, 73);
-            this.radPoisson.Name = "radPoisson";
-            this.radPoisson.Size = new System.Drawing.Size(62, 17);
-            this.radPoisson.TabIndex = 5;
-            this.radPoisson.TabStop = true;
-            this.radPoisson.Text = "Poisson";
-            this.radPoisson.UseVisualStyleBackColor = true;
-            this.radPoisson.Click += new System.EventHandler(this.cambioDistribucion);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 370);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(178, 194);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Grupo 2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Ardilles, Hernan";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Gómez Toledo, Benjamin";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Panero, Agustin";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Gaiga, Marcela";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Rodriguez, Jorge";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 151);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Chavez, Juan";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 582);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpHistograma);
             this.Controls.Add(this.grpParametros);
             this.Controls.Add(this.grpTipoDistribucion);
@@ -486,6 +565,8 @@ namespace Simulacion_tp3
             this.grpHistograma.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.graficoHistograma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHistograma)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -530,6 +611,13 @@ namespace Simulacion_tp3
         private System.Windows.Forms.DataGridViewTextBoxColumn c;
         private System.Windows.Forms.DataGridViewTextBoxColumn ca;
         private System.Windows.Forms.RadioButton radPoisson;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
