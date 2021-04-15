@@ -11,3 +11,16 @@ C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\obj\Debug\Simu
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\bin\Debug\MathNet.Numerics.dll
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\bin\Debug\MathNet.Numerics.xml
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP3\obj\Debug\Simulacion_tp3.csproj.CopyComplete
+C:\Users\note\Desktop\sim2021\TPSim\TP3\bin\Debug\Simulacion_tp2.exe.config
+C:\Users\note\Desktop\sim2021\TPSim\TP3\bin\Debug\Simulacion_tp2.exe
+C:\Users\note\Desktop\sim2021\TPSim\TP3\bin\Debug\Simulacion_tp2.pdb
+C:\Users\note\Desktop\sim2021\TPSim\TP3\bin\Debug\MathNet.Numerics.dll
+C:\Users\note\Desktop\sim2021\TPSim\TP3\bin\Debug\MathNet.Numerics.xml
+C:\Users\note\Desktop\sim2021\TPSim\TP3\obj\Debug\Simulacion_tp3.csprojAssemblyReference.cache
+C:\Users\note\Desktop\sim2021\TPSim\TP3\obj\Debug\Simulacion_tp3.Form1.resources
+C:\Users\note\Desktop\sim2021\TPSim\TP3\obj\Debug\Simulacion_tp2.Properties.Resources.resources
+C:\Users\note\Desktop\sim2021\TPSim\TP3\obj\Debug\Simulacion_tp3.csproj.GenerateResource.cache
+C:\Users\note\Desktop\sim2021\TPSim\TP3\obj\Debug\Simulacion_tp3.csproj.CoreCompileInputs.cache
+C:\Users\note\Desktop\sim2021\TPSim\TP3\obj\Debug\Simulacion_tp3.csproj.CopyComplete
+C:\Users\note\Desktop\sim2021\TPSim\TP3\obj\Debug\Simulacion_tp2.exe
+C:\Users\note\Desktop\sim2021\TPSim\TP3\obj\Debug\Simulacion_tp2.pdb
