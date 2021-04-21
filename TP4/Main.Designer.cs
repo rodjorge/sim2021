@@ -37,28 +37,28 @@ namespace TP4
             this.dgvSegundaTirada = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.nroPinos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Probabilidad1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblSegundaTirada = new System.Windows.Forms.Label();
             this.btnGenerarSegunda = new System.Windows.Forms.Button();
             this.btnSimular = new System.Windows.Forms.Button();
             this.cajaTextual = new System.Windows.Forms.TextBox();
-            this.pinosPrimeraBola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pinosSegundaBola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.probabilidad2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtStrike = new System.Windows.Forms.TextBox();
             this.txtSpare = new System.Windows.Forms.TextBox();
             this.txtThreshold = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblStrike = new System.Windows.Forms.Label();
+            this.lblSpare = new System.Windows.Forms.Label();
+            this.lblThreshold = new System.Windows.Forms.Label();
             this.txtSimulaciones = new System.Windows.Forms.TextBox();
             this.txtExitos = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblSimulaciones = new System.Windows.Forms.Label();
+            this.lblExitos = new System.Windows.Forms.Label();
             this.lblProbabilidadExito = new System.Windows.Forms.Label();
             this.nroExito = new System.Windows.Forms.Label();
+            this.pinosPrimeraBola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pinosSegundaBola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.probabilidad2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroPinos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Probabilidad1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeraTirada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaTirada)).BeginInit();
             this.SuspendLayout();
@@ -73,8 +73,10 @@ namespace TP4
             this.dgvPrimeraTirada.Location = new System.Drawing.Point(13, 126);
             this.dgvPrimeraTirada.Name = "dgvPrimeraTirada";
             this.dgvPrimeraTirada.RowHeadersVisible = false;
-            this.dgvPrimeraTirada.Size = new System.Drawing.Size(205, 150);
+            this.dgvPrimeraTirada.Size = new System.Drawing.Size(204, 150);
             this.dgvPrimeraTirada.TabIndex = 0;
+            this.dgvPrimeraTirada.Visible = false;
+            this.dgvPrimeraTirada.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrimeraTirada_CellValueChanged);
             // 
             // btnGenerar
             // 
@@ -97,7 +99,7 @@ namespace TP4
             // 
             this.txtMinimo.Location = new System.Drawing.Point(118, 62);
             this.txtMinimo.Name = "txtMinimo";
-            this.txtMinimo.Size = new System.Drawing.Size(100, 20);
+            this.txtMinimo.Size = new System.Drawing.Size(99, 20);
             this.txtMinimo.TabIndex = 3;
             // 
             // dgvSegundaTirada
@@ -121,6 +123,8 @@ namespace TP4
             this.dgvSegundaTirada.RowHeadersVisible = false;
             this.dgvSegundaTirada.Size = new System.Drawing.Size(304, 150);
             this.dgvSegundaTirada.TabIndex = 4;
+            this.dgvSegundaTirada.Visible = false;
+            this.dgvSegundaTirada.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSegundaTirada_CellValueChanged);
             // 
             // label1
             // 
@@ -140,17 +144,6 @@ namespace TP4
             this.label2.TabIndex = 6;
             this.label2.Text = "Minimo";
             // 
-            // nroPinos
-            // 
-            this.nroPinos.HeaderText = "Numero de Pinos";
-            this.nroPinos.Name = "nroPinos";
-            this.nroPinos.ReadOnly = true;
-            // 
-            // Probabilidad1
-            // 
-            this.Probabilidad1.HeaderText = "Probabilidad (0, 1)";
-            this.Probabilidad1.Name = "Probabilidad1";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -161,15 +154,16 @@ namespace TP4
             this.label3.TabIndex = 7;
             this.label3.Text = "Primera Tirada";
             // 
-            // label4
+            // lblSegundaTirada
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(395, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Segunda Tirada";
+            this.lblSegundaTirada.AutoSize = true;
+            this.lblSegundaTirada.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSegundaTirada.Location = new System.Drawing.Point(395, 9);
+            this.lblSegundaTirada.Name = "lblSegundaTirada";
+            this.lblSegundaTirada.Size = new System.Drawing.Size(145, 24);
+            this.lblSegundaTirada.TabIndex = 8;
+            this.lblSegundaTirada.Text = "Segunda Tirada";
+            this.lblSegundaTirada.Visible = false;
             // 
             // btnGenerarSegunda
             // 
@@ -179,6 +173,7 @@ namespace TP4
             this.btnGenerarSegunda.TabIndex = 9;
             this.btnGenerarSegunda.Text = "generar segunda";
             this.btnGenerarSegunda.UseVisualStyleBackColor = true;
+            this.btnGenerarSegunda.Visible = false;
             this.btnGenerarSegunda.Click += new System.EventHandler(this.btnGenerarSegunda_Click);
             // 
             // btnSimular
@@ -189,6 +184,7 @@ namespace TP4
             this.btnSimular.TabIndex = 10;
             this.btnSimular.Text = "simular";
             this.btnSimular.UseVisualStyleBackColor = true;
+            this.btnSimular.Visible = false;
             this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
             // 
             // cajaTextual
@@ -199,23 +195,7 @@ namespace TP4
             this.cajaTextual.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.cajaTextual.Size = new System.Drawing.Size(278, 170);
             this.cajaTextual.TabIndex = 11;
-            // 
-            // pinosPrimeraBola
-            // 
-            this.pinosPrimeraBola.HeaderText = "Pinos de la Primera Bola";
-            this.pinosPrimeraBola.Name = "pinosPrimeraBola";
-            this.pinosPrimeraBola.ReadOnly = true;
-            // 
-            // pinosSegundaBola
-            // 
-            this.pinosSegundaBola.HeaderText = "Pinos de la Segunda Bola";
-            this.pinosSegundaBola.Name = "pinosSegundaBola";
-            this.pinosSegundaBola.ReadOnly = true;
-            // 
-            // probabilidad2
-            // 
-            this.probabilidad2.HeaderText = "Probabilidad (0, 1)";
-            this.probabilidad2.Name = "probabilidad2";
+            this.cajaTextual.Visible = false;
             // 
             // txtStrike
             // 
@@ -223,6 +203,7 @@ namespace TP4
             this.txtStrike.Name = "txtStrike";
             this.txtStrike.Size = new System.Drawing.Size(100, 20);
             this.txtStrike.TabIndex = 12;
+            this.txtStrike.Visible = false;
             // 
             // txtSpare
             // 
@@ -230,6 +211,7 @@ namespace TP4
             this.txtSpare.Name = "txtSpare";
             this.txtSpare.Size = new System.Drawing.Size(100, 20);
             this.txtSpare.TabIndex = 13;
+            this.txtSpare.Visible = false;
             // 
             // txtThreshold
             // 
@@ -237,33 +219,37 @@ namespace TP4
             this.txtThreshold.Name = "txtThreshold";
             this.txtThreshold.Size = new System.Drawing.Size(100, 20);
             this.txtThreshold.TabIndex = 14;
+            this.txtThreshold.Visible = false;
             // 
-            // label5
+            // lblStrike
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(405, 324);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Strike";
+            this.lblStrike.AutoSize = true;
+            this.lblStrike.Location = new System.Drawing.Point(405, 324);
+            this.lblStrike.Name = "lblStrike";
+            this.lblStrike.Size = new System.Drawing.Size(34, 13);
+            this.lblStrike.TabIndex = 15;
+            this.lblStrike.Text = "Strike";
+            this.lblStrike.Visible = false;
             // 
-            // label6
+            // lblSpare
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(524, 324);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Spare";
+            this.lblSpare.AutoSize = true;
+            this.lblSpare.Location = new System.Drawing.Point(524, 324);
+            this.lblSpare.Name = "lblSpare";
+            this.lblSpare.Size = new System.Drawing.Size(35, 13);
+            this.lblSpare.TabIndex = 16;
+            this.lblSpare.Text = "Spare";
+            this.lblSpare.Visible = false;
             // 
-            // label7
+            // lblThreshold
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(639, 324);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Threshold";
+            this.lblThreshold.AutoSize = true;
+            this.lblThreshold.Location = new System.Drawing.Point(639, 324);
+            this.lblThreshold.Name = "lblThreshold";
+            this.lblThreshold.Size = new System.Drawing.Size(54, 13);
+            this.lblThreshold.TabIndex = 17;
+            this.lblThreshold.Text = "Threshold";
+            this.lblThreshold.Visible = false;
             // 
             // txtSimulaciones
             // 
@@ -272,6 +258,7 @@ namespace TP4
             this.txtSimulaciones.Name = "txtSimulaciones";
             this.txtSimulaciones.Size = new System.Drawing.Size(100, 20);
             this.txtSimulaciones.TabIndex = 18;
+            this.txtSimulaciones.Visible = false;
             // 
             // txtExitos
             // 
@@ -280,24 +267,27 @@ namespace TP4
             this.txtExitos.Name = "txtExitos";
             this.txtExitos.Size = new System.Drawing.Size(100, 20);
             this.txtExitos.TabIndex = 19;
+            this.txtExitos.Visible = false;
             // 
-            // label8
+            // lblSimulaciones
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(405, 382);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Simulaciones";
+            this.lblSimulaciones.AutoSize = true;
+            this.lblSimulaciones.Location = new System.Drawing.Point(405, 382);
+            this.lblSimulaciones.Name = "lblSimulaciones";
+            this.lblSimulaciones.Size = new System.Drawing.Size(69, 13);
+            this.lblSimulaciones.TabIndex = 20;
+            this.lblSimulaciones.Text = "Simulaciones";
+            this.lblSimulaciones.Visible = false;
             // 
-            // label9
+            // lblExitos
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(524, 382);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Exitos";
+            this.lblExitos.AutoSize = true;
+            this.lblExitos.Location = new System.Drawing.Point(524, 382);
+            this.lblExitos.Name = "lblExitos";
+            this.lblExitos.Size = new System.Drawing.Size(35, 13);
+            this.lblExitos.TabIndex = 21;
+            this.lblExitos.Text = "Exitos";
+            this.lblExitos.Visible = false;
             // 
             // lblProbabilidadExito
             // 
@@ -307,6 +297,7 @@ namespace TP4
             this.lblProbabilidadExito.Size = new System.Drawing.Size(112, 13);
             this.lblProbabilidadExito.TabIndex = 22;
             this.lblProbabilidadExito.Text = "Probabilidad de Exito: ";
+            this.lblProbabilidadExito.Visible = false;
             // 
             // nroExito
             // 
@@ -316,6 +307,40 @@ namespace TP4
             this.nroExito.Size = new System.Drawing.Size(13, 13);
             this.nroExito.TabIndex = 23;
             this.nroExito.Text = "0";
+            this.nroExito.Visible = false;
+            // 
+            // pinosPrimeraBola
+            // 
+            this.pinosPrimeraBola.HeaderText = "Pinos de la Primera Bola";
+            this.pinosPrimeraBola.Name = "pinosPrimeraBola";
+            this.pinosPrimeraBola.ReadOnly = true;
+            this.pinosPrimeraBola.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // pinosSegundaBola
+            // 
+            this.pinosSegundaBola.HeaderText = "Pinos de la Segunda Bola";
+            this.pinosSegundaBola.Name = "pinosSegundaBola";
+            this.pinosSegundaBola.ReadOnly = true;
+            this.pinosSegundaBola.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // probabilidad2
+            // 
+            this.probabilidad2.HeaderText = "Probabilidad (0, 1)";
+            this.probabilidad2.Name = "probabilidad2";
+            this.probabilidad2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nroPinos
+            // 
+            this.nroPinos.HeaderText = "Numero de Pinos";
+            this.nroPinos.Name = "nroPinos";
+            this.nroPinos.ReadOnly = true;
+            this.nroPinos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Probabilidad1
+            // 
+            this.Probabilidad1.HeaderText = "Probabilidad (0, 1)";
+            this.Probabilidad1.Name = "Probabilidad1";
+            this.Probabilidad1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Main
             // 
@@ -324,20 +349,20 @@ namespace TP4
             this.ClientSize = new System.Drawing.Size(800, 522);
             this.Controls.Add(this.nroExito);
             this.Controls.Add(this.lblProbabilidadExito);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblExitos);
+            this.Controls.Add(this.lblSimulaciones);
             this.Controls.Add(this.txtExitos);
             this.Controls.Add(this.txtSimulaciones);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblThreshold);
+            this.Controls.Add(this.lblSpare);
+            this.Controls.Add(this.lblStrike);
             this.Controls.Add(this.txtThreshold);
             this.Controls.Add(this.txtSpare);
             this.Controls.Add(this.txtStrike);
             this.Controls.Add(this.cajaTextual);
             this.Controls.Add(this.btnSimular);
             this.Controls.Add(this.btnGenerarSegunda);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblSegundaTirada);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -364,27 +389,27 @@ namespace TP4
         private System.Windows.Forms.DataGridView dgvSegundaTirada;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nroPinos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Probabilidad1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblSegundaTirada;
         private System.Windows.Forms.Button btnGenerarSegunda;
         private System.Windows.Forms.Button btnSimular;
         private System.Windows.Forms.TextBox cajaTextual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pinosPrimeraBola;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pinosSegundaBola;
-        private System.Windows.Forms.DataGridViewTextBoxColumn probabilidad2;
         private System.Windows.Forms.TextBox txtStrike;
         private System.Windows.Forms.TextBox txtSpare;
         private System.Windows.Forms.TextBox txtThreshold;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblStrike;
+        private System.Windows.Forms.Label lblSpare;
+        private System.Windows.Forms.Label lblThreshold;
         private System.Windows.Forms.TextBox txtSimulaciones;
         private System.Windows.Forms.TextBox txtExitos;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblSimulaciones;
+        private System.Windows.Forms.Label lblExitos;
         private System.Windows.Forms.Label lblProbabilidadExito;
         private System.Windows.Forms.Label nroExito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroPinos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Probabilidad1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pinosPrimeraBola;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pinosSegundaBola;
+        private System.Windows.Forms.DataGridViewTextBoxColumn probabilidad2;
     }
 }
