@@ -29,12 +29,17 @@ namespace TP4
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPrimeraTirada = new System.Windows.Forms.DataGridView();
+            this.nroPinos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Probabilidad1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.txtMaximo = new System.Windows.Forms.TextBox();
             this.txtMinimo = new System.Windows.Forms.TextBox();
             this.dgvSegundaTirada = new System.Windows.Forms.DataGridView();
+            this.pinosPrimeraBola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pinosSegundaBola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.probabilidad2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,13 +59,27 @@ namespace TP4
             this.lblExitos = new System.Windows.Forms.Label();
             this.lblProbabilidadExito = new System.Windows.Forms.Label();
             this.nroExito = new System.Windows.Forms.Label();
-            this.pinosPrimeraBola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pinosSegundaBola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.probabilidad2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroPinos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Probabilidad1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtVueltas = new System.Windows.Forms.TextBox();
+            this.chkDefault = new System.Windows.Forms.CheckBox();
+            this.lblVueltas = new System.Windows.Forms.Label();
+            this.lblRounds = new System.Windows.Forms.Label();
+            this.txtRounds = new System.Windows.Forms.TextBox();
+            this.dgvResultados = new System.Windows.Forms.DataGridView();
+            this.iteracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultado1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultado2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.puntos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblHasta = new System.Windows.Forms.Label();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.txtHasta = new System.Windows.Forms.TextBox();
+            this.txtDesde = new System.Windows.Forms.TextBox();
+            this.chkVerMedio = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeraTirada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaTirada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPrimeraTirada
@@ -77,6 +96,19 @@ namespace TP4
             this.dgvPrimeraTirada.TabIndex = 0;
             this.dgvPrimeraTirada.Visible = false;
             this.dgvPrimeraTirada.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrimeraTirada_CellValueChanged);
+            // 
+            // nroPinos
+            // 
+            this.nroPinos.HeaderText = "Numero de Pinos";
+            this.nroPinos.Name = "nroPinos";
+            this.nroPinos.ReadOnly = true;
+            this.nroPinos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Probabilidad1
+            // 
+            this.Probabilidad1.HeaderText = "Probabilidad (0, 1)";
+            this.Probabilidad1.Name = "Probabilidad1";
+            this.Probabilidad1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // btnGenerar
             // 
@@ -110,21 +142,41 @@ namespace TP4
             this.pinosPrimeraBola,
             this.pinosSegundaBola,
             this.probabilidad2});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSegundaTirada.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSegundaTirada.Location = new System.Drawing.Point(399, 126);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSegundaTirada.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvSegundaTirada.Location = new System.Drawing.Point(223, 67);
             this.dgvSegundaTirada.Name = "dgvSegundaTirada";
             this.dgvSegundaTirada.RowHeadersVisible = false;
-            this.dgvSegundaTirada.Size = new System.Drawing.Size(304, 150);
+            this.dgvSegundaTirada.Size = new System.Drawing.Size(304, 209);
             this.dgvSegundaTirada.TabIndex = 4;
             this.dgvSegundaTirada.Visible = false;
             this.dgvSegundaTirada.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSegundaTirada_CellValueChanged);
+            // 
+            // pinosPrimeraBola
+            // 
+            this.pinosPrimeraBola.HeaderText = "Pinos de la Primera Bola";
+            this.pinosPrimeraBola.Name = "pinosPrimeraBola";
+            this.pinosPrimeraBola.ReadOnly = true;
+            this.pinosPrimeraBola.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // pinosSegundaBola
+            // 
+            this.pinosSegundaBola.HeaderText = "Pinos de la Segunda Bola";
+            this.pinosSegundaBola.Name = "pinosSegundaBola";
+            this.pinosSegundaBola.ReadOnly = true;
+            this.pinosSegundaBola.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // probabilidad2
+            // 
+            this.probabilidad2.HeaderText = "Probabilidad (0, 1)";
+            this.probabilidad2.Name = "probabilidad2";
+            this.probabilidad2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // label1
             // 
@@ -158,7 +210,7 @@ namespace TP4
             // 
             this.lblSegundaTirada.AutoSize = true;
             this.lblSegundaTirada.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSegundaTirada.Location = new System.Drawing.Point(395, 9);
+            this.lblSegundaTirada.Location = new System.Drawing.Point(219, 9);
             this.lblSegundaTirada.Name = "lblSegundaTirada";
             this.lblSegundaTirada.Size = new System.Drawing.Size(145, 24);
             this.lblSegundaTirada.TabIndex = 8;
@@ -167,7 +219,7 @@ namespace TP4
             // 
             // btnGenerarSegunda
             // 
-            this.btnGenerarSegunda.Location = new System.Drawing.Point(399, 88);
+            this.btnGenerarSegunda.Location = new System.Drawing.Point(223, 38);
             this.btnGenerarSegunda.Name = "btnGenerarSegunda";
             this.btnGenerarSegunda.Size = new System.Drawing.Size(101, 23);
             this.btnGenerarSegunda.TabIndex = 9;
@@ -178,7 +230,7 @@ namespace TP4
             // 
             // btnSimular
             // 
-            this.btnSimular.Location = new System.Drawing.Point(300, 338);
+            this.btnSimular.Location = new System.Drawing.Point(400, 414);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(75, 23);
             this.btnSimular.TabIndex = 10;
@@ -189,17 +241,17 @@ namespace TP4
             // 
             // cajaTextual
             // 
-            this.cajaTextual.Location = new System.Drawing.Point(16, 340);
+            this.cajaTextual.Location = new System.Drawing.Point(534, 67);
             this.cajaTextual.Multiline = true;
             this.cajaTextual.Name = "cajaTextual";
             this.cajaTextual.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.cajaTextual.Size = new System.Drawing.Size(278, 170);
+            this.cajaTextual.Size = new System.Drawing.Size(254, 209);
             this.cajaTextual.TabIndex = 11;
             this.cajaTextual.Visible = false;
             // 
             // txtStrike
             // 
-            this.txtStrike.Location = new System.Drawing.Point(408, 340);
+            this.txtStrike.Location = new System.Drawing.Point(20, 324);
             this.txtStrike.Name = "txtStrike";
             this.txtStrike.Size = new System.Drawing.Size(100, 20);
             this.txtStrike.TabIndex = 12;
@@ -207,7 +259,7 @@ namespace TP4
             // 
             // txtSpare
             // 
-            this.txtSpare.Location = new System.Drawing.Point(527, 340);
+            this.txtSpare.Location = new System.Drawing.Point(139, 324);
             this.txtSpare.Name = "txtSpare";
             this.txtSpare.Size = new System.Drawing.Size(100, 20);
             this.txtSpare.TabIndex = 13;
@@ -215,7 +267,7 @@ namespace TP4
             // 
             // txtThreshold
             // 
-            this.txtThreshold.Location = new System.Drawing.Point(642, 340);
+            this.txtThreshold.Location = new System.Drawing.Point(254, 324);
             this.txtThreshold.Name = "txtThreshold";
             this.txtThreshold.Size = new System.Drawing.Size(100, 20);
             this.txtThreshold.TabIndex = 14;
@@ -224,7 +276,7 @@ namespace TP4
             // lblStrike
             // 
             this.lblStrike.AutoSize = true;
-            this.lblStrike.Location = new System.Drawing.Point(405, 324);
+            this.lblStrike.Location = new System.Drawing.Point(17, 308);
             this.lblStrike.Name = "lblStrike";
             this.lblStrike.Size = new System.Drawing.Size(34, 13);
             this.lblStrike.TabIndex = 15;
@@ -234,7 +286,7 @@ namespace TP4
             // lblSpare
             // 
             this.lblSpare.AutoSize = true;
-            this.lblSpare.Location = new System.Drawing.Point(524, 324);
+            this.lblSpare.Location = new System.Drawing.Point(136, 308);
             this.lblSpare.Name = "lblSpare";
             this.lblSpare.Size = new System.Drawing.Size(35, 13);
             this.lblSpare.TabIndex = 16;
@@ -244,7 +296,7 @@ namespace TP4
             // lblThreshold
             // 
             this.lblThreshold.AutoSize = true;
-            this.lblThreshold.Location = new System.Drawing.Point(639, 324);
+            this.lblThreshold.Location = new System.Drawing.Point(251, 308);
             this.lblThreshold.Name = "lblThreshold";
             this.lblThreshold.Size = new System.Drawing.Size(54, 13);
             this.lblThreshold.TabIndex = 17;
@@ -254,7 +306,7 @@ namespace TP4
             // txtSimulaciones
             // 
             this.txtSimulaciones.Enabled = false;
-            this.txtSimulaciones.Location = new System.Drawing.Point(408, 398);
+            this.txtSimulaciones.Location = new System.Drawing.Point(20, 382);
             this.txtSimulaciones.Name = "txtSimulaciones";
             this.txtSimulaciones.Size = new System.Drawing.Size(100, 20);
             this.txtSimulaciones.TabIndex = 18;
@@ -263,7 +315,7 @@ namespace TP4
             // txtExitos
             // 
             this.txtExitos.Enabled = false;
-            this.txtExitos.Location = new System.Drawing.Point(527, 398);
+            this.txtExitos.Location = new System.Drawing.Point(139, 382);
             this.txtExitos.Name = "txtExitos";
             this.txtExitos.Size = new System.Drawing.Size(100, 20);
             this.txtExitos.TabIndex = 19;
@@ -272,7 +324,7 @@ namespace TP4
             // lblSimulaciones
             // 
             this.lblSimulaciones.AutoSize = true;
-            this.lblSimulaciones.Location = new System.Drawing.Point(405, 382);
+            this.lblSimulaciones.Location = new System.Drawing.Point(17, 366);
             this.lblSimulaciones.Name = "lblSimulaciones";
             this.lblSimulaciones.Size = new System.Drawing.Size(69, 13);
             this.lblSimulaciones.TabIndex = 20;
@@ -282,7 +334,7 @@ namespace TP4
             // lblExitos
             // 
             this.lblExitos.AutoSize = true;
-            this.lblExitos.Location = new System.Drawing.Point(524, 382);
+            this.lblExitos.Location = new System.Drawing.Point(136, 366);
             this.lblExitos.Name = "lblExitos";
             this.lblExitos.Size = new System.Drawing.Size(35, 13);
             this.lblExitos.TabIndex = 21;
@@ -292,7 +344,7 @@ namespace TP4
             // lblProbabilidadExito
             // 
             this.lblProbabilidadExito.AutoSize = true;
-            this.lblProbabilidadExito.Location = new System.Drawing.Point(405, 455);
+            this.lblProbabilidadExito.Location = new System.Drawing.Point(251, 385);
             this.lblProbabilidadExito.Name = "lblProbabilidadExito";
             this.lblProbabilidadExito.Size = new System.Drawing.Size(112, 13);
             this.lblProbabilidadExito.TabIndex = 22;
@@ -302,51 +354,187 @@ namespace TP4
             // nroExito
             // 
             this.nroExito.AutoSize = true;
-            this.nroExito.Location = new System.Drawing.Point(515, 455);
+            this.nroExito.Location = new System.Drawing.Point(359, 385);
             this.nroExito.Name = "nroExito";
             this.nroExito.Size = new System.Drawing.Size(13, 13);
             this.nroExito.TabIndex = 23;
             this.nroExito.Text = "0";
             this.nroExito.Visible = false;
             // 
-            // pinosPrimeraBola
+            // txtVueltas
             // 
-            this.pinosPrimeraBola.HeaderText = "Pinos de la Primera Bola";
-            this.pinosPrimeraBola.Name = "pinosPrimeraBola";
-            this.pinosPrimeraBola.ReadOnly = true;
-            this.pinosPrimeraBola.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.txtVueltas.Location = new System.Drawing.Point(400, 382);
+            this.txtVueltas.Name = "txtVueltas";
+            this.txtVueltas.Size = new System.Drawing.Size(100, 20);
+            this.txtVueltas.TabIndex = 24;
+            this.txtVueltas.Visible = false;
             // 
-            // pinosSegundaBola
+            // chkDefault
             // 
-            this.pinosSegundaBola.HeaderText = "Pinos de la Segunda Bola";
-            this.pinosSegundaBola.Name = "pinosSegundaBola";
-            this.pinosSegundaBola.ReadOnly = true;
-            this.pinosSegundaBola.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.chkDefault.AutoSize = true;
+            this.chkDefault.Location = new System.Drawing.Point(118, 94);
+            this.chkDefault.Name = "chkDefault";
+            this.chkDefault.Size = new System.Drawing.Size(81, 17);
+            this.chkDefault.TabIndex = 26;
+            this.chkDefault.Text = "Por defecto";
+            this.chkDefault.UseVisualStyleBackColor = true;
+            this.chkDefault.CheckedChanged += new System.EventHandler(this.chkDefault_CheckedChanged);
             // 
-            // probabilidad2
+            // lblVueltas
             // 
-            this.probabilidad2.HeaderText = "Probabilidad (0, 1)";
-            this.probabilidad2.Name = "probabilidad2";
-            this.probabilidad2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.lblVueltas.AutoSize = true;
+            this.lblVueltas.Location = new System.Drawing.Point(397, 366);
+            this.lblVueltas.Name = "lblVueltas";
+            this.lblVueltas.Size = new System.Drawing.Size(102, 13);
+            this.lblVueltas.TabIndex = 27;
+            this.lblVueltas.Text = "Cantidad de Vueltas";
+            this.lblVueltas.Visible = false;
             // 
-            // nroPinos
+            // lblRounds
             // 
-            this.nroPinos.HeaderText = "Numero de Pinos";
-            this.nroPinos.Name = "nroPinos";
-            this.nroPinos.ReadOnly = true;
-            this.nroPinos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.lblRounds.AutoSize = true;
+            this.lblRounds.Location = new System.Drawing.Point(396, 308);
+            this.lblRounds.Name = "lblRounds";
+            this.lblRounds.Size = new System.Drawing.Size(104, 13);
+            this.lblRounds.TabIndex = 29;
+            this.lblRounds.Text = "Cantidad de Rounds";
+            this.lblRounds.Visible = false;
             // 
-            // Probabilidad1
+            // txtRounds
             // 
-            this.Probabilidad1.HeaderText = "Probabilidad (0, 1)";
-            this.Probabilidad1.Name = "Probabilidad1";
-            this.Probabilidad1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.txtRounds.Location = new System.Drawing.Point(399, 324);
+            this.txtRounds.Name = "txtRounds";
+            this.txtRounds.Size = new System.Drawing.Size(100, 20);
+            this.txtRounds.TabIndex = 28;
+            this.txtRounds.Visible = false;
+            // 
+            // dgvResultados
+            // 
+            this.dgvResultados.AllowUserToAddRows = false;
+            this.dgvResultados.AllowUserToDeleteRows = false;
+            this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iteracion,
+            this.rnd1,
+            this.resultado1,
+            this.rnd2,
+            this.resultado2,
+            this.puntos,
+            this.accum});
+            this.dgvResultados.Location = new System.Drawing.Point(12, 443);
+            this.dgvResultados.Name = "dgvResultados";
+            this.dgvResultados.ReadOnly = true;
+            this.dgvResultados.RowHeadersVisible = false;
+            this.dgvResultados.Size = new System.Drawing.Size(703, 150);
+            this.dgvResultados.TabIndex = 30;
+            this.dgvResultados.Visible = false;
+            // 
+            // iteracion
+            // 
+            this.iteracion.HeaderText = "Iteracion";
+            this.iteracion.Name = "iteracion";
+            this.iteracion.ReadOnly = true;
+            // 
+            // rnd1
+            // 
+            this.rnd1.HeaderText = "Variable Aleatoria";
+            this.rnd1.Name = "rnd1";
+            this.rnd1.ReadOnly = true;
+            // 
+            // resultado1
+            // 
+            this.resultado1.HeaderText = "Pinos 1er tirada";
+            this.resultado1.Name = "resultado1";
+            this.resultado1.ReadOnly = true;
+            // 
+            // rnd2
+            // 
+            this.rnd2.HeaderText = "Variable Aleatoria";
+            this.rnd2.Name = "rnd2";
+            this.rnd2.ReadOnly = true;
+            // 
+            // resultado2
+            // 
+            this.resultado2.HeaderText = "Pinos segunda tirada";
+            this.resultado2.Name = "resultado2";
+            this.resultado2.ReadOnly = true;
+            // 
+            // puntos
+            // 
+            this.puntos.HeaderText = "Puntos";
+            this.puntos.Name = "puntos";
+            this.puntos.ReadOnly = true;
+            // 
+            // accum
+            // 
+            this.accum.HeaderText = "Puntos Acumulados";
+            this.accum.Name = "accum";
+            this.accum.ReadOnly = true;
+            // 
+            // lblHasta
+            // 
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(638, 363);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(35, 13);
+            this.lblHasta.TabIndex = 34;
+            this.lblHasta.Text = "Hasta";
+            this.lblHasta.Visible = false;
+            // 
+            // lblDesde
+            // 
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(531, 363);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(38, 13);
+            this.lblDesde.TabIndex = 33;
+            this.lblDesde.Text = "Desde";
+            this.lblDesde.Visible = false;
+            // 
+            // txtHasta
+            // 
+            this.txtHasta.Location = new System.Drawing.Point(641, 382);
+            this.txtHasta.Name = "txtHasta";
+            this.txtHasta.Size = new System.Drawing.Size(99, 20);
+            this.txtHasta.TabIndex = 32;
+            this.txtHasta.Visible = false;
+            // 
+            // txtDesde
+            // 
+            this.txtDesde.Location = new System.Drawing.Point(535, 382);
+            this.txtDesde.Name = "txtDesde";
+            this.txtDesde.Size = new System.Drawing.Size(100, 20);
+            this.txtDesde.TabIndex = 31;
+            this.txtDesde.Visible = false;
+            // 
+            // chkVerMedio
+            // 
+            this.chkVerMedio.AutoSize = true;
+            this.chkVerMedio.Location = new System.Drawing.Point(537, 324);
+            this.chkVerMedio.Name = "chkVerMedio";
+            this.chkVerMedio.Size = new System.Drawing.Size(148, 17);
+            this.chkVerMedio.TabIndex = 35;
+            this.chkVerMedio.Text = "ver resultados intermedios";
+            this.chkVerMedio.UseVisualStyleBackColor = true;
+            this.chkVerMedio.Visible = false;
+            this.chkVerMedio.CheckedChanged += new System.EventHandler(this.chkVerMedio_CheckedChanged);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 522);
+            this.ClientSize = new System.Drawing.Size(800, 631);
+            this.Controls.Add(this.chkVerMedio);
+            this.Controls.Add(this.lblHasta);
+            this.Controls.Add(this.lblDesde);
+            this.Controls.Add(this.txtHasta);
+            this.Controls.Add(this.txtDesde);
+            this.Controls.Add(this.dgvResultados);
+            this.Controls.Add(this.lblRounds);
+            this.Controls.Add(this.txtRounds);
+            this.Controls.Add(this.lblVueltas);
+            this.Controls.Add(this.chkDefault);
+            this.Controls.Add(this.txtVueltas);
             this.Controls.Add(this.nroExito);
             this.Controls.Add(this.lblProbabilidadExito);
             this.Controls.Add(this.lblExitos);
@@ -375,6 +563,7 @@ namespace TP4
             this.Text = "Main";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeraTirada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaTirada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,5 +600,23 @@ namespace TP4
         private System.Windows.Forms.DataGridViewTextBoxColumn pinosPrimeraBola;
         private System.Windows.Forms.DataGridViewTextBoxColumn pinosSegundaBola;
         private System.Windows.Forms.DataGridViewTextBoxColumn probabilidad2;
+        private System.Windows.Forms.TextBox txtVueltas;
+        private System.Windows.Forms.CheckBox chkDefault;
+        private System.Windows.Forms.Label lblVueltas;
+        private System.Windows.Forms.Label lblRounds;
+        private System.Windows.Forms.TextBox txtRounds;
+        private System.Windows.Forms.DataGridView dgvResultados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iteracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rnd1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultado1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rnd2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultado2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn puntos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accum;
+        private System.Windows.Forms.Label lblHasta;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.TextBox txtHasta;
+        private System.Windows.Forms.TextBox txtDesde;
+        private System.Windows.Forms.CheckBox chkVerMedio;
     }
 }

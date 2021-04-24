@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using TP4.Classes;
 
@@ -23,11 +23,18 @@ namespace TP4
             txtThreshold.Text = "120";
             txtMaximo.Text = "10";
             txtMinimo.Text = "7";
+            txtRounds.Text = "100";
+            txtDesde.Text = "10";
+            txtHasta.Text = "20";
+            txtVueltas.Text = "1";
+            chkDefault.Checked = true;
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            if (ValidarGenerar())
+            dgvPrimeraTirada.Rows.Clear();
+            dgvSegundaTirada.Rows.Clear();
+            if (ValidarGenerar() && !chkDefault.Checked)
             {
                 int maximo = Int32.Parse(txtMaximo.Text);
                 int minimo = Int32.Parse(txtMinimo.Text);
@@ -37,13 +44,20 @@ namespace TP4
                 {
                     dgvPrimeraTirada.Rows.Add(new object[] { i, "" });
                 }
+                return;
             }
-            
+
+            dgvSegundaTirada.Visible = true;
+            CargarGrillasPorDefecto();
+            MostrarControlesSegundaTirada();
+            MostrarControlesSimulacion();
+            chkVerMedio.Checked = true;
         }
 
         private void btnGenerarSegunda_Click(object sender, EventArgs e)
         {
-            if (ValidarGenerarSegunda())
+            dgvSegundaTirada.Rows.Clear();
+            if (ValidarGenerarSegunda() && !chkDefault.Checked)
             {
                 dgvSegundaTirada.Rows.Clear();
                 foreach (DataGridViewRow row in dgvPrimeraTirada.Rows)
@@ -59,65 +73,98 @@ namespace TP4
                 }
                 dgvSegundaTirada.Visible = true;
                 MostrarControlesSimulacion();
-                return;
             }
         }
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
+            int vueltas = 0;
+            if(General.ValidarConversionInt(txtVueltas.Text))
+            {
+                vueltas = Int32.Parse(txtVueltas.Text);
+            }
             if (ValidarSimular())
             {
-                IncrementarSimulaciones();
-                int puntosStrike = Int32.Parse(txtStrike.Text);
-                int puntosSpare = Int32.Parse(txtSpare.Text);
-                int puntosLimite = Int32.Parse(txtThreshold.Text);
-                int maximo = Int32.Parse(txtMaximo.Text);
-                int minimo = Int32.Parse(txtMinimo.Text);
-                int total = maximo - minimo;
-                double[] probabilidades = new double[total + 1];
-                int i = 0;
-                Dictionary<int, double[]> probabilidadXResultado = new Dictionary<int, double[]>();
-                foreach (DataGridViewRow row in dgvPrimeraTirada.Rows)
+                for(int vuelta = 0; vuelta < vueltas; vuelta++)
                 {
-                    int valor1 = Int32.Parse(row.Cells[0].Value.ToString());
-                    probabilidades[i] = Double.Parse(row.Cells[1].Value.ToString());
-                    i++;
-                    List<double> probSegunda = new List<double>();
-                    foreach (DataGridViewRow row2 in dgvSegundaTirada.Rows)
+                    //Al ejecutarse la simulación se suma uno al total
+                    IncrementarSimulaciones();
+                    //variables a utilizarse durante la ejecucion del metodo
+                    int puntosStrike = Int32.Parse(txtStrike.Text);
+                    int puntosSpare = Int32.Parse(txtSpare.Text);
+                    int puntosLimite = Int32.Parse(txtThreshold.Text);
+                    int maximo = Int32.Parse(txtMaximo.Text);
+                    int minimo = Int32.Parse(txtMinimo.Text);
+                    int total = maximo - minimo;
+                    int rounds = Int32.Parse(txtRounds.Text);
+                    double[] probabilidades = new double[total + 1];
+                    Dictionary<int, double[]> probabilidadXResultado = new Dictionary<int, double[]>();
+                    Dictionary<int, PMF> FuncionesDeCuantiaPorValor = new Dictionary<int, PMF>();
+                
+                    CargarProbabilidadXResultado(probabilidades, probabilidadXResultado, total);
+                    CargarFuncionesDeCuantiaXValor(FuncionesDeCuantiaPorValor, probabilidadXResultado, maximo);
+
+                    Ejercicio24 ejercicio24 = new Ejercicio24(minimo, maximo, probabilidades, puntosStrike, puntosSpare, puntosLimite, FuncionesDeCuantiaPorValor);
+
+                    dgvResultados.Rows.Clear();
+                    if (!chkVerMedio.Checked)
                     {
-                        int valor2 = Int32.Parse(row2.Cells[0].Value.ToString());
-                        if (valor2 == valor1)
+                        double[] ultimoVector = ejercicio24.ComputeMontecarlo(rounds);
+                        insertarArrayEnDGV(ultimoVector, dgvResultados);
+                    }
+                    else
+                    {
+                        int desde = Int32.Parse(txtDesde.Text);
+                        int hasta = Int32.Parse(txtHasta.Text);
+
+                        List<double[]> enIntervalo = ejercicio24.ComputeMontecarlo(rounds, desde, hasta);
+                        foreach(double[] vector in enIntervalo)
                         {
-                            double prob = Double.Parse(row2.Cells[2].Value.ToString());
-                            probSegunda.Add(prob);
+                            insertarArrayEnDGV(vector, dgvResultados);
                         }
                     }
-                    probabilidadXResultado.Add(valor1, probSegunda.ToArray());
+                    if (ejercicio24.SurpassedThreshold())
+                    {
+                        IncrementarExitos();
+                    }
                 }
-
-                Dictionary<int, PMF> FuncionesDeCuantiaPorValor = new Dictionary<int, PMF>();
-                foreach (int key in probabilidadXResultado.Keys)
-                {
-                    double[] probs = probabilidadXResultado[key];
-                    PMF pmf = new PMF(0, maximo - key, probs);
-                    cajaTextual.AppendText(pmf.ToString());
-
-                    FuncionesDeCuantiaPorValor.Add(key, pmf);
-                }
-                Ejercicio24 ejercicio24 = new Ejercicio24(minimo, maximo, probabilidades, puntosStrike, puntosSpare, puntosLimite, FuncionesDeCuantiaPorValor);
-
-                double[] ultimoVector = ejercicio24.ComputeMontecarlo(10);
-                cajaTextual.AppendText(ejercicio24.montecarlo.LastVectorToString());
-
-                if (ejercicio24.SurpassedThreshold())
-                {
-                    IncrementarExitos();
-                }
-
                 CalcularProbabilidadExito();
             }
         }
 
+        private void CargarProbabilidadXResultado(double[] probabilidades, Dictionary<int, double[]> probabilidadXResultado, int total)
+        {
+            List<double> probSegunda = new List<double>();
+            int kAccum = 0;
+            for(int i = 0; i <= total; i++) 
+            {
+                int valor = Int32.Parse(dgvPrimeraTirada[0, i].Value.ToString());
+                probabilidades[i] = Double.Parse(dgvPrimeraTirada[1, i].Value.ToString());
+                // k es la cantidad de posibles sucesos que quedan, en el caso de haber tirado 7 pinos
+                // quedan las posibilidades 0 , 1 , 2 y 3 (Osea 4)
+                int k = (11 - valor);
+                for(int j = 1; j <= k; j++)
+                {
+                    double prob = Double.Parse(dgvSegundaTirada[2, j + (kAccum -1)].Value.ToString());
+                    probSegunda.Add(prob);
+                }
+                probabilidadXResultado.Add(valor, probSegunda.ToArray());
+                probSegunda.Clear();
+                kAccum += k;
+            }
+        }
+
+        private void CargarFuncionesDeCuantiaXValor(Dictionary<int, PMF> cuantiaXValor, Dictionary<int, double[]> probabilidadXResultado, int maximo)
+        {
+            foreach (int key in probabilidadXResultado.Keys)
+            {
+                double[] probs = probabilidadXResultado[key];
+                PMF pmf = new PMF(0, maximo - key, probs);
+                //cajaTextual.AppendText(pmf.ToString());
+
+                cuantiaXValor.Add(key, pmf);
+            }
+        }
         private bool ValidarSimular()
         {
             return validarCeldasDGV(dgvSegundaTirada, 2);
@@ -139,6 +186,17 @@ namespace TP4
             int simulaciones = Int32.Parse(txtSimulaciones.Text);
             double probabilidad = (double)exitos / simulaciones;
             nroExito.Text = General.TruncateDecimal(probabilidad, 3).ToString();
+        }
+
+        private void insertarArrayEnDGV(IList<double> list, DataGridView dgv)
+        {
+            int rowCount = dgv.Rows.Count;
+            int colCount = dgv.Columns.Count;
+            dgv.Rows.Add();
+            for(int i = 0; i< colCount; i++)
+            {
+                dgv[i, rowCount].Value = list[i];
+            }
         }
 
         private bool ValidarGenerar()
@@ -195,7 +253,7 @@ namespace TP4
                 string value = row.Cells[index].Value.ToString();
 
                 bool stringCheck = row.Cells[index] is null || value.Trim() == " " || value == "";
-                bool conversionCheck = ValidarConversionDouble(value);
+                bool conversionCheck = General.ValidarConversionDouble(value);
                 if (stringCheck || !conversionCheck) return false;
 
                 accum += Double.Parse(value);
@@ -213,23 +271,7 @@ namespace TP4
 
             return acumulador == 1;
         }
-        private bool ValidarConversionDouble(string value)
-        {
-            try
-            {
-                double test = Double.Parse(value);
-                return true;
-            }
-            catch (ArgumentNullException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            catch(FormatException e)
-            {
-                MessageBox.Show("Error de forma, ingrese un valor valido, ingresado: " + value);
-            }
-            return false;
-        }
+
 
         private void MostrarControlesSegundaTirada()
         {
@@ -244,15 +286,21 @@ namespace TP4
             lblThreshold.Visible = true;
             lblSimulaciones.Visible = true;
             lblExitos.Visible = true;
+            lblVueltas.Visible = true;
+            lblRounds.Visible = true;
             txtStrike.Visible = true;
             txtSpare.Visible = true;
             txtThreshold.Visible = true;
             txtSimulaciones.Visible = true;
             txtExitos.Visible = true;
+            txtVueltas.Visible = true;
+            txtRounds.Visible = true;
             lblProbabilidadExito.Visible = true;
             nroExito.Visible = true;
             btnSimular.Visible = true;
             cajaTextual.Visible = true;
+            dgvResultados.Visible = true;
+            chkVerMedio.Visible = true;
         }
 
         private void dgvPrimeraTirada_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -268,7 +316,7 @@ namespace TP4
             if (col >= 0 && row >= 0)
             {
                 string value = dgv[col, row].Value.ToString();
-                if (ValidarConversionDouble(value))
+                if (General.ValidarConversionDouble(value))
                 {
                     double num = Double.Parse(value);
                     if (num < 100 && num > 1)
@@ -287,5 +335,42 @@ namespace TP4
             DataGridView dgv = (DataGridView)sender;
             ValidarValorCelda(col, row, dgv);
         }
+
+        private void CargarGrillasPorDefecto()
+        {
+            //Llenado de la tabla de probabilidad de la primera tirada
+            this.dgvPrimeraTirada.Rows.Add(7, 0.12);
+            this.dgvPrimeraTirada.Rows.Add(8, 0.15);
+            this.dgvPrimeraTirada.Rows.Add(9, 0.18);
+            this.dgvPrimeraTirada.Rows.Add(10, 0.55);
+
+            //LLenado de la tabla de probabilidad de la segunda tirada
+            this.dgvSegundaTirada.Rows.Add(7, 0, 0.02);
+            this.dgvSegundaTirada.Rows.Add(7, 1, 0.10);
+            this.dgvSegundaTirada.Rows.Add(7, 2, 0.45);
+            this.dgvSegundaTirada.Rows.Add(7, 3, 0.43);
+            this.dgvSegundaTirada.Rows.Add(8, 0, 0.04);
+            this.dgvSegundaTirada.Rows.Add(8, 1, 0.20);
+            this.dgvSegundaTirada.Rows.Add(8, 2, 0.76);
+            this.dgvSegundaTirada.Rows.Add(9, 0, 0.06);
+            this.dgvSegundaTirada.Rows.Add(9, 1, 0.94);
+            this.dgvSegundaTirada.Rows.Add(10, 0, 1);
+        }
+
+        private void chkDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            btnGenerarSegunda.Enabled = !btnGenerarSegunda.Enabled;
+            txtMaximo.Enabled = !txtMaximo.Enabled;
+            txtMinimo.Enabled = !txtMinimo.Enabled;
+        }
+
+        private void chkVerMedio_CheckedChanged(object sender, EventArgs e)
+        {
+            lblDesde.Visible = !lblDesde.Visible;
+            lblHasta.Visible = !lblHasta.Visible;
+            txtDesde.Visible = !txtDesde.Visible;
+            txtHasta.Visible = !txtHasta.Visible;
+        }
     }
 }
+

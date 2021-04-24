@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace TP4.Classes
 {
@@ -29,6 +29,9 @@ namespace TP4.Classes
             lastVector = new double[vectorSize];
         }
 
+        //El formato del vector es el siguiente:
+        // ["nro de iteracion", {"Variable aleatoria", "Resultado del calculo"}, "Valor seleccionado", "Acumulacion"]
+        // los resultados en llaves se repiten N veces
         public void ComputeNextVector(Func<double> rng, Func<double, double> computation, Func<IList<double>, double> selectValue)
         {
             int length = lastVector.Length;
@@ -55,7 +58,7 @@ namespace TP4.Classes
             //se aumenta el numero de iteracion correspondiente al lugar 0 del vector
             //se guarda el valor seleccionado en el vector (Length - 2)
             //se realiza la acumulacion correspondiente (Length - 1)
-            lastVector[0] = previousVector[0]++;
+            lastVector[0] = previousVector[0] + 1;
             double selectedValue = selectValue(values);
             lastVector[length - 2] = selectedValue;
             lastVector[length - 1] = previousVector[length - 1] + selectedValue;

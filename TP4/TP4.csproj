@@ -49,8 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Ejercicio24.cs" />
+    <Compile Include="Classes\Generadores\RandomGenerator.cs" />
     <Compile Include="Classes\General.cs" />
+    <Compile Include="Classes\Generadores\LCG.cs" />
+    <Compile Include="Classes\Generadores\MCG.cs" />
     <Compile Include="Classes\Montecarlo.cs" />
+    <Compile Include="Classes\Generadores\StandardGenerator.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
