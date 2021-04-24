@@ -21,7 +21,48 @@ namespace TP4
             txtStrike.Text = "20";
             txtSpare.Text = "15";
             txtThreshold.Text = "120";
+            txtMaximo.Text = "10";
+            txtMinimo.Text = "7";
         }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            if (ValidarGenerar())
+            {
+                int maximo = Int32.Parse(txtMaximo.Text);
+                int minimo = Int32.Parse(txtMinimo.Text);
+                dgvPrimeraTirada.Rows.Clear();
+
+                for (int i = minimo; i <= maximo; i++)
+                {
+                    dgvPrimeraTirada.Rows.Add(new object[] { i, "" });
+                }
+            }
+            
+        }
+
+        private void btnGenerarSegunda_Click(object sender, EventArgs e)
+        {
+            if (ValidarGenerarSegunda())
+            {
+                dgvSegundaTirada.Rows.Clear();
+                foreach (DataGridViewRow row in dgvPrimeraTirada.Rows)
+                {
+                    int maximo = Int32.Parse(txtMaximo.Text);
+                    int pinos = Int32.Parse(row.Cells[0].Value.ToString());
+                    int limite = maximo - pinos;
+
+                    for (int i = 0; i <= limite; i++)
+                    {
+                        dgvSegundaTirada.Rows.Add(new object[] { pinos, i, "" });
+                    }
+                }
+                dgvSegundaTirada.Visible = true;
+                MostrarControlesSimulacion();
+                return;
+            }
+        }
+
         private void btnSimular_Click(object sender, EventArgs e)
         {
             if (ValidarSimular())
@@ -30,7 +71,9 @@ namespace TP4
                 int puntosStrike = Int32.Parse(txtStrike.Text);
                 int puntosSpare = Int32.Parse(txtSpare.Text);
                 int puntosLimite = Int32.Parse(txtThreshold.Text);
-                int total = 10 - 7;
+                int maximo = Int32.Parse(txtMaximo.Text);
+                int minimo = Int32.Parse(txtMinimo.Text);
+                int total = maximo - minimo;
                 double[] probabilidades = new double[total + 1];
                 int i = 0;
                 Dictionary<int, double[]> probabilidadXResultado = new Dictionary<int, double[]>();
@@ -56,12 +99,12 @@ namespace TP4
                 foreach (int key in probabilidadXResultado.Keys)
                 {
                     double[] probs = probabilidadXResultado[key];
-                    PMF pmf = new PMF(0, 10 - key, probs);
+                    PMF pmf = new PMF(0, maximo - key, probs);
                     cajaTextual.AppendText(pmf.ToString());
 
                     FuncionesDeCuantiaPorValor.Add(key, pmf);
                 }
-                Ejercicio24 ejercicio24 = new Ejercicio24(7, 10, probabilidades, puntosStrike, puntosSpare, puntosLimite, FuncionesDeCuantiaPorValor);
+                Ejercicio24 ejercicio24 = new Ejercicio24(minimo, maximo, probabilidades, puntosStrike, puntosSpare, puntosLimite, FuncionesDeCuantiaPorValor);
 
                 double[] ultimoVector = ejercicio24.ComputeMontecarlo(10);
                 cajaTextual.AppendText(ejercicio24.montecarlo.LastVectorToString());
@@ -96,6 +139,36 @@ namespace TP4
             int simulaciones = Int32.Parse(txtSimulaciones.Text);
             double probabilidad = (double)exitos / simulaciones;
             nroExito.Text = General.TruncateDecimal(probabilidad, 3).ToString();
+        }
+
+        private bool ValidarGenerar()
+        {
+            try
+            {
+                int maximo = Int32.Parse(txtMaximo.Text);
+                int minimo = Int32.Parse(txtMinimo.Text);
+                if(maximo < minimo)
+                {
+                    MessageBox.Show("El minimo no puede ser mayor que el maximo");
+                    return false;
+                }
+                if(maximo < 0 || minimo < 0)
+                {
+                    MessageBox.Show("No se permiten valores negativos para los limites");
+                    return false;
+                }
+                MostrarControlesSegundaTirada();
+                return true;
+            }
+            catch (ArgumentNullException e)
+            {
+                MessageBox.Show("Ingrese los valores maximos y minimos");
+            }
+            catch (FormatException e)
+            {
+                MessageBox.Show("Ingrese los valores en un formato valido");
+            }
+            return false;
         }
 
         private bool ValidarGenerarSegunda()
@@ -157,6 +230,31 @@ namespace TP4
             }
             return false;
         }
+
+        private void MostrarControlesSegundaTirada()
+        {
+            dgvPrimeraTirada.Visible = true;
+            btnGenerarSegunda.Visible = true;
+            lblSegundaTirada.Visible = true;
+        }
+        private void MostrarControlesSimulacion()
+        {
+            lblStrike.Visible = true;
+            lblSpare.Visible = true;
+            lblThreshold.Visible = true;
+            lblSimulaciones.Visible = true;
+            lblExitos.Visible = true;
+            txtStrike.Visible = true;
+            txtSpare.Visible = true;
+            txtThreshold.Visible = true;
+            txtSimulaciones.Visible = true;
+            txtExitos.Visible = true;
+            lblProbabilidadExito.Visible = true;
+            nroExito.Visible = true;
+            btnSimular.Visible = true;
+            cajaTextual.Visible = true;
+        }
+
         private void dgvPrimeraTirada_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             int col = e.ColumnIndex;
@@ -188,26 +286,6 @@ namespace TP4
             int row = e.RowIndex;
             DataGridView dgv = (DataGridView)sender;
             ValidarValorCelda(col, row, dgv);
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            //Llenado de la tabla de probabilidad de la primera tirada
-            this.dgvPrimeraTirada.Rows.Add(7, 0.12);
-            this.dgvPrimeraTirada.Rows.Add(8, 0.15);
-            this.dgvPrimeraTirada.Rows.Add(9, 0.18);
-            this.dgvPrimeraTirada.Rows.Add(10, 0.55);
-
-            //LLenado de la tabla de probabilidad de la segunda tirada
-            this.dgvSegundaTirada.Rows.Add(7, 0, 0.02);
-            this.dgvSegundaTirada.Rows.Add(7, 1, 0.10);
-            this.dgvSegundaTirada.Rows.Add(7, 2, 0.45);
-            this.dgvSegundaTirada.Rows.Add(7, 3, 0.43);
-            this.dgvSegundaTirada.Rows.Add(8, 0, 0.04);
-            this.dgvSegundaTirada.Rows.Add(8, 1, 0.20);
-            this.dgvSegundaTirada.Rows.Add(8, 2, 0.76);
-            this.dgvSegundaTirada.Rows.Add(9, 0, 0.06);
-            this.dgvSegundaTirada.Rows.Add(9, 0, 0.94);
         }
     }
 }
