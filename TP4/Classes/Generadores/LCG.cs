@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tp4.Classes.Generadores
+namespace TP4.Classes.Generadores
 {
     public class LCG : RandomGenerator
     {
@@ -54,7 +54,7 @@ namespace Tp4.Classes.Generadores
         //Se normaliza el numero aleatorio de modo que este en el intervalo [0;1]
         private float RandomNumberToFloat()
         {
-            float normalized = (float) this.randomNumber / (modulous - 1);
+            float normalized = (float) this.randomNumber / modulous;
             return normalized;
         }
     }

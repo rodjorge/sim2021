@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
-using Tp4.Classes.Generadores;
+using TP4.Classes.Generadores;
 
 namespace TP4.Classes
 {
@@ -18,6 +18,7 @@ namespace TP4.Classes
         private readonly int strikePoints;
         private readonly int sparePoints;
         private readonly int threshold;
+        private RandomGenerator generator;
         public readonly Montecarlo montecarlo = new Montecarlo(7);
 
         private void SetSecondThrow()
@@ -37,7 +38,7 @@ namespace TP4.Classes
             return SetFirstThrow;
         }
 
-        public Ejercicio24(int minPrimerTirada, int maxPrimerTirada, double[] probPrimerTirada, int strike, int spare, int limite, Dictionary<int, PMF> segundaTiradaProb)
+        public Ejercicio24(int minPrimerTirada, int maxPrimerTirada, double[] probPrimerTirada, int strike, int spare, int limite, Dictionary<int, PMF> segundaTiradaProb, string generator)
         {
             firstThrow = new PMF(minPrimerTirada, maxPrimerTirada, probPrimerTirada);
             firstDone = false;
@@ -45,6 +46,7 @@ namespace TP4.Classes
             strikePoints = strike;
             sparePoints = spare;
             threshold = limite;
+            SetRandomGenerator(generator);
         }
 
         private double Computation(double value)
@@ -70,41 +72,44 @@ namespace TP4.Classes
             return result;
         }
 
-        //La funcion original era la de abajo, la que usa la libreria Random()
-        //Me encontre un problema el cual producia que se generara el mismo numero, una y otra vez
-        //Investigando, llegue a la conclusion de que es un problema relacionado con los pulsos del clock
-        //Y la velocidad con la que se generan los numeros, claramente la libreria Random no estaba pensada
-        //Para generar miles y miles de -Dolares- numeros en el mismo Thread, es por este motivo por el cual
-        //Opte por utilizar la libreria RNGCryptoServiceProvider, en caso de que usted quiera probar por su
-        //Cuenta lo que me llevó a invertir 3 horas de mi vida y, en su defecto, encontrar una solucion
-        //El metodo esta debajo y está a la espera de más horas invertidas en él.
-        //NO VALE USAR SYSTEM TIMEOUTS.
-        //Horas invertidas en intentar solucionarlo: 3 horas.
+        private void SetRandomGenerator(string type)
+        {
+            generator = SelectRandomGenerator(type);
+        }
+
+        private static RandomGenerator SelectRandomGenerator(string type)
+        {
+            type = type.ToLower().Trim();
+            switch (type)
+            {
+                case "crypto":
+                    return new CryptoGenerator();
+                case "standard":
+                    return new StandardGenerator();
+                case "lcg":
+                    return new LCG(30, 19, 16, 29);
+                case "mcg":
+                    return new MCG(7, 5, 16);
+                default:
+                    return new CryptoGenerator();
+            }
+        }
+
+        /// <summary>
+        /// genera un numero aleatorio uniformemente distribuido entre 0 y 1 
+        /// </summary>
+        /// <returns></returns>
         private double RNG()
         {
-            RandomNumberGenerator rng = new RNGCryptoServiceProvider();
-            byte[] byteArray = new byte[8];
-            rng.GetBytes(byteArray);
-            double cryptic = BitConverter.ToUInt64(byteArray, 0) / (1 << 11);
-            double number = cryptic / (double)(1UL << 53);
+            double number = generator.GetNextRandomNumber();
             return General.TruncateDecimal(number, 2);
         }
 
-        //Este es el metodo curseado
-        //private double RNG()
-        //{
-        //    Random rng = new Random();
-        //    double number = rng.NextDouble();
-        //    return General.TruncateDecimal(number, 2);
-        //}
-
-        //private double RNG()
-        //{
-        //    int seed = 6;
-        //    LCG lcg = new LCG(seed, 3, 3, 7);
-        //    return General.TruncateDecimal(lcg.GetNextRandomNumber(), 2);
-        //}
-
+        /// <summary>
+        /// Metodo para calcular los puntos correspondientes al ejercicio24
+        /// </summary>
+        /// <param name="values">Valores obtenidos con los calculos previos, en este caso pinos tirados</param>
+        /// <returns>Si se tiro 10 en el primer tiro: strike, si se tiro 10 en el segundo tiro spare, sino la suma de los puntos</returns>
         private double GetPoints(IList<double> values)
         {
             if (values[0] == 10) return strikePoints;

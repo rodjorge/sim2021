@@ -29,7 +29,7 @@ namespace TP4
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPrimeraTirada = new System.Windows.Forms.DataGridView();
             this.nroPinos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Probabilidad1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +46,6 @@ namespace TP4
             this.lblSegundaTirada = new System.Windows.Forms.Label();
             this.btnGenerarSegunda = new System.Windows.Forms.Button();
             this.btnSimular = new System.Windows.Forms.Button();
-            this.cajaTextual = new System.Windows.Forms.TextBox();
             this.txtStrike = new System.Windows.Forms.TextBox();
             this.txtSpare = new System.Windows.Forms.TextBox();
             this.txtThreshold = new System.Windows.Forms.TextBox();
@@ -77,9 +76,15 @@ namespace TP4
             this.txtHasta = new System.Windows.Forms.TextBox();
             this.txtDesde = new System.Windows.Forms.TextBox();
             this.chkVerMedio = new System.Windows.Forms.CheckBox();
+            this.gbxGeneradores = new System.Windows.Forms.GroupBox();
+            this.rbtCrypto = new System.Windows.Forms.RadioButton();
+            this.rbtStandard = new System.Windows.Forms.RadioButton();
+            this.rbtLCG = new System.Windows.Forms.RadioButton();
+            this.rbtMCG = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeraTirada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaTirada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
+            this.gbxGeneradores.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvPrimeraTirada
@@ -142,14 +147,14 @@ namespace TP4
             this.pinosPrimeraBola,
             this.pinosSegundaBola,
             this.probabilidad2});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSegundaTirada.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSegundaTirada.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSegundaTirada.Location = new System.Drawing.Point(223, 67);
             this.dgvSegundaTirada.Name = "dgvSegundaTirada";
             this.dgvSegundaTirada.RowHeadersVisible = false;
@@ -230,7 +235,7 @@ namespace TP4
             // 
             // btnSimular
             // 
-            this.btnSimular.Location = new System.Drawing.Point(400, 414);
+            this.btnSimular.Location = new System.Drawing.Point(603, 414);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(75, 23);
             this.btnSimular.TabIndex = 10;
@@ -238,16 +243,6 @@ namespace TP4
             this.btnSimular.UseVisualStyleBackColor = true;
             this.btnSimular.Visible = false;
             this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
-            // 
-            // cajaTextual
-            // 
-            this.cajaTextual.Location = new System.Drawing.Point(534, 67);
-            this.cajaTextual.Multiline = true;
-            this.cajaTextual.Name = "cajaTextual";
-            this.cajaTextual.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.cajaTextual.Size = new System.Drawing.Size(254, 209);
-            this.cajaTextual.TabIndex = 11;
-            this.cajaTextual.Visible = false;
             // 
             // txtStrike
             // 
@@ -363,7 +358,7 @@ namespace TP4
             // 
             // txtVueltas
             // 
-            this.txtVueltas.Location = new System.Drawing.Point(400, 382);
+            this.txtVueltas.Location = new System.Drawing.Point(603, 385);
             this.txtVueltas.Name = "txtVueltas";
             this.txtVueltas.Size = new System.Drawing.Size(100, 20);
             this.txtVueltas.TabIndex = 24;
@@ -383,17 +378,17 @@ namespace TP4
             // lblVueltas
             // 
             this.lblVueltas.AutoSize = true;
-            this.lblVueltas.Location = new System.Drawing.Point(397, 366);
+            this.lblVueltas.Location = new System.Drawing.Point(600, 369);
             this.lblVueltas.Name = "lblVueltas";
-            this.lblVueltas.Size = new System.Drawing.Size(102, 13);
+            this.lblVueltas.Size = new System.Drawing.Size(129, 13);
             this.lblVueltas.TabIndex = 27;
-            this.lblVueltas.Text = "Cantidad de Vueltas";
+            this.lblVueltas.Text = "Cantidad de Simulaciones";
             this.lblVueltas.Visible = false;
             // 
             // lblRounds
             // 
             this.lblRounds.AutoSize = true;
-            this.lblRounds.Location = new System.Drawing.Point(396, 308);
+            this.lblRounds.Location = new System.Drawing.Point(599, 311);
             this.lblRounds.Name = "lblRounds";
             this.lblRounds.Size = new System.Drawing.Size(104, 13);
             this.lblRounds.TabIndex = 29;
@@ -402,7 +397,7 @@ namespace TP4
             // 
             // txtRounds
             // 
-            this.txtRounds.Location = new System.Drawing.Point(399, 324);
+            this.txtRounds.Location = new System.Drawing.Point(602, 327);
             this.txtRounds.Name = "txtRounds";
             this.txtRounds.Size = new System.Drawing.Size(100, 20);
             this.txtRounds.TabIndex = 28;
@@ -474,7 +469,7 @@ namespace TP4
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(638, 363);
+            this.lblHasta.Location = new System.Drawing.Point(481, 366);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(35, 13);
             this.lblHasta.TabIndex = 34;
@@ -484,7 +479,7 @@ namespace TP4
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(531, 363);
+            this.lblDesde.Location = new System.Drawing.Point(374, 366);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Size = new System.Drawing.Size(38, 13);
             this.lblDesde.TabIndex = 33;
@@ -493,7 +488,7 @@ namespace TP4
             // 
             // txtHasta
             // 
-            this.txtHasta.Location = new System.Drawing.Point(641, 382);
+            this.txtHasta.Location = new System.Drawing.Point(484, 385);
             this.txtHasta.Name = "txtHasta";
             this.txtHasta.Size = new System.Drawing.Size(99, 20);
             this.txtHasta.TabIndex = 32;
@@ -501,7 +496,7 @@ namespace TP4
             // 
             // txtDesde
             // 
-            this.txtDesde.Location = new System.Drawing.Point(535, 382);
+            this.txtDesde.Location = new System.Drawing.Point(378, 385);
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(100, 20);
             this.txtDesde.TabIndex = 31;
@@ -510,7 +505,7 @@ namespace TP4
             // chkVerMedio
             // 
             this.chkVerMedio.AutoSize = true;
-            this.chkVerMedio.Location = new System.Drawing.Point(537, 324);
+            this.chkVerMedio.Location = new System.Drawing.Point(380, 327);
             this.chkVerMedio.Name = "chkVerMedio";
             this.chkVerMedio.Size = new System.Drawing.Size(148, 17);
             this.chkVerMedio.TabIndex = 35;
@@ -519,11 +514,70 @@ namespace TP4
             this.chkVerMedio.Visible = false;
             this.chkVerMedio.CheckedChanged += new System.EventHandler(this.chkVerMedio_CheckedChanged);
             // 
+            // gbxGeneradores
+            // 
+            this.gbxGeneradores.Controls.Add(this.rbtMCG);
+            this.gbxGeneradores.Controls.Add(this.rbtLCG);
+            this.gbxGeneradores.Controls.Add(this.rbtStandard);
+            this.gbxGeneradores.Controls.Add(this.rbtCrypto);
+            this.gbxGeneradores.Location = new System.Drawing.Point(545, 67);
+            this.gbxGeneradores.Name = "gbxGeneradores";
+            this.gbxGeneradores.Size = new System.Drawing.Size(200, 209);
+            this.gbxGeneradores.TabIndex = 36;
+            this.gbxGeneradores.TabStop = false;
+            this.gbxGeneradores.Text = "generadores";
+            this.gbxGeneradores.Visible = false;
+            // 
+            // rbtCrypto
+            // 
+            this.rbtCrypto.AutoSize = true;
+            this.rbtCrypto.Location = new System.Drawing.Point(7, 26);
+            this.rbtCrypto.Name = "rbtCrypto";
+            this.rbtCrypto.Size = new System.Drawing.Size(55, 17);
+            this.rbtCrypto.TabIndex = 0;
+            this.rbtCrypto.TabStop = true;
+            this.rbtCrypto.Text = "Crypto";
+            this.rbtCrypto.UseVisualStyleBackColor = true;
+            // 
+            // rbtStandard
+            // 
+            this.rbtStandard.AutoSize = true;
+            this.rbtStandard.Location = new System.Drawing.Point(7, 49);
+            this.rbtStandard.Name = "rbtStandard";
+            this.rbtStandard.Size = new System.Drawing.Size(68, 17);
+            this.rbtStandard.TabIndex = 1;
+            this.rbtStandard.TabStop = true;
+            this.rbtStandard.Text = "Standard";
+            this.rbtStandard.UseVisualStyleBackColor = true;
+            // 
+            // rbtLCG
+            // 
+            this.rbtLCG.AutoSize = true;
+            this.rbtLCG.Location = new System.Drawing.Point(7, 72);
+            this.rbtLCG.Name = "rbtLCG";
+            this.rbtLCG.Size = new System.Drawing.Size(46, 17);
+            this.rbtLCG.TabIndex = 2;
+            this.rbtLCG.TabStop = true;
+            this.rbtLCG.Text = "LCG";
+            this.rbtLCG.UseVisualStyleBackColor = true;
+            // 
+            // rbtMCG
+            // 
+            this.rbtMCG.AutoSize = true;
+            this.rbtMCG.Location = new System.Drawing.Point(7, 95);
+            this.rbtMCG.Name = "rbtMCG";
+            this.rbtMCG.Size = new System.Drawing.Size(49, 17);
+            this.rbtMCG.TabIndex = 3;
+            this.rbtMCG.TabStop = true;
+            this.rbtMCG.Text = "MCG";
+            this.rbtMCG.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 631);
+            this.Controls.Add(this.gbxGeneradores);
             this.Controls.Add(this.chkVerMedio);
             this.Controls.Add(this.lblHasta);
             this.Controls.Add(this.lblDesde);
@@ -547,7 +601,6 @@ namespace TP4
             this.Controls.Add(this.txtThreshold);
             this.Controls.Add(this.txtSpare);
             this.Controls.Add(this.txtStrike);
-            this.Controls.Add(this.cajaTextual);
             this.Controls.Add(this.btnSimular);
             this.Controls.Add(this.btnGenerarSegunda);
             this.Controls.Add(this.lblSegundaTirada);
@@ -564,6 +617,8 @@ namespace TP4
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeraTirada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaTirada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
+            this.gbxGeneradores.ResumeLayout(false);
+            this.gbxGeneradores.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,7 +637,6 @@ namespace TP4
         private System.Windows.Forms.Label lblSegundaTirada;
         private System.Windows.Forms.Button btnGenerarSegunda;
         private System.Windows.Forms.Button btnSimular;
-        private System.Windows.Forms.TextBox cajaTextual;
         private System.Windows.Forms.TextBox txtStrike;
         private System.Windows.Forms.TextBox txtSpare;
         private System.Windows.Forms.TextBox txtThreshold;
@@ -618,5 +672,10 @@ namespace TP4
         private System.Windows.Forms.TextBox txtHasta;
         private System.Windows.Forms.TextBox txtDesde;
         private System.Windows.Forms.CheckBox chkVerMedio;
+        private System.Windows.Forms.RadioButton rbtLCG;
+        private System.Windows.Forms.RadioButton rbtStandard;
+        private System.Windows.Forms.RadioButton rbtCrypto;
+        private System.Windows.Forms.GroupBox gbxGeneradores;
+        private System.Windows.Forms.RadioButton rbtMCG;
     }
 }

@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Ejercicio24.cs" />
+    <Compile Include="Classes\Generadores\CryptoGenerator.cs" />
     <Compile Include="Classes\Generadores\RandomGenerator.cs" />
     <Compile Include="Classes\General.cs" />
     <Compile Include="Classes\Generadores\LCG.cs" />

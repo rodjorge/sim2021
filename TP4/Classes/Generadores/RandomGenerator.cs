@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tp4.Classes.Generadores
+namespace TP4.Classes.Generadores
 {
     interface RandomGenerator
     {

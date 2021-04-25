@@ -13,6 +13,7 @@ namespace TP4
 {
     public partial class Main : Form
     {
+        private RadioButton RadioButtonElegido;
         public Main()
         {
             InitializeComponent();
@@ -27,7 +28,10 @@ namespace TP4
             txtDesde.Text = "10";
             txtHasta.Text = "20";
             txtVueltas.Text = "1";
+            rbtCrypto.Checked = true;
+            RadioButtonElegido = rbtCrypto;
             chkDefault.Checked = true;
+            AsociarEventoARadios();
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -90,6 +94,7 @@ namespace TP4
                     //Al ejecutarse la simulación se suma uno al total
                     IncrementarSimulaciones();
                     //variables a utilizarse durante la ejecucion del metodo
+                    string generator = RadioButtonElegido.Text;
                     int puntosStrike = Int32.Parse(txtStrike.Text);
                     int puntosSpare = Int32.Parse(txtSpare.Text);
                     int puntosLimite = Int32.Parse(txtThreshold.Text);
@@ -104,7 +109,7 @@ namespace TP4
                     CargarProbabilidadXResultado(probabilidades, probabilidadXResultado, total);
                     CargarFuncionesDeCuantiaXValor(FuncionesDeCuantiaPorValor, probabilidadXResultado, maximo);
 
-                    Ejercicio24 ejercicio24 = new Ejercicio24(minimo, maximo, probabilidades, puntosStrike, puntosSpare, puntosLimite, FuncionesDeCuantiaPorValor);
+                    Ejercicio24 ejercicio24 = new Ejercicio24(minimo, maximo, probabilidades, puntosStrike, puntosSpare, puntosLimite, FuncionesDeCuantiaPorValor, generator);
 
                     dgvResultados.Rows.Clear();
                     if (!chkVerMedio.Checked)
@@ -298,9 +303,9 @@ namespace TP4
             lblProbabilidadExito.Visible = true;
             nroExito.Visible = true;
             btnSimular.Visible = true;
-            cajaTextual.Visible = true;
             dgvResultados.Visible = true;
             chkVerMedio.Visible = true;
+            gbxGeneradores.Visible = true;
         }
 
         private void dgvPrimeraTirada_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -370,6 +375,24 @@ namespace TP4
             lblHasta.Visible = !lblHasta.Visible;
             txtDesde.Visible = !txtDesde.Visible;
             txtHasta.Visible = !txtHasta.Visible;
+        }
+
+        private void gbxGeneradores_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rbt = (RadioButton)sender;
+            if (rbt.Checked)
+            {
+                RadioButtonElegido = (RadioButton)sender;
+            }
+        }
+
+        private void AsociarEventoARadios()
+        {
+            foreach(Control control in gbxGeneradores.Controls)
+            {
+                RadioButton rbt = (RadioButton)control;
+                rbt.CheckedChanged += new System.EventHandler(gbxGeneradores_CheckedChanged);
+            }
         }
     }
 }
