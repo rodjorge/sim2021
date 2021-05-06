@@ -131,7 +131,10 @@ namespace TP4
                         if(vuelta == primeraVueltaAPersistir)
                         {
                             filasDesde = (desde-1) % rounds+1;
-                            filasHasta = rounds+1;
+                            if(vuelta != ultimaVueltaAPersistir)
+                                filasHasta = rounds+1;
+                            else
+                                filasHasta = (hasta - 1) % rounds + 1;
                         } else if(vuelta == ultimaVueltaAPersistir)
                         {
                             filasDesde = 1;
