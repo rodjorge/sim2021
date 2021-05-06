@@ -77,10 +77,10 @@ namespace TP4
             this.txtDesde = new System.Windows.Forms.TextBox();
             this.chkVerMedio = new System.Windows.Forms.CheckBox();
             this.gbxGeneradores = new System.Windows.Forms.GroupBox();
-            this.rbtCrypto = new System.Windows.Forms.RadioButton();
-            this.rbtStandard = new System.Windows.Forms.RadioButton();
-            this.rbtLCG = new System.Windows.Forms.RadioButton();
             this.rbtMCG = new System.Windows.Forms.RadioButton();
+            this.rbtLCG = new System.Windows.Forms.RadioButton();
+            this.rbtStandard = new System.Windows.Forms.RadioButton();
+            this.rbtCrypto = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeraTirada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaTirada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
@@ -339,7 +339,7 @@ namespace TP4
             // lblProbabilidadExito
             // 
             this.lblProbabilidadExito.AutoSize = true;
-            this.lblProbabilidadExito.Location = new System.Drawing.Point(251, 385);
+            this.lblProbabilidadExito.Location = new System.Drawing.Point(17, 414);
             this.lblProbabilidadExito.Name = "lblProbabilidadExito";
             this.lblProbabilidadExito.Size = new System.Drawing.Size(112, 13);
             this.lblProbabilidadExito.TabIndex = 22;
@@ -349,7 +349,7 @@ namespace TP4
             // nroExito
             // 
             this.nroExito.AutoSize = true;
-            this.nroExito.Location = new System.Drawing.Point(359, 385);
+            this.nroExito.Location = new System.Drawing.Point(132, 414);
             this.nroExito.Name = "nroExito";
             this.nroExito.Size = new System.Drawing.Size(13, 13);
             this.nroExito.TabIndex = 23;
@@ -528,27 +528,16 @@ namespace TP4
             this.gbxGeneradores.Text = "generadores";
             this.gbxGeneradores.Visible = false;
             // 
-            // rbtCrypto
+            // rbtMCG
             // 
-            this.rbtCrypto.AutoSize = true;
-            this.rbtCrypto.Location = new System.Drawing.Point(7, 26);
-            this.rbtCrypto.Name = "rbtCrypto";
-            this.rbtCrypto.Size = new System.Drawing.Size(55, 17);
-            this.rbtCrypto.TabIndex = 0;
-            this.rbtCrypto.TabStop = true;
-            this.rbtCrypto.Text = "Crypto";
-            this.rbtCrypto.UseVisualStyleBackColor = true;
-            // 
-            // rbtStandard
-            // 
-            this.rbtStandard.AutoSize = true;
-            this.rbtStandard.Location = new System.Drawing.Point(7, 49);
-            this.rbtStandard.Name = "rbtStandard";
-            this.rbtStandard.Size = new System.Drawing.Size(68, 17);
-            this.rbtStandard.TabIndex = 1;
-            this.rbtStandard.TabStop = true;
-            this.rbtStandard.Text = "Standard";
-            this.rbtStandard.UseVisualStyleBackColor = true;
+            this.rbtMCG.AutoSize = true;
+            this.rbtMCG.Location = new System.Drawing.Point(7, 95);
+            this.rbtMCG.Name = "rbtMCG";
+            this.rbtMCG.Size = new System.Drawing.Size(49, 17);
+            this.rbtMCG.TabIndex = 3;
+            this.rbtMCG.TabStop = true;
+            this.rbtMCG.Text = "MCG";
+            this.rbtMCG.UseVisualStyleBackColor = true;
             // 
             // rbtLCG
             // 
@@ -561,16 +550,27 @@ namespace TP4
             this.rbtLCG.Text = "LCG";
             this.rbtLCG.UseVisualStyleBackColor = true;
             // 
-            // rbtMCG
+            // rbtStandard
             // 
-            this.rbtMCG.AutoSize = true;
-            this.rbtMCG.Location = new System.Drawing.Point(7, 95);
-            this.rbtMCG.Name = "rbtMCG";
-            this.rbtMCG.Size = new System.Drawing.Size(49, 17);
-            this.rbtMCG.TabIndex = 3;
-            this.rbtMCG.TabStop = true;
-            this.rbtMCG.Text = "MCG";
-            this.rbtMCG.UseVisualStyleBackColor = true;
+            this.rbtStandard.AutoSize = true;
+            this.rbtStandard.Location = new System.Drawing.Point(7, 49);
+            this.rbtStandard.Name = "rbtStandard";
+            this.rbtStandard.Size = new System.Drawing.Size(68, 17);
+            this.rbtStandard.TabIndex = 1;
+            this.rbtStandard.TabStop = true;
+            this.rbtStandard.Text = "Standard";
+            this.rbtStandard.UseVisualStyleBackColor = true;
+            // 
+            // rbtCrypto
+            // 
+            this.rbtCrypto.AutoSize = true;
+            this.rbtCrypto.Location = new System.Drawing.Point(7, 26);
+            this.rbtCrypto.Name = "rbtCrypto";
+            this.rbtCrypto.Size = new System.Drawing.Size(55, 17);
+            this.rbtCrypto.TabIndex = 0;
+            this.rbtCrypto.TabStop = true;
+            this.rbtCrypto.Text = "Crypto";
+            this.rbtCrypto.UseVisualStyleBackColor = true;
             // 
             // Main
             // 

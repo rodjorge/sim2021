@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -89,50 +89,84 @@ namespace TP4
             }
             if (ValidarSimular())
             {
-                for(int vuelta = 0; vuelta < vueltas; vuelta++)
+                dgvResultados.Rows.Clear();
+
+                //variables a utilizarse durante la ejecucion del metodo
+
+                string generator = RadioButtonElegido.Text;
+                int puntosStrike = Int32.Parse(txtStrike.Text);
+                int puntosSpare = Int32.Parse(txtSpare.Text);
+                int puntosLimite = Int32.Parse(txtThreshold.Text);
+                int maximo = Int32.Parse(txtMaximo.Text);
+                int minimo = Int32.Parse(txtMinimo.Text);
+                int total = maximo - minimo;
+                int rounds = Int32.Parse(txtRounds.Text);
+                double[] probabilidades = new double[total + 1];
+                Dictionary<int, double[]> probabilidadXResultado = new Dictionary<int, double[]>();
+                Dictionary<int, PMF> FuncionesDeCuantiaPorValor = new Dictionary<int, PMF>();
+
+                CargarProbabilidadXResultado(probabilidades, probabilidadXResultado, total);
+                CargarFuncionesDeCuantiaXValor(FuncionesDeCuantiaPorValor, probabilidadXResultado, maximo);
+
+                int desde = Int32.Parse(txtDesde.Text);
+                int hasta = Int32.Parse(txtHasta.Text);
+
+                int primeraVueltaAPersistir = (desde-1) / rounds;
+                int ultimaVueltaAPersistir = (hasta-1) / rounds;
+
+                double[] ultimoVector = { 0 };
+                List<double[]> enIntervalo = new List<double[]>();
+                bool terminaEnIntervalo = false;
+
+                for (int vuelta = 0; vuelta < vueltas; vuelta++)
                 {
                     //Al ejecutarse la simulación se suma uno al total
                     IncrementarSimulaciones();
-                    //variables a utilizarse durante la ejecucion del metodo
-                    string generator = RadioButtonElegido.Text;
-                    int puntosStrike = Int32.Parse(txtStrike.Text);
-                    int puntosSpare = Int32.Parse(txtSpare.Text);
-                    int puntosLimite = Int32.Parse(txtThreshold.Text);
-                    int maximo = Int32.Parse(txtMaximo.Text);
-                    int minimo = Int32.Parse(txtMinimo.Text);
-                    int total = maximo - minimo;
-                    int rounds = Int32.Parse(txtRounds.Text);
-                    double[] probabilidades = new double[total + 1];
-                    Dictionary<int, double[]> probabilidadXResultado = new Dictionary<int, double[]>();
-                    Dictionary<int, PMF> FuncionesDeCuantiaPorValor = new Dictionary<int, PMF>();
                 
-                    CargarProbabilidadXResultado(probabilidades, probabilidadXResultado, total);
-                    CargarFuncionesDeCuantiaXValor(FuncionesDeCuantiaPorValor, probabilidadXResultado, maximo);
-
                     Ejercicio24 ejercicio24 = new Ejercicio24(minimo, maximo, probabilidades, puntosStrike, puntosSpare, puntosLimite, FuncionesDeCuantiaPorValor, generator);
 
-                    dgvResultados.Rows.Clear();
-                    if (!chkVerMedio.Checked)
+                    if(chkVerMedio.Checked && vuelta >= primeraVueltaAPersistir && vuelta<=ultimaVueltaAPersistir)
                     {
-                        double[] ultimoVector = ejercicio24.ComputeMontecarlo(rounds);
-                        insertarArrayEnDGV(ultimoVector, dgvResultados);
+                        int filasDesde, filasHasta;
+                        if(vuelta == primeraVueltaAPersistir)
+                        {
+                            filasDesde = (desde-1) % rounds+1;
+                            filasHasta = rounds+1;
+                        } else if(vuelta == ultimaVueltaAPersistir)
+                        {
+                            filasDesde = 1;
+                            filasHasta = (hasta - 1) % rounds + 1;
+                        } else
+                        {
+                            filasDesde = 1;
+                            filasHasta = rounds + 1;
+                        }
+
+                        enIntervalo = ejercicio24.ComputeMontecarlo(rounds, filasDesde, filasHasta);
+                        foreach(double[] vector in enIntervalo)
+                        {
+                            vector[0] += vuelta * rounds;
+                            insertarArrayEnDGV(vector, dgvResultados);
+                        }
+
+                        if (vuelta == vueltas - 1)
+                            terminaEnIntervalo = true;
                     }
                     else
                     {
-                        int desde = Int32.Parse(txtDesde.Text);
-                        int hasta = Int32.Parse(txtHasta.Text);
-
-                        List<double[]> enIntervalo = ejercicio24.ComputeMontecarlo(rounds, desde, hasta);
-                        foreach(double[] vector in enIntervalo)
-                        {
-                            insertarArrayEnDGV(vector, dgvResultados);
-                        }
+                        ultimoVector = ejercicio24.ComputeMontecarlo(rounds);
                     }
                     if (ejercicio24.SurpassedThreshold())
                     {
                         IncrementarExitos();
                     }
                 }
+                if (!chkVerMedio.Checked || !terminaEnIntervalo)
+                {
+                    ultimoVector[0] += (vueltas - 1) * rounds;
+                    insertarArrayEnDGV(ultimoVector, dgvResultados);
+                }
+
                 CalcularProbabilidadExito();
             }
         }
