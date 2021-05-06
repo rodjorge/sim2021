@@ -152,19 +152,20 @@ namespace TP4
                             insertarArrayEnDGV(vector, dgvResultados);
                         }
 
-                        if (vuelta == vueltas - 1)
+                        if (vuelta == vueltas - 1 && filasHasta-1 == rounds)
                             terminaEnIntervalo = true;
                     }
                     else
                     {
-                        ultimoVector = ejercicio24.ComputeMontecarlo(rounds);
+                        ejercicio24.ComputeMontecarlo(rounds);
                     }
                     if (ejercicio24.SurpassedThreshold())
                     {
                         IncrementarExitos();
                     }
+                    ultimoVector = ejercicio24.getLastVector();
                 }
-                if (!chkVerMedio.Checked || !terminaEnIntervalo)
+                if (!terminaEnIntervalo)
                 {
                     ultimoVector[0] += (vueltas - 1) * rounds;
                     insertarArrayEnDGV(ultimoVector, dgvResultados);

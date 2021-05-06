@@ -129,6 +129,11 @@ namespace TP4.Classes
             return montecarlo.GetLastVector();
         }
 
+        public double[] getLastVector()
+        {
+            return montecarlo.GetLastVector();
+        }
+
         public List<double[]> ComputeMontecarlo(int rounds, int lowerBound, int upperBound)
         {
 
