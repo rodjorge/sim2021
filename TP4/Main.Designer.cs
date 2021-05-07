@@ -29,7 +29,7 @@ namespace TP4
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPrimeraTirada = new System.Windows.Forms.DataGridView();
             this.nroPinos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Probabilidad1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -147,14 +147,14 @@ namespace TP4
             this.pinosPrimeraBola,
             this.pinosSegundaBola,
             this.probabilidad2});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSegundaTirada.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSegundaTirada.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSegundaTirada.Location = new System.Drawing.Point(223, 67);
             this.dgvSegundaTirada.Name = "dgvSegundaTirada";
             this.dgvSegundaTirada.RowHeadersVisible = false;
@@ -321,9 +321,9 @@ namespace TP4
             this.lblSimulaciones.AutoSize = true;
             this.lblSimulaciones.Location = new System.Drawing.Point(17, 366);
             this.lblSimulaciones.Name = "lblSimulaciones";
-            this.lblSimulaciones.Size = new System.Drawing.Size(69, 13);
+            this.lblSimulaciones.Size = new System.Drawing.Size(45, 13);
             this.lblSimulaciones.TabIndex = 20;
-            this.lblSimulaciones.Text = "Simulaciones";
+            this.lblSimulaciones.Text = "Partidas";
             this.lblSimulaciones.Visible = false;
             // 
             // lblExitos
@@ -380,9 +380,9 @@ namespace TP4
             this.lblVueltas.AutoSize = true;
             this.lblVueltas.Location = new System.Drawing.Point(600, 369);
             this.lblVueltas.Name = "lblVueltas";
-            this.lblVueltas.Size = new System.Drawing.Size(129, 13);
+            this.lblVueltas.Size = new System.Drawing.Size(105, 13);
             this.lblVueltas.TabIndex = 27;
-            this.lblVueltas.Text = "Cantidad de Simulaciones";
+            this.lblVueltas.Text = "Cantidad de Partidas";
             this.lblVueltas.Visible = false;
             // 
             // lblRounds

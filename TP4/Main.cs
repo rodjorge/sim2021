@@ -210,6 +210,88 @@ namespace TP4
         }
         private bool ValidarSimular()
         {
+            // Validacion del valor de strike
+            if(!Int32.TryParse(txtStrike.Text, out int strike))
+            {
+                MessageBox.Show("El puntaje de strike debe ser un numero entero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if(strike < 0)
+            {
+                MessageBox.Show("El puntaje de strike debe ser positivo", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            // Validacion del valor de spare
+            if (!Int32.TryParse(txtSpare.Text, out int spare))
+            {
+                MessageBox.Show("El puntaje de spare debe ser un numero entero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (spare < 0)
+            {
+                MessageBox.Show("El puntaje de spare debe ser positivo", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            // Validacion del valor de threshold
+            if (!Int32.TryParse(txtThreshold.Text, out int threshold))
+            {
+                MessageBox.Show("El puntaje threshold debe ser un numero entero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (threshold < 0)
+            {
+                MessageBox.Show("El puntaje threshold debe ser positivo", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Validacion de la cantidad de rounds
+            if (!Int32.TryParse(txtRounds.Text, out int rounds))
+            {
+                MessageBox.Show("La cantidad de rounds debe ser un numero entero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (rounds < 0)
+            {
+                MessageBox.Show("La cantidad de rounds debe ser positiva", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Validacion de la cantidad de partidas
+            if (!Int32.TryParse(txtVueltas.Text, out int vueltas))
+            {
+                MessageBox.Show("La cantidad de partidas debe ser un numero entero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (vueltas < 1)
+            {
+                MessageBox.Show("La cantidad de partidas debe ser mayor o igual a 1", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Validacion valor fila desde
+            if (!Int32.TryParse(txtDesde.Text, out int desde))
+            {
+                MessageBox.Show("El valor de desde debe ser un numero entero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (desde < 1)
+            {
+                MessageBox.Show("El valor de desde debe ser mayor o igual a 1", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Validacion valor fila hasta
+            if (!Int32.TryParse(txtHasta.Text, out int hasta))
+            {
+                MessageBox.Show("El valor de hasta debe ser un numero entero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (hasta < desde)
+            {
+                MessageBox.Show("El valor de hasta debe ser mayor o igual al de desde", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             return validarCeldasDGV(dgvSegundaTirada, 2);
         }
 
