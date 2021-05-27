@@ -8,8 +8,10 @@ namespace Simulacion_tp3
     {
         private Random generadorRandom;
         private int semilla;
+        private double lastRandom;
 
         public int Semilla { get => semilla; set => semilla = value; }
+        public double LastRandom { get => lastRandom; set => lastRandom = value; }
 
         public GeneradorVariables(int semilla)
         {
@@ -32,8 +34,8 @@ namespace Simulacion_tp3
             //Metodo de transformada inversa
             //Genera una variable aleatoria que se corresponde con una distribución uniforme continua de A a B
             //x = A + RND (B - A)
-            double nroRandom = this.generadorRandom.NextDouble();
-            return this.truncarA4Decimales(limInf + nroRandom * (limSup - limInf));
+            this.lastRandom = this.generadorRandom.NextDouble();
+            return this.truncarA4Decimales(limInf + this.lastRandom * (limSup - limInf));
         }
 
         public double generarVariableExponencialConLambda(double lambda)
@@ -41,8 +43,8 @@ namespace Simulacion_tp3
             //Metodo de tranformada inversa
             //Genera una variable aleatoria que se corresponde con una distribucion exponencial negativa con cierto lambda
             //x = -1/λ * Ln(1 - RND)
-            double nroRandom = this.generadorRandom.NextDouble();
-            return this.truncarA4Decimales((double) -1 / lambda * Math.Log(1 - nroRandom));
+            this.lastRandom = this.generadorRandom.NextDouble();
+            return this.truncarA4Decimales((double) -1 / lambda * Math.Log(1 - this.lastRandom));
         }
 
         public double generarVariableExponencialConMedia(double media)
@@ -51,8 +53,8 @@ namespace Simulacion_tp3
             //Genera una variable aleatoria que se corresponde con una distribucion exponencial negativa con cierto lambda
             //x = -1/λ * Ln(1 - RND)
             double lambda = 1 / media;
-            double nroRandom = this.generadorRandom.NextDouble();
-            return this.truncarA4Decimales((double) -1 / lambda * Math.Log(1 - nroRandom));
+            this.lastRandom = this.generadorRandom.NextDouble();
+            return this.truncarA4Decimales((double) -1 / lambda * Math.Log(1 - this.lastRandom));
         }
 
         public List<double> generarVariableNormal(double media, double desviacion)
@@ -63,6 +65,7 @@ namespace Simulacion_tp3
             //x2 = [√{-2 * Ln(RND1)} * sen(2π * RND2)] * σ + µ
             double nroRandom1 = this.generadorRandom.NextDouble();
             double nroRandom2 = this.generadorRandom.NextDouble();
+            this.lastRandom = nroRandom1;
             List<double> variablesGeneradas = new List<double>();
 
             variablesGeneradas.Add(this.truncarA4Decimales((Math.Sqrt(-2 * Math.Log(nroRandom1)) * Math.Cos(2 * Math.PI * nroRandom2)) * desviacion + media));
@@ -78,11 +81,10 @@ namespace Simulacion_tp3
             double p = 1;
             int varGenerada = -1;
             double a = Math.Exp(-lambda);
-            double random;
             do
             {
-                random = this.generadorRandom.NextDouble();
-                p = p * random;
+                this.lastRandom = this.generadorRandom.NextDouble();
+                p = p * this.lastRandom;
                 varGenerada++;
             } while (p >= a);
 
