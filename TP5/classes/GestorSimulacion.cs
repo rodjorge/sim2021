@@ -71,16 +71,51 @@ namespace TP5.classes
 
             this.ultimoVectorEstado[34] = new List<object[]>(); //El ultimo indice del vector estado corresponde a una lista dinamica con datos de los grupos
 
+            iteraciones--;
 
             //Creacion de lista de vectores estado que seran almacenados y mostrados (incluyendo el último vector estado)
             List<object[]> vectoresEstadoPersistentes = new List<object[]>();
 
+            //Si se quiere ver las filas desde que el reloj marca 0, se incluye tambien el vector de estado de inicializacion
+            if(horaVerDesde == 0)
+            {
+                vectoresEstadoPersistentes.Add(this.ultimoVectorEstado);
+                iteracionesVerHasta--;
+            }
+
 
             //Simulacion
 
+            Evento proxEvento = this.decidirProximoEvento();
+            this.relojMin = (double)proxEvento.ProximoEvento;
+
+            for (int i = 0; i < iteraciones; i++)
+            {
+                
+            }
 
             //Retorno de los vectores estado persistentes para el form
             return vectoresEstadoPersistentes;
+        }
+
+        private Evento decidirProximoEvento()
+        {
+            Evento sigEvento = null;
+            double diferenciaTiempoMin = double.MaxValue, diferenciaTiempo;
+            foreach (Evento evento in this.eventos)
+            {
+                if(evento.ProximoEvento != null) {
+                    diferenciaTiempo = (double) evento.ProximoEvento - this.relojMin;
+                    if (diferenciaTiempo >= 0 && diferenciaTiempo < diferenciaTiempoMin)
+                    {
+                        diferenciaTiempoMin = diferenciaTiempo;
+                        sigEvento = evento;
+                    }
+                }
+                
+            }
+
+            return sigEvento;
         }
     }
 }
