@@ -20,8 +20,8 @@ namespace TP5.classes
         private double acumOcupacionCancha;
         private double acumOcupacionCanchaBasket, acumOcupacionCanchaFutbol, acumOcupacionCanchaHandball;
 
-        public List<object[]> simular(double tiempo, int iteraciones) => simular(tiempo, iteraciones, -1, 0);
-        public List<object[]> simular(double tiempo, int iteraciones, double horaVerDesde, int iteracionesVerHasta)
+        public List<object[]> simular(double tiempo, int iteraciones, double[][] paramsEventos) => simular(tiempo, iteraciones, paramsEventos, -1, 0);
+        public List<object[]> simular(double tiempo, int iteraciones, double[][] paramsEventos, double horaVerDesde, int iteracionesVerHasta)
         {
             //Inicializacion
 
@@ -31,13 +31,13 @@ namespace TP5.classes
             acumOcupacionCancha = 0;
             acumOcupacionCanchaBasket = acumOcupacionCanchaFutbol = acumOcupacionCanchaHandball = 0;
 
-            this.eventos.Add(new EventoFinAcondicionamientoCancha());
-            this.eventos.Add(new EventoLlegadaGrupoBasket());
-            this.eventos.Add(new EventoLlegadaGrupoFutbol());
-            this.eventos.Add(new EventoLlegadaGrupoHandball());
-            this.eventos.Add(new EventoFinOcupacionCanchaBasket());
-            this.eventos.Add(new EventoFinOcupacionCanchaFutbol());
-            this.eventos.Add(new EventoFinOcupacionCanchaHandball());
+            this.eventos.Add(new EventoFinAcondicionamientoCancha(paramsEventos[0][0]));
+            this.eventos.Add(new EventoLlegadaGrupoBasket(paramsEventos[1][0], paramsEventos[1][1]));
+            this.eventos.Add(new EventoLlegadaGrupoFutbol(paramsEventos[2][0]));
+            this.eventos.Add(new EventoLlegadaGrupoHandball(paramsEventos[3][0], paramsEventos[3][1]));
+            this.eventos.Add(new EventoFinOcupacionCanchaBasket(paramsEventos[4][0], paramsEventos[4][1]));
+            this.eventos.Add(new EventoFinOcupacionCanchaFutbol(paramsEventos[5][0], paramsEventos[5][1]));
+            this.eventos.Add(new EventoFinOcupacionCanchaHandball(paramsEventos[6][0], paramsEventos[6][1]));
 
             //Generacion de tiempos de llegada
             this.eventos[1].generarProximoEvento();
@@ -77,6 +77,7 @@ namespace TP5.classes
 
 
             //Simulacion
+
 
             //Retorno de los vectores estado persistentes para el form
             return vectoresEstadoPersistentes;

@@ -8,9 +8,17 @@ namespace TP5.classes.modelos.eventos
 {
     class EventoFinOcupacionCanchaHandball : Evento
     {
+        private double media, desviacion;
+
+        public EventoFinOcupacionCanchaHandball(double media, double desviacion)
+        {
+            this.media = media;
+            this.desviacion = desviacion;
+        }
+
         public override double generarTiempoEntreEventos()
         {
-            return this.generador.generarVariableNormal(80, 20)[0];
+            return this.generador.generarVariableNormal(this.media, this.desviacion)[0];
         }
 
         public override string ToString()

@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Distribucion.cs" />
+    <Compile Include="classes\GestorSimulacion.cs" />
     <Compile Include="classes\modelos\clientes\Grupo.cs" />
     <Compile Include="classes\modelos\estados\EnAcondicionamiento.cs" />
     <Compile Include="classes\modelos\estados\EsperandoCancha.cs" />
@@ -62,6 +63,14 @@
     <Compile Include="classes\modelos\estados\Jugando.cs" />
     <Compile Include="classes\modelos\estados\Libre.cs" />
     <Compile Include="classes\modelos\estados\Ocupada.cs" />
+    <Compile Include="classes\modelos\eventos\Evento.cs" />
+    <Compile Include="classes\modelos\eventos\EventoFinAcondicionamientoCancha.cs" />
+    <Compile Include="classes\modelos\eventos\EventoFinOcupacionCanchaBasket.cs" />
+    <Compile Include="classes\modelos\eventos\EventoFinOcupacionCanchaFutbol.cs" />
+    <Compile Include="classes\modelos\eventos\EventoFinOcupacionCanchaHandball.cs" />
+    <Compile Include="classes\modelos\eventos\EventoLlegadaGrupoBasket.cs" />
+    <Compile Include="classes\modelos\eventos\EventoLlegadaGrupoFutbol.cs" />
+    <Compile Include="classes\modelos\eventos\EventoLlegadaGrupoHandball.cs" />
     <Compile Include="classes\modelos\servidores\Cancha.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

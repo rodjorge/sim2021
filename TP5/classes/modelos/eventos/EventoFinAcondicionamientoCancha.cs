@@ -8,9 +8,16 @@ namespace TP5.classes.modelos.eventos
 {
     class EventoFinAcondicionamientoCancha : Evento
     {
+        private double demora;
+
+        public EventoFinAcondicionamientoCancha(double demora)
+        {
+            this.demora = demora;
+        }
+
         public override double generarTiempoEntreEventos()
         {
-            return 10;
+            return this.demora;
         }
 
         public override string ToString()

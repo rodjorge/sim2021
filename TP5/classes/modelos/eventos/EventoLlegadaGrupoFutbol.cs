@@ -8,9 +8,16 @@ namespace TP5.classes.modelos.eventos
 {
     class EventoLlegadaGrupoFutbol : Evento
     {
+        private double lambda;
+
+        public EventoLlegadaGrupoFutbol(double lambda)
+        {
+            this.lambda = lambda;
+        }
+
         public override double generarTiempoEntreEventos()
         {
-            return this.generador.generarVariableExponencialConLambda(600);
+            return this.generador.generarVariableExponencialConLambda(this.lambda);
         }
         public override string ToString()
         {
