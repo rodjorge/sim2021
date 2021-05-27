@@ -53,6 +53,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Distribucion.cs" />
+    <Compile Include="classes\modelos\clientes\Grupo.cs" />
+    <Compile Include="classes\modelos\estados\EnAcondicionamiento.cs" />
+    <Compile Include="classes\modelos\estados\EsperandoCancha.cs" />
+    <Compile Include="classes\modelos\estados\Estado.cs" />
+    <Compile Include="classes\modelos\estados\EstadoCancha.cs" />
+    <Compile Include="classes\modelos\estados\EstadoGrupo.cs" />
+    <Compile Include="classes\modelos\estados\Jugando.cs" />
+    <Compile Include="classes\modelos\estados\Libre.cs" />
+    <Compile Include="classes\modelos\estados\Ocupada.cs" />
+    <Compile Include="classes\modelos\servidores\Cancha.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,5 +96,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
