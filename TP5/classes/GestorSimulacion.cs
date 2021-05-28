@@ -22,7 +22,7 @@ namespace TP5.classes
         private double acumOcupacionCancha;
         private double[] acumuladoresOcupacion;
 
-        uint lastNroCliente = 1;
+        uint lastNroCliente = 0;
         Grupo.Disciplinas[] disciplinas = new Grupo.Disciplinas[] { Grupo.Disciplinas.Basketball, Grupo.Disciplinas.Futbol, Grupo.Disciplinas.Handball };
 
         public List<object[]> simular(double tiempo, int iteraciones, double[][] paramsEventos) => simular(tiempo, iteraciones, paramsEventos, -1, 0);
@@ -52,13 +52,13 @@ namespace TP5.classes
             //Armado del primer vector estado
             this.ultimoVectorEstado[0] = "Inicializacion";
             this.ultimoVectorEstado[1] = this.relojMin;
-            this.ultimoVectorEstado[2] = this.eventos[0].ProximoEvento;
+            this.ultimoVectorEstado[2] = this.eventos[0].ProximoEvento.ToString()?? "";
             int lastIndex = 2;
             foreach (Evento evento in this.eventos.Skip(1))
             {
-                this.ultimoVectorEstado[lastIndex + 1] = evento.Random;
-                this.ultimoVectorEstado[lastIndex + 2] = evento.TiempoEntreEventos;
-                this.ultimoVectorEstado[lastIndex + 3] = evento.ProximoEvento;
+                this.ultimoVectorEstado[lastIndex + 1] = evento.Random.ToString()?? "";
+                this.ultimoVectorEstado[lastIndex + 2] = evento.TiempoEntreEventos.ToString()?? "";
+                this.ultimoVectorEstado[lastIndex + 3] = evento.ProximoEvento.ToString()?? "";
                 lastIndex += 3;
             }
             this.ultimoVectorEstado[22] = this.cancha.Estado.Nombre;
@@ -91,14 +91,27 @@ namespace TP5.classes
 
             //Simulacion
 
-
             for (int i = 0; i < iteraciones; i++)
             {
+                string strSubIndiceEvento = "";
                 int indexProxEvento = this.decidirProximoEvento();
                 this.relojMin = (float)this.eventos[indexProxEvento].ProximoEvento;
 
+                //Chequeo de si la simulacion se pasó del tiempo limite ingresado
                 if (tiempo < this.relojMin)
+                {
+                    this.ultimoVectorEstado[0] = "Fin de la simulación";
+                    this.ultimoVectorEstado[1] = tiempo;
+
+                    vectoresEstadoPersistentes.Add(ultimoVectorEstado);
                     break;
+                }
+
+                //Elimina los datos que no deben arrastrarse de los eventos
+                foreach(Evento evento in this.eventos)
+                {
+                    evento.borrarDatosTemporales();
+                }
 
                 switch (indexProxEvento)
                 {
@@ -162,7 +175,8 @@ namespace TP5.classes
                     case 3:
                         //Caso llegada
                         this.eventos[indexProxEvento].generarProximoEvento();
-                        Grupo nuevoGrupo = new Grupo(this.lastNroCliente++, this.disciplinas[indexProxEvento - 1], EsperandoCancha.Instancia, this.relojMin);
+                        Grupo nuevoGrupo = new Grupo(++this.lastNroCliente, this.disciplinas[indexProxEvento - 1], EsperandoCancha.Instancia, this.relojMin);
+                        strSubIndiceEvento = "_" + this.lastNroCliente.ToString();
                         if(this.cancha.EstaLibre() && (!nuevoGrupo.EsBasket() || this.cancha.ColaGrupos.Peek().EsBasket()))
                         {
                             nuevoGrupo.EmpezarJugar(this.relojMin);
@@ -189,6 +203,7 @@ namespace TP5.classes
                     case 5:
                     case 6:
                         //Caso fin de servicio
+                        strSubIndiceEvento = "_" + this.cancha.GruposJugando[0].Numero.ToString();
                         double tiempoOcupacion = this.relojMin - this.cancha.GruposJugando[0].TiempoComienzoJuego;
                         this.acumOcupacionCancha += tiempoOcupacion;
                         this.acumuladoresOcupacion[indexProxEvento - 4] += tiempoOcupacion;
@@ -197,9 +212,68 @@ namespace TP5.classes
                         this.eventos[0].generarProximoEvento(this.relojMin);
                         break;
                 }
+
+                //Armado del vector estado
+                this.ultimoVectorEstado[0] = this.eventos[indexProxEvento].ToString() + strSubIndiceEvento;
+                this.ultimoVectorEstado[1] = this.relojMin;
+                this.ultimoVectorEstado[2] = this.eventos[0].ProximoEvento.ToString() ?? "";
+                lastIndex = 2;
+                foreach (Evento evento in this.eventos.Skip(1))
+                {
+                    this.ultimoVectorEstado[lastIndex + 1] = evento.Random.ToString() ?? "";
+                    this.ultimoVectorEstado[lastIndex + 2] = evento.TiempoEntreEventos.ToString() ?? "";
+                    this.ultimoVectorEstado[lastIndex + 3] = evento.ProximoEvento.ToString() ?? "";
+                    lastIndex += 3;
+                }
+                this.ultimoVectorEstado[22] = this.cancha.Estado.Nombre;
+                this.ultimoVectorEstado[23] = this.cancha.ColaGrupos.Count;
+                this.ultimoVectorEstado[24] = this.contadores[0];
+                this.ultimoVectorEstado[25] = this.contadores[1];
+                this.ultimoVectorEstado[26] = this.contadores[2];
+                this.ultimoVectorEstado[27] = this.acumuladoresEspera[0];
+                this.ultimoVectorEstado[28] = this.acumuladoresEspera[1];
+                this.ultimoVectorEstado[29] = this.acumuladoresEspera[2];
+                this.ultimoVectorEstado[30] = this.acumOcupacionCancha;
+                this.ultimoVectorEstado[31] = this.acumuladoresOcupacion[0];
+                this.ultimoVectorEstado[32] = this.acumuladoresOcupacion[1];
+                this.ultimoVectorEstado[33] = this.acumuladoresOcupacion[2];
+
+                //Creando lista de objetos temporales para asignarla al ultimo indice del vector estado
+                List<object[]> listaEstadosObjTemp = new List<object[]>();
+                foreach (Grupo grupoJugando in this.cancha.GruposJugando)
+                {
+                    object[] estadoGrupo = new object[] {
+                        grupoJugando.Numero, //Numero y disciplina solo se usaran para los encabezados de columna
+                        grupoJugando.Disciplina, // o eventualmente para un algoritmo que les asigne una columna fija
+                        grupoJugando.Estado.Nombre,
+                        grupoJugando.HoraLlegada,
+                        grupoJugando.TiempoComienzoJuego
+                    };
+                }
+
+                foreach (Grupo grupoEnCola in this.cancha.ColaGrupos)
+                {
+                    object[] estadoGrupo = new object[] {
+                        grupoEnCola.Numero, //Numero y disciplina solo se usaran para los encabezados de columna
+                        grupoEnCola.Disciplina, // o eventualmente para un algoritmo que les asigne una columna fija
+                        grupoEnCola.Estado.Nombre,
+                        grupoEnCola.HoraLlegada,
+                        grupoEnCola.TiempoComienzoJuego
+                    };
+                }
+
+                this.ultimoVectorEstado[34] = listaEstadosObjTemp;
+
+                //Lógica de persistencia de vectores estado seleccionados
+                if (this.relojMin >= horaVerDesde && iteracionesVerHasta > 0)
+                {
+                    iteracionesVerHasta--;
+                    vectoresEstadoPersistentes.Add(ultimoVectorEstado);
+                }
             }
 
             //Retorno de los vectores estado persistentes para el form
+
             return vectoresEstadoPersistentes;
         }
 
