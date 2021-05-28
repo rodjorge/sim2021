@@ -17,13 +17,13 @@ namespace TP5.classes.modelos.clientes
         private uint numero;
         private Disciplinas disciplina;
         private EstadoGrupo estado;
-        private float horaLlegada;
-        private float tiempoComienzoJuego;
+        private double horaLlegada;
+        private double tiempoComienzoJuego;
 
-        public Grupo(uint nro, Disciplinas disc, EstadoGrupo estado, float llegada)
+        public Grupo(uint nro, Disciplinas disc, EstadoGrupo estado, double llegada)
             : this(nro, disc, estado, llegada, 0) 
         { }
-        public Grupo(uint nro, Disciplinas disc, EstadoGrupo estado, float llegada, float comienzo)
+        public Grupo(uint nro, Disciplinas disc, EstadoGrupo estado, double llegada, double comienzo)
         {
             this.numero = nro;
             this.disciplina = disc;
@@ -34,8 +34,8 @@ namespace TP5.classes.modelos.clientes
 
         public uint Numero { get => numero; set => numero = value; }
         public Disciplinas Disciplina { get => disciplina; set => disciplina = value; }
-        public float HoraLlegada { get => horaLlegada; set => horaLlegada = value; }
-        public float TiempoComienzoJuego { get => tiempoComienzoJuego; set => tiempoComienzoJuego = value; }
+        public double HoraLlegada { get => horaLlegada; set => horaLlegada = value; }
+        public double TiempoComienzoJuego { get => tiempoComienzoJuego; set => tiempoComienzoJuego = value; }
         internal EstadoGrupo Estado { get => estado; set => estado = value; }
 
         public bool EsBasket() => disciplina == Grupo.Disciplinas.Basketball;
@@ -43,7 +43,7 @@ namespace TP5.classes.modelos.clientes
         public bool EsHandball() => disciplina == Grupo.Disciplinas.Handball;
 
         public void EsperarCancha() { Estado.EsperarCancha(this); }
-        public void EmpezarJugar(float tiempoComienzoJuego) { 
+        public void EmpezarJugar(double tiempoComienzoJuego) { 
             Estado.EmpezarAJugar(this); 
             this.tiempoComienzoJuego = tiempoComienzoJuego;
         }

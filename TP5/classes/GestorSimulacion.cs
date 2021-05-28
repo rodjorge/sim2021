@@ -13,7 +13,7 @@ namespace TP5.classes
 {
     class GestorSimulacion
     {
-        private float relojMin;
+        private double relojMin;
         private object[] ultimoVectorEstado = new object[31];
         private List<Evento> eventos;
         private Cancha cancha;
@@ -89,11 +89,14 @@ namespace TP5.classes
 
             //Simulacion
 
+            bool finPorReloj = false;
+            int ultimaIterPersistente = -1;
+
             for (int i = 0; i < iteraciones; i++)
             {
                 string strSubIndiceEvento = "";
                 int indexProxEvento = this.decidirProximoEvento();
-                this.relojMin = (float)this.eventos[indexProxEvento].ProximoEvento;
+                this.relojMin = (double)this.eventos[indexProxEvento].ProximoEvento;
 
                 //Chequeo de si la simulacion se pasó del tiempo limite ingresado
                 if (tiempo < this.relojMin)
@@ -102,6 +105,7 @@ namespace TP5.classes
                     this.ultimoVectorEstado[1] = tiempo;
 
                     vectoresEstadoPersistentes.Add(ultimoVectorEstado);
+                    finPorReloj = true;
                     break;
                 }
 
@@ -272,7 +276,14 @@ namespace TP5.classes
                 {
                     iteracionesVerHasta--;
                     vectoresEstadoPersistentes.Add((object[])ultimoVectorEstado.Clone());
+                    ultimaIterPersistente = i;
                 }
+            }
+
+            //Si termina por iteraciones y el ultimo vector estado no fue persistente, se lo hace persistente
+            if(!finPorReloj && ultimaIterPersistente < iteraciones-1)
+            {
+                vectoresEstadoPersistentes.Add((object[])ultimoVectorEstado.Clone());
             }
 
             //Retorno de los vectores estado persistentes para el form

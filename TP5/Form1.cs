@@ -25,7 +25,7 @@ namespace TP5
                 new double[] { 90, 10 },
                 new double[] { 80, 20 },
             };
-            List<object[]> resultados = this.simulador.simular(3000, 20, parametros, 0, 20);
+            List<object[]> resultados = this.simulador.simular(1000000, 1000000, parametros, 2000, 30);
 
             foreach (object[] fila in resultados) {
                 dataGridView1.Rows.Add((new ArraySegment<object>(fila, 0, 30).Array));
