@@ -105,6 +105,15 @@ namespace TP5.classes
                     case 0:
                         //Caso acondicionamiento
                         this.eventos[indexProxEvento].borrarProximoEvento();
+                        if(this.cancha.ColaGrupos.Count != 0)
+                        {
+                            //Se hace pasar al siguiente grupo de la cola
+
+                        }
+                        else
+                        {
+                            this.cancha.LiberarCancha();
+                        }
                         break;
 
                     case 1:
@@ -139,15 +148,12 @@ namespace TP5.classes
                     case 5:
                     case 6:
                         //Caso fin de servicio
+                        double tiempoOcupacion = this.relojMin - this.cancha.GruposJugando[0].TiempoComienzoJuego;
+                        this.acumOcupacionCancha += tiempoOcupacion;
+                        this.acumuladoresOcupacion[indexProxEvento - 4] += tiempoOcupacion;
                         this.cancha.SacarEquiposCancha();
-                        if(this.cancha.ColaGrupos.Count != 0)
-                        {
-                            //Hacer pasar al siguiente grupo de la cola
-                        }
-                        else
-                        {
-                            this.cancha.LiberarCancha();
-                        }
+                        this.cancha.AcondicionarCancha();
+                        this.eventos[0].generarProximoEvento(this.relojMin);
                         break;
                 }
             }
@@ -174,6 +180,12 @@ namespace TP5.classes
             }
 
             return indexSigEvento;
+        }
+
+        private bool buscarGrupoBasketEnCola(out Grupo encontrado)
+        {
+            encontrado = this.cancha.ColaGrupos.ToList().Find(grupo => grupo.EsBasket());
+            return encontrado != null;
         }
     }
 }
