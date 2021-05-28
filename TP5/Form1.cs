@@ -94,9 +94,26 @@ namespace TP5
 
             //Calcular datos pedidos por el ejercicio y mostrarlos
             object[] ultimoEstado = resultados[resultados.Count - 1];
-            double promB = this.truncar(Convert.ToDouble(ultimoEstado[26]) / Convert.ToInt32(ultimoEstado[23]), 4);
-            double promF = this.truncar(Convert.ToDouble(ultimoEstado[27]) / Convert.ToInt32(ultimoEstado[24]), 4);
-            double promH = this.truncar(Convert.ToDouble(ultimoEstado[28]) / Convert.ToInt32(ultimoEstado[25]), 4);
+            int contadorB = Convert.ToInt32(ultimoEstado[23]);
+            int contadorF = Convert.ToInt32(ultimoEstado[24]);
+            int contadorH = Convert.ToInt32(ultimoEstado[25]);
+            double promB = 0;
+            double promF = 0;
+            double promH = 0;
+            if(contadorB != 0)
+            {
+                promB = this.truncar(Convert.ToDouble(ultimoEstado[26]) / contadorB, 4);
+            }
+            if (contadorF != 0)
+            {
+                promF = this.truncar(Convert.ToDouble(ultimoEstado[26]) / contadorF, 4);
+            }
+            if (contadorH != 0)
+            {
+                promH = this.truncar(Convert.ToDouble(ultimoEstado[26]) / contadorH, 4);
+            }
+
+
             lblPromB.Text = promB.ToString();
             lblPromF.Text = promF.ToString();
             lblPromH.Text = promH.ToString();
@@ -378,9 +395,12 @@ namespace TP5
         {
             txtHoraDesde.Clear();
             txtHoraDesde.Enabled = chkEstadosInter.Checked;
+            txtHoraDesde.Text = "0";
 
             txtIteracionesHasta.Clear();
             txtIteracionesHasta.Enabled = chkEstadosInter.Checked;
+            txtIteracionesHasta.Text = txtIteraciones.Text;
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -402,6 +422,15 @@ namespace TP5
             txtODesvF.Text = "10";
             txtOMediaH.Text = "80";
             txtODesvH.Text = "20";
+        }
+
+        private void txtIteraciones_TextChanged(object sender, EventArgs e)
+        {
+            if (!chkEstadosInter.Checked) 
+            {
+                txtIteracionesHasta.Text = txtIteraciones.Text;
+            }
+
         }
     }
 }
