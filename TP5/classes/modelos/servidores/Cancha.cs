@@ -21,6 +21,7 @@ namespace TP5.classes.modelos.servidores
             this.numero = nro;
             this.estado = estado;
             colaGrupos = new Queue<Grupo>();
+            gruposJugando = new List<Grupo>();
         }
         public uint Numero { get => numero; }
         public EstadoCancha Estado { get => estado; set => estado = value; }
