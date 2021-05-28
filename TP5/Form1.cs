@@ -20,19 +20,50 @@ namespace TP5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double[][] parametros = new double[][] {
-                new double[] { 10 },
-                new double[] { 8*60, 2*60 },
-                new double[] { 10*60 },
-                new double[] { 12*60, 2*60 },
-                new double[] { 100, 30 },
-                new double[] { 90, 10 },
-                new double[] { 80, 20 },
-            };
-            List<object[]> resultados = this.simulador.simular(1000, 20, parametros, 0, 20);
+            //Validar parametros ingresados
 
-            //Formateo de resultados
-            List<string[]> resFormateados = new List<string[]>();
+            //Extraer parametros
+            double acond = Convert.ToDouble(txtAcond.Text);
+            double mediaB = Convert.ToDouble(txtMediaB.Text);
+            double desvB = Convert.ToDouble(txtDesvB.Text);
+            double mediaF = Convert.ToDouble(txtMediaF.Text);
+            double mediaH = Convert.ToDouble(txtMediaH.Text);
+            double desvH = Convert.ToDouble(txtDesvH.Text);
+
+            double OMediaB = Convert.ToDouble(txtOMediaB.Text);
+            double OAmpB = Convert.ToDouble(txtOAmpB.Text);
+            double OMediaF = Convert.ToDouble(txtOMediaF.Text);
+            double ODesvF = Convert.ToDouble(txtODesvF.Text);
+            double OMediaH = Convert.ToDouble(txtOMediaH.Text);
+            double ODesvH = Convert.ToDouble(txtODesvH.Text);
+
+            double horaFin = Convert.ToDouble(txtHoraFin.Text);
+            int iteraciones = Convert.ToInt32(txtIteraciones.Text);
+
+            double horaDesde;
+            int iteracionesHasta;
+
+            double[][] parametros = new double[][] {
+                new double[] { acond },
+                new double[] { mediaB, desvB },
+                new double[] { mediaF },
+                new double[] { mediaH, desvH },
+                new double[] { OMediaB, OAmpB },
+                new double[] { OMediaF, ODesvF },
+                new double[] { OMediaH, ODesvH },
+            };
+            List<object[]> resultados;
+            if (chkEstadosInter.Checked)
+            {
+                horaDesde = Convert.ToDouble(txtHoraDesde.Text);
+                iteracionesHasta = Convert.ToInt32(txtIteracionesHasta.Text);
+                resultados = this.simulador.simular(horaFin, iteraciones, parametros, horaDesde, iteracionesHasta);
+            }
+            else
+                resultados = this.simulador.simular(1000, 20, parametros);
+
+           //Formateo de resultados
+           List<string[]> resFormateados = new List<string[]>();
             foreach (object[] fila in resultados) {
                 resFormateados.Add(this.armarFila(fila));
             }
@@ -139,6 +170,15 @@ namespace TP5
         {
             double resultado = Math.Floor(num * Math.Pow(10, decimales)) / Math.Pow(10,decimales);
             return resultado;
+        }
+
+        private void chkEstadosInter_CheckedChanged(object sender, EventArgs e)
+        {
+            txtHoraDesde.Clear();
+            txtHoraDesde.Enabled = chkEstadosInter.Checked;
+
+            txtIteracionesHasta.Clear();
+            txtIteracionesHasta.Enabled = chkEstadosInter.Checked;
         }
     }
 }

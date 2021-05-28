@@ -29,8 +29,51 @@ namespace TP5
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAcond = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtMediaB = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDesvB = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtMediaF = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDesvH = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtMediaH = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtODesvH = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtOMediaH = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtOMediaF = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtOAmpB = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtOMediaB = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtODesvF = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtHoraFin = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtIteraciones = new System.Windows.Forms.TextBox();
+            this.chkEstadosInter = new System.Windows.Forms.CheckBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtIteracionesHasta = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtHoraDesde = new System.Windows.Forms.TextBox();
             this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fin_acond = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,48 +104,6 @@ namespace TP5
             this.espera_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espera_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acum_ocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -120,6 +121,14 @@ namespace TP5
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.evento,
@@ -158,166 +167,6 @@ namespace TP5
             this.dataGridView1.Size = new System.Drawing.Size(1264, 380);
             this.dataGridView1.TabIndex = 2;
             // 
-            // evento
-            // 
-            this.evento.HeaderText = "Evento";
-            this.evento.Name = "evento";
-            // 
-            // reloj
-            // 
-            this.reloj.HeaderText = "Reloj";
-            this.reloj.Name = "reloj";
-            // 
-            // fin_acond
-            // 
-            this.fin_acond.HeaderText = "Fin acond";
-            this.fin_acond.Name = "fin_acond";
-            // 
-            // rnd_llg_basket
-            // 
-            this.rnd_llg_basket.HeaderText = "RND LL Basket";
-            this.rnd_llg_basket.Name = "rnd_llg_basket";
-            this.rnd_llg_basket.Width = 50;
-            // 
-            // tiempo_llg_basket
-            // 
-            this.tiempo_llg_basket.HeaderText = "Tiempo LLG Basket";
-            this.tiempo_llg_basket.Name = "tiempo_llg_basket";
-            // 
-            // prox_llg_basket
-            // 
-            this.prox_llg_basket.HeaderText = "Prox LLG Basket";
-            this.prox_llg_basket.Name = "prox_llg_basket";
-            // 
-            // rnd_llg_futbol
-            // 
-            this.rnd_llg_futbol.HeaderText = "RND LLG Futbol";
-            this.rnd_llg_futbol.Name = "rnd_llg_futbol";
-            this.rnd_llg_futbol.Width = 50;
-            // 
-            // tiempo_llg_futbol
-            // 
-            this.tiempo_llg_futbol.HeaderText = "Tiempo LLG Futbol";
-            this.tiempo_llg_futbol.Name = "tiempo_llg_futbol";
-            // 
-            // prox_llg_futbol
-            // 
-            this.prox_llg_futbol.HeaderText = "Prox LLG Futbol";
-            this.prox_llg_futbol.Name = "prox_llg_futbol";
-            // 
-            // rnd_llg_handball
-            // 
-            this.rnd_llg_handball.HeaderText = "RND LLG Hand";
-            this.rnd_llg_handball.Name = "rnd_llg_handball";
-            this.rnd_llg_handball.Width = 50;
-            // 
-            // tiempo_llg_handball
-            // 
-            this.tiempo_llg_handball.HeaderText = "Tiempo LLG Hand";
-            this.tiempo_llg_handball.Name = "tiempo_llg_handball";
-            // 
-            // prox_llg_handball
-            // 
-            this.prox_llg_handball.HeaderText = "Prox LLG Hand";
-            this.prox_llg_handball.Name = "prox_llg_handball";
-            // 
-            // rnd_ocu_basket
-            // 
-            this.rnd_ocu_basket.HeaderText = "RND ocu Basket";
-            this.rnd_ocu_basket.Name = "rnd_ocu_basket";
-            this.rnd_ocu_basket.Width = 50;
-            // 
-            // tiempo_ocu_basket
-            // 
-            this.tiempo_ocu_basket.HeaderText = "Tiempo ocu Basket";
-            this.tiempo_ocu_basket.Name = "tiempo_ocu_basket";
-            // 
-            // fin_ocu_basket
-            // 
-            this.fin_ocu_basket.HeaderText = "Fin Ocu Basket";
-            this.fin_ocu_basket.Name = "fin_ocu_basket";
-            // 
-            // rnd_ocu_f
-            // 
-            this.rnd_ocu_f.HeaderText = "RND Ocu F";
-            this.rnd_ocu_f.Name = "rnd_ocu_f";
-            this.rnd_ocu_f.Width = 50;
-            // 
-            // tiempo_ocu_f
-            // 
-            this.tiempo_ocu_f.HeaderText = "Tiempo ocu F";
-            this.tiempo_ocu_f.Name = "tiempo_ocu_f";
-            // 
-            // fin_ocu_f
-            // 
-            this.fin_ocu_f.HeaderText = "Fin Ocu F";
-            this.fin_ocu_f.Name = "fin_ocu_f";
-            // 
-            // rnd_ocu_h
-            // 
-            this.rnd_ocu_h.HeaderText = "RND ocu H";
-            this.rnd_ocu_h.Name = "rnd_ocu_h";
-            this.rnd_ocu_h.Width = 50;
-            // 
-            // tiempo_ocu_h
-            // 
-            this.tiempo_ocu_h.HeaderText = "Tiempo ocu H";
-            this.tiempo_ocu_h.Name = "tiempo_ocu_h";
-            // 
-            // fin_ocu_h
-            // 
-            this.fin_ocu_h.HeaderText = "Fin Ocu H";
-            this.fin_ocu_h.Name = "fin_ocu_h";
-            // 
-            // estado_cancha
-            // 
-            this.estado_cancha.HeaderText = "Estado C";
-            this.estado_cancha.Name = "estado_cancha";
-            // 
-            // cola
-            // 
-            this.cola.HeaderText = "Cola";
-            this.cola.Name = "cola";
-            this.cola.Width = 30;
-            // 
-            // cont_b
-            // 
-            this.cont_b.HeaderText = "Cont B";
-            this.cont_b.Name = "cont_b";
-            this.cont_b.Width = 30;
-            // 
-            // cont_f
-            // 
-            this.cont_f.HeaderText = "Cont F";
-            this.cont_f.Name = "cont_f";
-            this.cont_f.Width = 30;
-            // 
-            // cont_h
-            // 
-            this.cont_h.HeaderText = "Cont H";
-            this.cont_h.Name = "cont_h";
-            this.cont_h.Width = 30;
-            // 
-            // espera_b
-            // 
-            this.espera_b.HeaderText = "Espera B";
-            this.espera_b.Name = "espera_b";
-            // 
-            // espera_f
-            // 
-            this.espera_f.HeaderText = "Espera F";
-            this.espera_f.Name = "espera_f";
-            // 
-            // espera_h
-            // 
-            this.espera_h.HeaderText = "Espera H";
-            this.espera_h.Name = "espera_h";
-            // 
-            // acum_ocu
-            // 
-            this.acum_ocu.HeaderText = "Acum Ocu";
-            this.acum_ocu.Name = "acum_ocu";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -328,47 +177,47 @@ namespace TP5
             this.label1.TabIndex = 3;
             this.label1.Text = "Tiempo de acondicionamiento:";
             // 
-            // textBox1
+            // txtAcond
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtAcond.Location = new System.Drawing.Point(164, 25);
+            this.txtAcond.Name = "txtAcond";
+            this.txtAcond.Size = new System.Drawing.Size(100, 20);
+            this.txtAcond.TabIndex = 4;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.txtODesvF);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.txtODesvH);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.txtOMediaH);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.textBox9);
+            this.groupBox1.Controls.Add(this.txtOMediaF);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.txtOAmpB);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.textBox11);
+            this.groupBox1.Controls.Add(this.txtOMediaB);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtDesvH);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtMediaH);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtMediaF);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtDesvB);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtMediaB);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtAcond);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(14, 12);
             this.groupBox1.Name = "groupBox1";
@@ -387,12 +236,12 @@ namespace TP5
             this.label2.TabIndex = 5;
             this.label2.Text = "Basketball:";
             // 
-            // textBox2
+            // txtMediaB
             // 
-            this.textBox2.Location = new System.Drawing.Point(134, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtMediaB.Location = new System.Drawing.Point(134, 83);
+            this.txtMediaB.Name = "txtMediaB";
+            this.txtMediaB.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaB.TabIndex = 6;
             // 
             // label3
             // 
@@ -424,12 +273,12 @@ namespace TP5
             this.label5.TabIndex = 10;
             this.label5.Text = "Desviación:";
             // 
-            // textBox3
+            // txtDesvB
             // 
-            this.textBox3.Location = new System.Drawing.Point(318, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtDesvB.Location = new System.Drawing.Point(318, 83);
+            this.txtDesvB.Name = "txtDesvB";
+            this.txtDesvB.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvB.TabIndex = 9;
             // 
             // label7
             // 
@@ -451,12 +300,12 @@ namespace TP5
             this.label8.TabIndex = 11;
             this.label8.Text = "Fútbol:";
             // 
-            // textBox5
+            // txtMediaF
             // 
-            this.textBox5.Location = new System.Drawing.Point(134, 112);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 12;
+            this.txtMediaF.Location = new System.Drawing.Point(134, 112);
+            this.txtMediaF.Name = "txtMediaF";
+            this.txtMediaF.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaF.TabIndex = 12;
             // 
             // label6
             // 
@@ -468,12 +317,12 @@ namespace TP5
             this.label6.TabIndex = 18;
             this.label6.Text = "Desviación:";
             // 
-            // textBox4
+            // txtDesvH
             // 
-            this.textBox4.Location = new System.Drawing.Point(318, 141);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 17;
+            this.txtDesvH.Location = new System.Drawing.Point(318, 141);
+            this.txtDesvH.Name = "txtDesvH";
+            this.txtDesvH.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvH.TabIndex = 17;
             // 
             // label9
             // 
@@ -491,16 +340,16 @@ namespace TP5
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(15, 144);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 13);
+            this.label10.Size = new System.Drawing.Size(52, 13);
             this.label10.TabIndex = 14;
-            this.label10.Text = "Basketball:";
+            this.label10.Text = "Handball:";
             // 
-            // textBox6
+            // txtMediaH
             // 
-            this.textBox6.Location = new System.Drawing.Point(134, 141);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 15;
+            this.txtMediaH.Location = new System.Drawing.Point(134, 141);
+            this.txtMediaH.Name = "txtMediaH";
+            this.txtMediaH.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaH.TabIndex = 15;
             // 
             // label11
             // 
@@ -512,12 +361,12 @@ namespace TP5
             this.label11.TabIndex = 32;
             this.label11.Text = "Desviación:";
             // 
-            // textBox7
+            // txtODesvH
             // 
-            this.textBox7.Location = new System.Drawing.Point(773, 141);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 31;
+            this.txtODesvH.Location = new System.Drawing.Point(773, 141);
+            this.txtODesvH.Name = "txtODesvH";
+            this.txtODesvH.Size = new System.Drawing.Size(100, 20);
+            this.txtODesvH.TabIndex = 31;
             // 
             // label12
             // 
@@ -535,16 +384,16 @@ namespace TP5
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(470, 144);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 13);
+            this.label13.Size = new System.Drawing.Size(52, 13);
             this.label13.TabIndex = 28;
-            this.label13.Text = "Basketball:";
+            this.label13.Text = "Handball:";
             // 
-            // textBox8
+            // txtOMediaH
             // 
-            this.textBox8.Location = new System.Drawing.Point(589, 141);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 29;
+            this.txtOMediaH.Location = new System.Drawing.Point(589, 141);
+            this.txtOMediaH.Name = "txtOMediaH";
+            this.txtOMediaH.Size = new System.Drawing.Size(100, 20);
+            this.txtOMediaH.TabIndex = 29;
             // 
             // label14
             // 
@@ -566,12 +415,12 @@ namespace TP5
             this.label15.TabIndex = 25;
             this.label15.Text = "Fútbol:";
             // 
-            // textBox9
+            // txtOMediaF
             // 
-            this.textBox9.Location = new System.Drawing.Point(589, 112);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 26;
+            this.txtOMediaF.Location = new System.Drawing.Point(589, 112);
+            this.txtOMediaF.Name = "txtOMediaF";
+            this.txtOMediaF.Size = new System.Drawing.Size(100, 20);
+            this.txtOMediaF.TabIndex = 26;
             // 
             // label16
             // 
@@ -583,12 +432,12 @@ namespace TP5
             this.label16.TabIndex = 24;
             this.label16.Text = "Amplitud:";
             // 
-            // textBox10
+            // txtOAmpB
             // 
-            this.textBox10.Location = new System.Drawing.Point(773, 83);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 23;
+            this.txtOAmpB.Location = new System.Drawing.Point(773, 83);
+            this.txtOAmpB.Name = "txtOAmpB";
+            this.txtOAmpB.Size = new System.Drawing.Size(100, 20);
+            this.txtOAmpB.TabIndex = 23;
             // 
             // label17
             // 
@@ -620,12 +469,12 @@ namespace TP5
             this.label19.TabIndex = 19;
             this.label19.Text = "Basketball:";
             // 
-            // textBox11
+            // txtOMediaB
             // 
-            this.textBox11.Location = new System.Drawing.Point(589, 83);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 20;
+            this.txtOMediaB.Location = new System.Drawing.Point(589, 83);
+            this.txtOMediaB.Name = "txtOMediaB";
+            this.txtOMediaB.Size = new System.Drawing.Size(100, 20);
+            this.txtOMediaB.TabIndex = 20;
             // 
             // label20
             // 
@@ -637,12 +486,12 @@ namespace TP5
             this.label20.TabIndex = 34;
             this.label20.Text = "Desviación:";
             // 
-            // textBox12
+            // txtODesvF
             // 
-            this.textBox12.Location = new System.Drawing.Point(773, 112);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 33;
+            this.txtODesvF.Location = new System.Drawing.Point(773, 112);
+            this.txtODesvF.Name = "txtODesvF";
+            this.txtODesvF.Size = new System.Drawing.Size(100, 20);
+            this.txtODesvF.TabIndex = 33;
             // 
             // label21
             // 
@@ -654,12 +503,12 @@ namespace TP5
             this.label21.TabIndex = 36;
             this.label21.Text = "Hora de fin de simulación:";
             // 
-            // textBox13
+            // txtHoraFin
             // 
-            this.textBox13.Location = new System.Drawing.Point(1074, 21);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 35;
+            this.txtHoraFin.Location = new System.Drawing.Point(1074, 21);
+            this.txtHoraFin.Name = "txtHoraFin";
+            this.txtHoraFin.Size = new System.Drawing.Size(100, 20);
+            this.txtHoraFin.TabIndex = 35;
             // 
             // label22
             // 
@@ -671,22 +520,23 @@ namespace TP5
             this.label22.TabIndex = 38;
             this.label22.Text = "Iteraciones máximas:";
             // 
-            // textBox14
+            // txtIteraciones
             // 
-            this.textBox14.Location = new System.Drawing.Point(1074, 56);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 37;
+            this.txtIteraciones.Location = new System.Drawing.Point(1074, 56);
+            this.txtIteraciones.Name = "txtIteraciones";
+            this.txtIteraciones.Size = new System.Drawing.Size(100, 20);
+            this.txtIteraciones.TabIndex = 37;
             // 
-            // checkBox1
+            // chkEstadosInter
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(942, 97);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(138, 17);
-            this.checkBox1.TabIndex = 39;
-            this.checkBox1.Text = "Ver estados intermedios";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkEstadosInter.AutoSize = true;
+            this.chkEstadosInter.Location = new System.Drawing.Point(942, 97);
+            this.chkEstadosInter.Name = "chkEstadosInter";
+            this.chkEstadosInter.Size = new System.Drawing.Size(138, 17);
+            this.chkEstadosInter.TabIndex = 39;
+            this.chkEstadosInter.Text = "Ver estados intermedios";
+            this.chkEstadosInter.UseVisualStyleBackColor = true;
+            this.chkEstadosInter.CheckedChanged += new System.EventHandler(this.chkEstadosInter_CheckedChanged);
             // 
             // label23
             // 
@@ -698,12 +548,12 @@ namespace TP5
             this.label23.TabIndex = 43;
             this.label23.Text = "Iteraciones a ver:";
             // 
-            // textBox15
+            // txtIteracionesHasta
             // 
-            this.textBox15.Location = new System.Drawing.Point(1039, 156);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 42;
+            this.txtIteracionesHasta.Location = new System.Drawing.Point(1039, 156);
+            this.txtIteracionesHasta.Name = "txtIteracionesHasta";
+            this.txtIteracionesHasta.Size = new System.Drawing.Size(100, 20);
+            this.txtIteracionesHasta.TabIndex = 42;
             // 
             // label24
             // 
@@ -715,12 +565,190 @@ namespace TP5
             this.label24.TabIndex = 41;
             this.label24.Text = "Ver desde hora:";
             // 
-            // textBox16
+            // txtHoraDesde
             // 
-            this.textBox16.Location = new System.Drawing.Point(1039, 121);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 20);
-            this.textBox16.TabIndex = 40;
+            this.txtHoraDesde.Location = new System.Drawing.Point(1039, 121);
+            this.txtHoraDesde.Name = "txtHoraDesde";
+            this.txtHoraDesde.Size = new System.Drawing.Size(100, 20);
+            this.txtHoraDesde.TabIndex = 40;
+            // 
+            // evento
+            // 
+            this.evento.HeaderText = "Evento";
+            this.evento.Name = "evento";
+            this.evento.Width = 200;
+            // 
+            // reloj
+            // 
+            this.reloj.HeaderText = "Reloj";
+            this.reloj.Name = "reloj";
+            // 
+            // fin_acond
+            // 
+            this.fin_acond.HeaderText = "Fin Acond. Cancha";
+            this.fin_acond.Name = "fin_acond";
+            this.fin_acond.Width = 75;
+            // 
+            // rnd_llg_basket
+            // 
+            this.rnd_llg_basket.HeaderText = "RND LLeg. Grupo Basket";
+            this.rnd_llg_basket.Name = "rnd_llg_basket";
+            this.rnd_llg_basket.Width = 50;
+            // 
+            // tiempo_llg_basket
+            // 
+            this.tiempo_llg_basket.HeaderText = "Tiempo Lleg. Grupo Basket";
+            this.tiempo_llg_basket.Name = "tiempo_llg_basket";
+            this.tiempo_llg_basket.Width = 75;
+            // 
+            // prox_llg_basket
+            // 
+            this.prox_llg_basket.HeaderText = "Prox Lleg. Grupo Basket";
+            this.prox_llg_basket.Name = "prox_llg_basket";
+            this.prox_llg_basket.Width = 75;
+            // 
+            // rnd_llg_futbol
+            // 
+            this.rnd_llg_futbol.HeaderText = "RND Lleg. Grupo Futbol";
+            this.rnd_llg_futbol.Name = "rnd_llg_futbol";
+            this.rnd_llg_futbol.Width = 50;
+            // 
+            // tiempo_llg_futbol
+            // 
+            this.tiempo_llg_futbol.HeaderText = "Tiempo Lleg. Grupo Futbol";
+            this.tiempo_llg_futbol.Name = "tiempo_llg_futbol";
+            this.tiempo_llg_futbol.Width = 75;
+            // 
+            // prox_llg_futbol
+            // 
+            this.prox_llg_futbol.HeaderText = "Prox. Lleg. Grupo Futbol";
+            this.prox_llg_futbol.Name = "prox_llg_futbol";
+            this.prox_llg_futbol.Width = 75;
+            // 
+            // rnd_llg_handball
+            // 
+            this.rnd_llg_handball.HeaderText = "RND Lleg. Grupo Handball";
+            this.rnd_llg_handball.Name = "rnd_llg_handball";
+            this.rnd_llg_handball.Width = 50;
+            // 
+            // tiempo_llg_handball
+            // 
+            this.tiempo_llg_handball.HeaderText = "Tiempo Lleg Handball";
+            this.tiempo_llg_handball.Name = "tiempo_llg_handball";
+            this.tiempo_llg_handball.Width = 75;
+            // 
+            // prox_llg_handball
+            // 
+            this.prox_llg_handball.HeaderText = "Prox. Lleg. Grupo Handball";
+            this.prox_llg_handball.Name = "prox_llg_handball";
+            this.prox_llg_handball.Width = 75;
+            // 
+            // rnd_ocu_basket
+            // 
+            this.rnd_ocu_basket.HeaderText = "RND Oc. Cancha Basket";
+            this.rnd_ocu_basket.Name = "rnd_ocu_basket";
+            this.rnd_ocu_basket.Width = 50;
+            // 
+            // tiempo_ocu_basket
+            // 
+            this.tiempo_ocu_basket.HeaderText = "Tiempo Oc. Cancha Basket";
+            this.tiempo_ocu_basket.Name = "tiempo_ocu_basket";
+            this.tiempo_ocu_basket.Width = 75;
+            // 
+            // fin_ocu_basket
+            // 
+            this.fin_ocu_basket.HeaderText = "Fin Oc. Cancha Basket";
+            this.fin_ocu_basket.Name = "fin_ocu_basket";
+            this.fin_ocu_basket.Width = 75;
+            // 
+            // rnd_ocu_f
+            // 
+            this.rnd_ocu_f.HeaderText = "RND Oc. Cancha Futbol";
+            this.rnd_ocu_f.Name = "rnd_ocu_f";
+            this.rnd_ocu_f.Width = 50;
+            // 
+            // tiempo_ocu_f
+            // 
+            this.tiempo_ocu_f.HeaderText = "Tiempo Oc. Cancha Futbol";
+            this.tiempo_ocu_f.Name = "tiempo_ocu_f";
+            this.tiempo_ocu_f.Width = 75;
+            // 
+            // fin_ocu_f
+            // 
+            this.fin_ocu_f.HeaderText = "Fin Oc. Cancha Futbol";
+            this.fin_ocu_f.Name = "fin_ocu_f";
+            this.fin_ocu_f.Width = 75;
+            // 
+            // rnd_ocu_h
+            // 
+            this.rnd_ocu_h.HeaderText = "RND Oc. Cancha Handball";
+            this.rnd_ocu_h.Name = "rnd_ocu_h";
+            this.rnd_ocu_h.Width = 50;
+            // 
+            // tiempo_ocu_h
+            // 
+            this.tiempo_ocu_h.HeaderText = "Tiempo Oc. Cancha Handball";
+            this.tiempo_ocu_h.Name = "tiempo_ocu_h";
+            this.tiempo_ocu_h.Width = 75;
+            // 
+            // fin_ocu_h
+            // 
+            this.fin_ocu_h.HeaderText = "Fin Oc. Cancha Handball";
+            this.fin_ocu_h.Name = "fin_ocu_h";
+            this.fin_ocu_h.Width = 75;
+            // 
+            // estado_cancha
+            // 
+            this.estado_cancha.HeaderText = "Estado Cancha";
+            this.estado_cancha.Name = "estado_cancha";
+            // 
+            // cola
+            // 
+            this.cola.HeaderText = "Cola Cancha";
+            this.cola.Name = "cola";
+            this.cola.Width = 50;
+            // 
+            // cont_b
+            // 
+            this.cont_b.HeaderText = "Cont. Grupos Basket";
+            this.cont_b.Name = "cont_b";
+            this.cont_b.Width = 50;
+            // 
+            // cont_f
+            // 
+            this.cont_f.HeaderText = "Cont. Grupos Futbol";
+            this.cont_f.Name = "cont_f";
+            this.cont_f.Width = 50;
+            // 
+            // cont_h
+            // 
+            this.cont_h.HeaderText = "Cont. Grupos Handball";
+            this.cont_h.Name = "cont_h";
+            this.cont_h.Width = 50;
+            // 
+            // espera_b
+            // 
+            this.espera_b.HeaderText = "Acum. Espera Basket";
+            this.espera_b.Name = "espera_b";
+            this.espera_b.Width = 75;
+            // 
+            // espera_f
+            // 
+            this.espera_f.HeaderText = "Acum. Espera Futbol";
+            this.espera_f.Name = "espera_f";
+            this.espera_f.Width = 75;
+            // 
+            // espera_h
+            // 
+            this.espera_h.HeaderText = "Acum. Espera Handball";
+            this.espera_h.Name = "espera_h";
+            this.espera_h.Width = 75;
+            // 
+            // acum_ocu
+            // 
+            this.acum_ocu.HeaderText = "Acum. Oc. Cancha";
+            this.acum_ocu.Name = "acum_ocu";
+            this.acum_ocu.Width = 75;
             // 
             // Form1
             // 
@@ -728,14 +756,14 @@ namespace TP5
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1290, 594);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.textBox15);
+            this.Controls.Add(this.txtIteracionesHasta);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.txtHoraDesde);
+            this.Controls.Add(this.chkEstadosInter);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.txtIteraciones);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.txtHoraFin);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -753,6 +781,48 @@ namespace TP5
         #endregion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAcond;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDesvB;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtMediaB;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtODesvF;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtODesvH;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtOMediaH;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtOMediaF;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtOAmpB;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtOMediaB;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDesvH;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtMediaH;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtMediaF;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtHoraFin;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtIteraciones;
+        private System.Windows.Forms.CheckBox chkEstadosInter;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txtIteracionesHasta;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txtHoraDesde;
         private System.Windows.Forms.DataGridViewTextBoxColumn evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.DataGridViewTextBoxColumn fin_acond;
@@ -783,48 +853,6 @@ namespace TP5
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_f;
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_h;
         private System.Windows.Forms.DataGridViewTextBoxColumn acum_ocu;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox16;
     }
 }
 
