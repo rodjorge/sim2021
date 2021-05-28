@@ -38,7 +38,9 @@ namespace TP5.classes.modelos.clientes
         public float TiempoComienzoJuego { get => tiempoComienzoJuego; set => tiempoComienzoJuego = value; }
         internal EstadoGrupo Estado { get => estado; set => estado = value; }
 
-        public bool EsBasket() { return disciplina == Grupo.Disciplinas.Basketball; }
+        public bool EsBasket() => disciplina == Grupo.Disciplinas.Basketball;
+        public bool EsFutbol() => disciplina == Grupo.Disciplinas.Futbol;
+        public bool EsHandball() => disciplina == Grupo.Disciplinas.Handball;
 
         public void EsperarCancha() { Estado.EsperarCancha(this); }
         public void EmpezarJugar(float tiempoComienzoJuego) { 

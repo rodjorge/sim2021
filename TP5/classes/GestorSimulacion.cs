@@ -108,6 +108,47 @@ namespace TP5.classes
                         if(this.cancha.ColaGrupos.Count != 0)
                         {
                             //Se hace pasar al siguiente grupo de la cola
+                            Grupo grupoPorPasar = this.cancha.ColaGrupos.Dequeue();
+                            if(grupoPorPasar.EsBasket())
+                            {
+                                //Si el grupo por pasar es de basket, se busca en la cola otro grupo que sea de basket y se lo hace pasar
+                                if(this.buscarGrupoBasketEnCola(out Grupo otroGrupoBasket))
+                                {
+                                    otroGrupoBasket.EmpezarJugar(this.relojMin);
+                                    this.cancha.GruposJugando.Add(otroGrupoBasket);
+                                    this.contadores[0] += 2;
+                                    this.acumuladoresEspera[0] += this.relojMin - grupoPorPasar.HoraLlegada;
+                                    this.acumuladoresEspera[0] += this.relojMin - otroGrupoBasket.HoraLlegada;
+                                    this.eventos[4].generarProximoEvento(this.relojMin);
+                                }
+                                //Si no se encuentra otro grupo que sea de basket, se pone para pasar al siguiente grupo y se devuelve el de basket al frente de la cola
+                                else
+                                {
+                                    if(this.cancha.ColaGrupos.Count != 0)
+                                    {
+                                        Grupo grupoBasketRechazado = grupoPorPasar;
+                                        grupoPorPasar = this.cancha.ColaGrupos.Dequeue();
+                                        this.cancha.ColaGrupos = new Queue<Grupo>(this.cancha.ColaGrupos.Prepend(grupoBasketRechazado));
+                                    }
+                                }
+                            }
+
+                            grupoPorPasar.EmpezarJugar(this.relojMin);
+                            this.cancha.GruposJugando.Add(grupoPorPasar);
+                            this.cancha.OcuparCancha();
+
+                            if(grupoPorPasar.EsFutbol())
+                            {
+                                this.contadores[1]++;
+                                this.acumuladoresEspera[1] += this.relojMin - grupoPorPasar.HoraLlegada;
+                                this.eventos[5].generarProximoEvento(this.relojMin);
+                            }
+                            else if (grupoPorPasar.EsHandball())
+                            {
+                                this.contadores[2]++;
+                                this.acumuladoresEspera[2] += this.relojMin - grupoPorPasar.HoraLlegada;
+                                this.eventos[6].generarProximoEvento(this.relojMin);
+                            }
 
                         }
                         else
@@ -184,8 +225,16 @@ namespace TP5.classes
 
         private bool buscarGrupoBasketEnCola(out Grupo encontrado)
         {
-            encontrado = this.cancha.ColaGrupos.ToList().Find(grupo => grupo.EsBasket());
-            return encontrado != null;
+            encontrado = null;
+            List<Grupo> colaHechaLista = this.cancha.ColaGrupos.ToList();
+            int indexEncontrado = colaHechaLista.FindIndex(grupo => grupo.EsBasket());
+            if (indexEncontrado != -1)
+            {
+                encontrado = colaHechaLista[indexEncontrado];
+                colaHechaLista.RemoveAt(indexEncontrado);
+                this.cancha.ColaGrupos = new Queue<Grupo>(colaHechaLista);
+            }
+            return indexEncontrado != -1;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TP5.classes.modelos.servidores
     {
         private readonly uint numero;
         private EstadoCancha estado;
-        private readonly Queue<Grupo> colaGrupos;
+        private Queue<Grupo> colaGrupos;
         private readonly List<Grupo> gruposJugando;
 
         public Cancha(uint nro) : this(nro, Libre.Instancia) { }
@@ -24,7 +24,7 @@ namespace TP5.classes.modelos.servidores
         }
         public uint Numero { get => numero; }
         public EstadoCancha Estado { get => estado; set => estado = value; }
-        public Queue<Grupo> ColaGrupos { get => colaGrupos; }
+        public Queue<Grupo> ColaGrupos { get => colaGrupos; set => colaGrupos = value; }
 
         public List<Grupo> GruposJugando => gruposJugando;
 
