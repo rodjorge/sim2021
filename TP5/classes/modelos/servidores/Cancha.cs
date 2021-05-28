@@ -30,9 +30,12 @@ namespace TP5.classes.modelos.servidores
 
         public void LiberarCancha() { 
             Estado.LiberarCancha(this);
-            this.gruposJugando.Clear();    
         }
         public void OcuparCancha() { Estado.OcuparCancha(this); }
         public void AcondicionarCancha() { Estado.AcondicionarCancha(this); }
+        public bool EstaOcupada() => Estado.EstaOcupada();
+        public bool EstaLibre() => Estado.EstaLibre();
+
+        public void SacarEquiposCancha() => GruposJugando.Clear();
     }
 }

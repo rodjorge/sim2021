@@ -35,6 +35,8 @@ namespace TP5.classes.modelos.eventos
             this.tiempoEntreEventos = null;
         }
 
+        public void borrarProximoEvento() { this.proximoEvento = null; }
+
         public abstract double generarTiempoEntreEventos();
     }
 }
