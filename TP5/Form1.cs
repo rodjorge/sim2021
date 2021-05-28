@@ -20,7 +20,16 @@ namespace TP5
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Resetear grilla
+            dataGridView1.Rows.Clear();
+            for (int i = dataGridView1.Columns.Count-1; i > 29; i--)
+            {
+                dataGridView1.Columns.RemoveAt(i);
+            }
+
             //Validar parametros ingresados
+            if (!this.validarDatos())
+                return;
 
             //Extraer parametros
             double acond = Convert.ToDouble(txtAcond.Text);
@@ -82,6 +91,199 @@ namespace TP5
             foreach (string[] fila in resFormateados) {
                 dataGridView1.Rows.Add(fila);
             }
+
+            //Calcular datos pedidos por el ejercicio y mostrarlos
+            object[] ultimoEstado = resultados[resultados.Count - 1];
+            double promB = this.truncar(Convert.ToDouble(ultimoEstado[26]) / Convert.ToInt32(ultimoEstado[23]), 4);
+            double promF = this.truncar(Convert.ToDouble(ultimoEstado[27]) / Convert.ToInt32(ultimoEstado[24]), 4);
+            double promH = this.truncar(Convert.ToDouble(ultimoEstado[28]) / Convert.ToInt32(ultimoEstado[25]), 4);
+            lblPromB.Text = promB.ToString();
+            lblPromF.Text = promF.ToString();
+            lblPromH.Text = promH.ToString();
+
+            double tasaOcupacion = this.truncar(Convert.ToDouble(ultimoEstado[29])/Convert.ToDouble(ultimoEstado[1])*100 ,4);
+            lblTasaOcupacion.Text = tasaOcupacion.ToString() + "%";
+        }
+
+        private bool validarDatos()
+        {
+            if(!Double.TryParse(txtAcond.Text, out double acond))
+            {
+                MessageBox.Show("El tiempo de acondicionamiento debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(acond < 0)
+            {
+                MessageBox.Show("El tiempo de acondicionamiento debe ser un numero positivo","Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtMediaB.Text, out double mediaB))
+            {
+                MessageBox.Show("La media de tiempo de llegada de grupos de basketball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (mediaB < 0)
+            {
+                MessageBox.Show("La media de tiempo de llegada de grupos de basketball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtDesvB.Text, out double desvB))
+            {
+                MessageBox.Show("La desviación de tiempo de llegada de grupos de basketball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (desvB < 0)
+            {
+                MessageBox.Show("La desviación de tiempo de llegada de grupos de basketball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtMediaF.Text, out double mediaF))
+            {
+                MessageBox.Show("La media de tiempo de llegada de grupos de futbol debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (mediaF < 0)
+            {
+                MessageBox.Show("La media de tiempo de llegada de grupos de futbol debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtMediaH.Text, out double mediaH))
+            {
+                MessageBox.Show("La media de tiempo de llegada de grupos de handball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (mediaH < 0)
+            {
+                MessageBox.Show("La media de tiempo de llegada de grupos de handball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtDesvH.Text, out double desvH))
+            {
+                MessageBox.Show("La desviación de tiempo de llegada de grupos de handball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (desvH < 0)
+            {
+                MessageBox.Show("La desviación de tiempo de llegada de grupos de handball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtOMediaB.Text, out double OmediaB))
+            {
+                MessageBox.Show("La media de tiempo de ocupación de cancha de grupos de basketball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (OmediaB < 0)
+            {
+                MessageBox.Show("La media de tiempo de ocupación de cancha de grupos de basketball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtOAmpB.Text, out double OAmpB))
+            {
+                MessageBox.Show("La amplitud de tiempo de ocupación de cancha de grupos de basketball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (OAmpB < 0)
+            {
+                MessageBox.Show("La amplitud de tiempo de ocupación de cancha de grupos de basketball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtOMediaF.Text, out double OmediaF))
+            {
+                MessageBox.Show("La media de tiempo de tiempo de ocupación de cancha de grupos de futbol debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (OmediaF < 0)
+            {
+                MessageBox.Show("La media de tiempo de tiempo de ocupación de cancha de grupos de futbol debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtODesvH.Text, out double OdesvF))
+            {
+                MessageBox.Show("La desviación de tiempo de tiempo de ocupación de cancha de grupos de futbol debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (OdesvF < 0)
+            {
+                MessageBox.Show("La desviación de tiempo de tiempo de ocupación de cancha de grupos de futbol debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtOMediaH.Text, out double OmediaH))
+            {
+                MessageBox.Show("La media de tiempo de tiempo de ocupación de cancha de grupos de handball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (OmediaH < 0)
+            {
+                MessageBox.Show("La media de tiempo de tiempo de ocupación de cancha de grupos de handball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtODesvF.Text, out double OdesvH))
+            {
+                MessageBox.Show("La desviación de tiempo de tiempo de ocupación de cancha de grupos de handball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (OdesvH < 0)
+            {
+                MessageBox.Show("La desviación de tiempo de tiempo de ocupación de cancha de grupos de handball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtHoraFin.Text, out double horaFin))
+            {
+                MessageBox.Show("La hora de fin de la simulación debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (horaFin < 0)
+            {
+                MessageBox.Show("La hora de fin de la simulación debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Int32.TryParse(txtIteraciones.Text, out int iteraciones))
+            {
+                MessageBox.Show("Las iteraciones de la simulación deben ser un numero entero", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (iteraciones < 0)
+            {
+                MessageBox.Show("Las iteraciones de la simulación deben ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtHoraDesde.Text, out double horaDesde))
+            {
+                MessageBox.Show("La hora desde la que ver los vectores de estado debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (horaDesde < 0)
+            {
+                MessageBox.Show("La hora desde la que ver los vectores de estado debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Int32.TryParse(txtIteracionesHasta.Text, out int iteracionesHasta))
+            {
+                MessageBox.Show("La cantidad de iteraciones a ver debe ser un numero entero", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (iteracionesHasta < 0)
+            {
+                MessageBox.Show("La cantidad de iteraciones a ver debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
 
         private string[] armarFila(object[] vector)
@@ -179,6 +381,27 @@ namespace TP5
 
             txtIteracionesHasta.Clear();
             txtIteracionesHasta.Enabled = chkEstadosInter.Checked;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txtAcond.Text = "10";
+            txtMediaB.Text = (8 * 60).ToString();
+            txtDesvB.Text = (2 * 60).ToString();
+            txtMediaF.Text = (10 * 60).ToString();
+            txtMediaH.Text = (12 * 60).ToString();
+            txtDesvH.Text = (2 * 60).ToString();
+            txtOMediaB.Text = "100";
+            txtOAmpB.Text = "30";
+            txtOMediaF.Text = "90";
+            txtODesvF.Text = "10";
+            txtOMediaH.Text = "80";
+            txtODesvH.Text = "20";
         }
     }
 }

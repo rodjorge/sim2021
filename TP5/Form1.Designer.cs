@@ -29,7 +29,7 @@ namespace TP5
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -104,6 +104,14 @@ namespace TP5
             this.espera_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espera_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acum_ocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.lblPromB = new System.Windows.Forms.Label();
+            this.lblPromF = new System.Windows.Forms.Label();
+            this.lblPromH = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lblTasaOcupacion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -121,14 +129,14 @@ namespace TP5
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.evento,
@@ -225,6 +233,7 @@ namespace TP5
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros (en minutos)";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label2
             // 
@@ -530,6 +539,8 @@ namespace TP5
             // chkEstadosInter
             // 
             this.chkEstadosInter.AutoSize = true;
+            this.chkEstadosInter.Checked = true;
+            this.chkEstadosInter.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEstadosInter.Location = new System.Drawing.Point(942, 97);
             this.chkEstadosInter.Name = "chkEstadosInter";
             this.chkEstadosInter.Size = new System.Drawing.Size(138, 17);
@@ -750,11 +761,102 @@ namespace TP5
             this.acum_ocu.Name = "acum_ocu";
             this.acum_ocu.Width = 75;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(11, 610);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(650, 16);
+            this.label25.TabIndex = 44;
+            this.label25.Text = "Tiempo promedio de espera de grupos de basket (Acum espera basket/cont grupos bas" +
+    "ket):";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(11, 642);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(623, 16);
+            this.label26.TabIndex = 45;
+            this.label26.Text = "Tiempo promedio de espera de grupos de futbol (Acum espera futbol/cont grupos fut" +
+    "bol):";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(12, 674);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(689, 16);
+            this.label27.TabIndex = 46;
+            this.label27.Text = "Tiempo promedio de espera de grupos de handball (Acum espera handball/cont grupos" +
+    " handball):";
+            // 
+            // lblPromB
+            // 
+            this.lblPromB.AutoSize = true;
+            this.lblPromB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromB.Location = new System.Drawing.Point(667, 612);
+            this.lblPromB.Name = "lblPromB";
+            this.lblPromB.Size = new System.Drawing.Size(26, 16);
+            this.lblPromB.TabIndex = 47;
+            this.lblPromB.Text = "      ";
+            // 
+            // lblPromF
+            // 
+            this.lblPromF.AutoSize = true;
+            this.lblPromF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromF.Location = new System.Drawing.Point(653, 645);
+            this.lblPromF.Name = "lblPromF";
+            this.lblPromF.Size = new System.Drawing.Size(26, 16);
+            this.lblPromF.TabIndex = 48;
+            this.lblPromF.Text = "      ";
+            // 
+            // lblPromH
+            // 
+            this.lblPromH.AutoSize = true;
+            this.lblPromH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromH.Location = new System.Drawing.Point(707, 677);
+            this.lblPromH.Name = "lblPromH";
+            this.lblPromH.Size = new System.Drawing.Size(26, 16);
+            this.lblPromH.TabIndex = 49;
+            this.lblPromH.Text = "      ";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(12, 708);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(416, 16);
+            this.label28.TabIndex = 50;
+            this.label28.Text = "Tasa de ocupación de la cancha(Acum. Oc. Cancha/Reloj):";
+            // 
+            // lblTasaOcupacion
+            // 
+            this.lblTasaOcupacion.AutoSize = true;
+            this.lblTasaOcupacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTasaOcupacion.Location = new System.Drawing.Point(434, 708);
+            this.lblTasaOcupacion.Name = "lblTasaOcupacion";
+            this.lblTasaOcupacion.Size = new System.Drawing.Size(26, 16);
+            this.lblTasaOcupacion.TabIndex = 51;
+            this.lblTasaOcupacion.Text = "      ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1290, 594);
+            this.ClientSize = new System.Drawing.Size(1290, 733);
+            this.Controls.Add(this.lblTasaOcupacion);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.lblPromH);
+            this.Controls.Add(this.lblPromF);
+            this.Controls.Add(this.lblPromB);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.label25);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.txtIteracionesHasta);
             this.Controls.Add(this.label24);
@@ -770,6 +872,7 @@ namespace TP5
             this.Name = "Form1";
             this.Text = "TP5 - Simulación";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -853,6 +956,14 @@ namespace TP5
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_f;
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_h;
         private System.Windows.Forms.DataGridViewTextBoxColumn acum_ocu;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label lblPromB;
+        private System.Windows.Forms.Label lblPromF;
+        private System.Windows.Forms.Label lblPromH;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lblTasaOcupacion;
     }
 }
 
