@@ -57,14 +57,10 @@ namespace TP5
             this.cont_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cont_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cont_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.espera_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espera_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espera_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acum_ocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acum_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acum_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acum_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +76,7 @@ namespace TP5
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.evento,
@@ -111,13 +108,11 @@ namespace TP5
             this.espera_b,
             this.espera_f,
             this.espera_h,
-            this.acum_ocu,
-            this.acum_b,
-            this.acum_f,
-            this.acum_h});
+            this.acum_ocu});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1264, 150);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(1264, 380);
             this.dataGridView1.TabIndex = 2;
             // 
             // evento
@@ -260,13 +255,6 @@ namespace TP5
             this.cont_h.Name = "cont_h";
             this.cont_h.Width = 30;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(584, 349);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
-            // 
             // espera_b
             // 
             this.espera_b.HeaderText = "Espera B";
@@ -287,34 +275,17 @@ namespace TP5
             this.acum_ocu.HeaderText = "Acum Ocu";
             this.acum_ocu.Name = "acum_ocu";
             // 
-            // acum_b
-            // 
-            this.acum_b.HeaderText = "Acum B";
-            this.acum_b.Name = "acum_b";
-            // 
-            // acum_f
-            // 
-            this.acum_f.HeaderText = "Acum F";
-            this.acum_f.Name = "acum_f";
-            // 
-            // acum_h
-            // 
-            this.acum_h.HeaderText = "Acum H";
-            this.acum_h.Name = "acum_h";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1290, 473);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -347,14 +318,10 @@ namespace TP5
         private System.Windows.Forms.DataGridViewTextBoxColumn cont_b;
         private System.Windows.Forms.DataGridViewTextBoxColumn cont_f;
         private System.Windows.Forms.DataGridViewTextBoxColumn cont_h;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_b;
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_f;
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_h;
         private System.Windows.Forms.DataGridViewTextBoxColumn acum_ocu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acum_b;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acum_f;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acum_h;
     }
 }
 

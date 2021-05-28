@@ -14,13 +14,12 @@ namespace TP5.classes
     class GestorSimulacion
     {
         private float relojMin;
-        private object[] ultimoVectorEstado = new object[34];
+        private object[] ultimoVectorEstado = new object[31];
         private List<Evento> eventos;
         private Cancha cancha;
         private int[] contadores;
         private double[] acumuladoresEspera;
         private double acumOcupacionCancha;
-        private double[] acumuladoresOcupacion;
 
         uint lastNroCliente = 0;
         Grupo.Disciplinas[] disciplinas = new Grupo.Disciplinas[] { Grupo.Disciplinas.Basketball, Grupo.Disciplinas.Futbol, Grupo.Disciplinas.Handball };
@@ -34,7 +33,6 @@ namespace TP5.classes
             this.contadores = new int[] { 0, 0, 0 };
             this.acumuladoresEspera = new double[] { 0, 0, 0 };
             this.acumOcupacionCancha = 0;
-            this.acumuladoresOcupacion = new double[] { 0, 0, 0 };
 
             this.cancha = new Cancha(1);
 
@@ -73,11 +71,8 @@ namespace TP5.classes
             this.ultimoVectorEstado[27] = this.acumuladoresEspera[1];
             this.ultimoVectorEstado[28] = this.acumuladoresEspera[2];
             this.ultimoVectorEstado[29] = this.acumOcupacionCancha;
-            this.ultimoVectorEstado[30] = this.acumuladoresOcupacion[0];
-            this.ultimoVectorEstado[31] = this.acumuladoresOcupacion[1];
-            this.ultimoVectorEstado[32] = this.acumuladoresOcupacion[2];
 
-            this.ultimoVectorEstado[33] = new List<object[]>(); //El ultimo indice del vector estado corresponde a una lista dinamica con datos de los grupos
+            this.ultimoVectorEstado[30] = new List<object[]>(); //El ultimo indice del vector estado corresponde a una lista dinamica con datos de los grupos
 
             iteraciones--;
 
@@ -140,11 +135,17 @@ namespace TP5.classes
                                 //Si no se encuentra otro grupo que sea de basket, se pone para pasar al siguiente grupo y se devuelve el de basket al frente de la cola
                                 else
                                 {
+                                    Grupo grupoBasketRechazado = grupoPorPasar;
                                     if (this.cancha.ColaGrupos.Count != 0)
                                     {
-                                        Grupo grupoBasketRechazado = grupoPorPasar;
                                         grupoPorPasar = this.cancha.ColaGrupos.Dequeue();
                                         this.cancha.ColaGrupos = new Queue<Grupo>(this.cancha.ColaGrupos.Prepend(grupoBasketRechazado));
+                                    }
+                                    else
+                                    {
+                                        this.cancha.ColaGrupos = new Queue<Grupo>(this.cancha.ColaGrupos.Prepend(grupoBasketRechazado));
+                                        this.cancha.LiberarCancha();
+                                        break;
                                     }
                                 }
                             }
@@ -210,7 +211,6 @@ namespace TP5.classes
                         this.eventos[indexProxEvento].borrarProximoEvento();
                         double tiempoOcupacion = this.relojMin - this.cancha.GruposJugando[0].TiempoComienzoJuego;
                         this.acumOcupacionCancha += tiempoOcupacion;
-                        this.acumuladoresOcupacion[indexProxEvento - 4] += tiempoOcupacion;
                         this.cancha.SacarEquiposCancha();
                         this.cancha.AcondicionarCancha();
                         this.eventos[0].generarProximoEvento(this.relojMin);
@@ -238,9 +238,6 @@ namespace TP5.classes
                 this.ultimoVectorEstado[27] = this.acumuladoresEspera[1];
                 this.ultimoVectorEstado[28] = this.acumuladoresEspera[2];
                 this.ultimoVectorEstado[29] = this.acumOcupacionCancha;
-                this.ultimoVectorEstado[30] = this.acumuladoresOcupacion[0];
-                this.ultimoVectorEstado[31] = this.acumuladoresOcupacion[1];
-                this.ultimoVectorEstado[32] = this.acumuladoresOcupacion[2];
 
                 //Creando lista de objetos temporales para asignarla al ultimo indice del vector estado
                 List<object[]> listaEstadosObjTemp = new List<object[]>();
@@ -268,7 +265,7 @@ namespace TP5.classes
                     listaEstadosObjTemp.Add(estadoGrupo);
                 }
 
-                this.ultimoVectorEstado[33] = listaEstadosObjTemp;
+                this.ultimoVectorEstado[30] = listaEstadosObjTemp;
 
                 //Lógica de persistencia de vectores estado seleccionados
                 if (this.relojMin >= horaVerDesde && iteracionesVerHasta > 0)
