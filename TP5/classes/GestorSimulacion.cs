@@ -257,7 +257,7 @@ namespace TP5.classes
                     listaEstadosObjTemp.Add(estadoGrupo);
                 }
 
-                foreach (Grupo grupoEnCola in this.cancha.ColaGrupos)
+                foreach (Grupo grupoEnCola in this.cancha.ColaGrupos.ToList())
                 {
                     object[] estadoGrupo = new object[] {
                         grupoEnCola.Numero, //Numero y disciplina solo se usaran para los encabezados de columna
