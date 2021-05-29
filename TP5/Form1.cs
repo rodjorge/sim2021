@@ -69,7 +69,9 @@ namespace TP5
                 resultados = this.simulador.simular(horaFin, iteraciones, parametros, horaDesde, iteracionesHasta);
             }
             else
-                resultados = this.simulador.simular(1000, 20, parametros);
+            { 
+                resultados = this.simulador.simular(horaFin, iteraciones, parametros);
+            }
 
            //Formateo de resultados
            List<string[]> resFormateados = new List<string[]>();
