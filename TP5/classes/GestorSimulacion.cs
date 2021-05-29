@@ -21,7 +21,7 @@ namespace TP5.classes
         private double[] acumuladoresEspera;
         private double acumOcupacionCancha;
 
-        uint lastNroCliente = 0;
+        uint lastNroCliente;
         Grupo.Disciplinas[] disciplinas = new Grupo.Disciplinas[] { Grupo.Disciplinas.Basketball, Grupo.Disciplinas.Futbol, Grupo.Disciplinas.Handball };
 
         public List<object[]> simular(double tiempo, int iteraciones, double[][] paramsEventos) => simular(tiempo, iteraciones, paramsEventos, -1, 0);
@@ -30,6 +30,7 @@ namespace TP5.classes
             //Inicializacion
 
             this.relojMin = 0;
+            this.lastNroCliente = 0;
             this.contadores = new int[] { 0, 0, 0 };
             this.acumuladoresEspera = new double[] { 0, 0, 0 };
             this.acumOcupacionCancha = 0;

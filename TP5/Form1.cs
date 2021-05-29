@@ -26,6 +26,8 @@ namespace TP5
             {
                 dataGridView1.Columns.RemoveAt(i);
             }
+            this.ordenDeLosClientesPorDisciplina.Clear();
+            this.ordenDeLosClientesPorId.Clear();
 
             //Validar parametros ingresados
             if (!this.validarDatos())
