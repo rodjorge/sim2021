@@ -21,11 +21,10 @@ namespace TP5.classes.modelos.eventos
         public void generarProximoEvento(double? reloj)
         {
             this.tiempoEntreEventos = this.generarTiempoEntreEventos();
-            this.random = this.generador.LastRandom;
             this.proximoEvento = reloj + this.tiempoEntreEventos;
         }
 
-        public void generarProximoEvento() => this.generarProximoEvento(this.proximoEvento == null? 0 : this.proximoEvento);
+        public void generarProximoEvento() => this.generarProximoEvento(this.proximoEvento == null ? 0 : this.proximoEvento);
 
         public Evento()
         {
@@ -36,11 +35,13 @@ namespace TP5.classes.modelos.eventos
         }
 
         public void borrarProximoEvento() { this.proximoEvento = null; }
-        public void borrarDatosTemporales()
+        public virtual void borrarDatosTemporales()
         {
             this.random = null;
             this.tiempoEntreEventos = null;
         }
+
+        public virtual bool tieneDistribucionNormal() => false; 
 
         public abstract double generarTiempoEntreEventos();
     }

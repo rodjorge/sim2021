@@ -18,7 +18,9 @@ namespace TP5.classes.modelos.eventos
 
         public override double generarTiempoEntreEventos()
         {
-            return this.generador.generarVariableUniforme(this.limInf, this.limSup);
+            double variable = this.generador.generarVariableUniforme(this.limInf, this.limSup, out double random);
+            this.random = random;
+            return variable;
         }
 
         public override string ToString()

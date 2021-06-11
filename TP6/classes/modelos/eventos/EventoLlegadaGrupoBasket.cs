@@ -6,19 +6,12 @@ using System.Threading.Tasks;
 
 namespace TP5.classes.modelos.eventos
 {
-    class EventoLlegadaGrupoBasket : Evento
+    class EventoLlegadaGrupoBasket : EventoConNormal
     {
-        private double media, desviacion;
 
-        public EventoLlegadaGrupoBasket(double media, double desviacion)
+        public EventoLlegadaGrupoBasket(double media, double desviacion): base(media, desviacion)
         {
-            this.media = media;
-            this.desviacion = desviacion;
-        }
-
-        public override double generarTiempoEntreEventos()
-        {
-            return this.generador.generarVariableNormal(this.media, this.desviacion)[0];
+            
         }
 
         public override string ToString()

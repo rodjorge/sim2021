@@ -64,6 +64,7 @@
     <Compile Include="classes\modelos\estados\Libre.cs" />
     <Compile Include="classes\modelos\estados\Ocupada.cs" />
     <Compile Include="classes\modelos\eventos\Evento.cs" />
+    <Compile Include="classes\modelos\eventos\EventoConNormal.cs" />
     <Compile Include="classes\modelos\eventos\EventoFinAcondicionamientoCancha.cs" />
     <Compile Include="classes\modelos\eventos\EventoFinOcupacionCanchaBasket.cs" />
     <Compile Include="classes\modelos\eventos\EventoFinOcupacionCanchaFutbol.cs" />

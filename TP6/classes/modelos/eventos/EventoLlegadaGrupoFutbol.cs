@@ -17,7 +17,9 @@ namespace TP5.classes.modelos.eventos
 
         public override double generarTiempoEntreEventos()
         {
-            return this.generador.generarVariableExponencialConMedia(this.lambda);
+            double variable = this.generador.generarVariableExponencialConMedia(this.lambda, out double random);
+            this.random = random;
+            return variable;
         }
         public override string ToString()
         {
