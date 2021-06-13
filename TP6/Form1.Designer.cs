@@ -32,45 +32,6 @@ namespace TP5
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_acond = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prox_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prox_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prox_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado_cancha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cont_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cont_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cont_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.espera_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.espera_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.espera_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acum_ocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAcond = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtODesvF = new System.Windows.Forms.TextBox();
@@ -119,8 +80,56 @@ namespace TP5
             this.lblPromH = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.lblTasaOcupacion = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDBasket = new System.Windows.Forms.TextBox();
+            this.txtDFutbol = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtDHandball = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtH = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_acond = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_acond = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prox_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prox_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prox_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado_cancha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.espera_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.espera_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.espera_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acum_ocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -136,6 +145,8 @@ namespace TP5
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,6 +159,7 @@ namespace TP5
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.evento,
             this.reloj,
+            this.tiempo_acond,
             this.fin_acond,
             this.rnd_llg_basket,
             this.rnd2_llg_basket,
@@ -183,10 +195,585 @@ namespace TP5
             this.espera_f,
             this.espera_h,
             this.acum_ocu});
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(14, 202);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1264, 380);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.txtODesvF);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtODesvH);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.txtOMediaH);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.txtOMediaF);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.txtOAmpB);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.txtOMediaB);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtDesvH);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtMediaH);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtMediaF);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtDesvB);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtMediaB);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(14, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(892, 134);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Parámetros (en minutos)";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(704, 81);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(63, 13);
+            this.label20.TabIndex = 34;
+            this.label20.Text = "Desviación:";
+            // 
+            // txtODesvF
+            // 
+            this.txtODesvF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtODesvF.Location = new System.Drawing.Point(773, 78);
+            this.txtODesvF.Name = "txtODesvF";
+            this.txtODesvF.Size = new System.Drawing.Size(100, 20);
+            this.txtODesvF.TabIndex = 33;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(704, 110);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Desviación:";
+            // 
+            // txtODesvH
+            // 
+            this.txtODesvH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtODesvH.Location = new System.Drawing.Point(773, 107);
+            this.txtODesvH.Name = "txtODesvH";
+            this.txtODesvH.Size = new System.Drawing.Size(100, 20);
+            this.txtODesvH.TabIndex = 31;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(544, 110);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 13);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Media:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(470, 110);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(52, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Handball:";
+            // 
+            // txtOMediaH
+            // 
+            this.txtOMediaH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOMediaH.Location = new System.Drawing.Point(589, 107);
+            this.txtOMediaH.Name = "txtOMediaH";
+            this.txtOMediaH.Size = new System.Drawing.Size(100, 20);
+            this.txtOMediaH.TabIndex = 29;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(544, 81);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(39, 13);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Media:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(470, 81);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(39, 13);
+            this.label15.TabIndex = 25;
+            this.label15.Text = "Fútbol:";
+            // 
+            // txtOMediaF
+            // 
+            this.txtOMediaF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOMediaF.Location = new System.Drawing.Point(589, 78);
+            this.txtOMediaF.Name = "txtOMediaF";
+            this.txtOMediaF.Size = new System.Drawing.Size(100, 20);
+            this.txtOMediaF.TabIndex = 26;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(704, 52);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 13);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Amplitud:";
+            // 
+            // txtOAmpB
+            // 
+            this.txtOAmpB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOAmpB.Location = new System.Drawing.Point(773, 49);
+            this.txtOAmpB.Name = "txtOAmpB";
+            this.txtOAmpB.Size = new System.Drawing.Size(100, 20);
+            this.txtOAmpB.TabIndex = 23;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(544, 52);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(39, 13);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Media:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(461, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(136, 13);
+            this.label18.TabIndex = 21;
+            this.label18.Text = "Ocupación de cancha:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(470, 52);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(59, 13);
+            this.label19.TabIndex = 19;
+            this.label19.Text = "Basketball:";
+            // 
+            // txtOMediaB
+            // 
+            this.txtOMediaB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOMediaB.Location = new System.Drawing.Point(589, 49);
+            this.txtOMediaB.Name = "txtOMediaB";
+            this.txtOMediaB.Size = new System.Drawing.Size(100, 20);
+            this.txtOMediaB.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(249, 110);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Desviación:";
+            // 
+            // txtDesvH
+            // 
+            this.txtDesvH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesvH.Location = new System.Drawing.Point(318, 107);
+            this.txtDesvH.Name = "txtDesvH";
+            this.txtDesvH.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvH.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(89, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(39, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Media:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(15, 110);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Handball:";
+            // 
+            // txtMediaH
+            // 
+            this.txtMediaH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMediaH.Location = new System.Drawing.Point(134, 107);
+            this.txtMediaH.Name = "txtMediaH";
+            this.txtMediaH.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaH.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(89, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Media:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(15, 81);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Fútbol:";
+            // 
+            // txtMediaF
+            // 
+            this.txtMediaF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMediaF.Location = new System.Drawing.Point(134, 78);
+            this.txtMediaF.Name = "txtMediaF";
+            this.txtMediaF.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaF.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(249, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Desviación:";
+            // 
+            // txtDesvB
+            // 
+            this.txtDesvB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesvB.Location = new System.Drawing.Point(318, 49);
+            this.txtDesvB.Name = "txtDesvB";
+            this.txtDesvB.Size = new System.Drawing.Size(100, 20);
+            this.txtDesvB.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(89, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Media:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Llegadas:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Basketball:";
+            // 
+            // txtMediaB
+            // 
+            this.txtMediaB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMediaB.Location = new System.Drawing.Point(134, 49);
+            this.txtMediaB.Name = "txtMediaB";
+            this.txtMediaB.Size = new System.Drawing.Size(100, 20);
+            this.txtMediaB.TabIndex = 6;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(939, 24);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(129, 13);
+            this.label21.TabIndex = 36;
+            this.label21.Text = "Hora de fin de simulación:";
+            // 
+            // txtHoraFin
+            // 
+            this.txtHoraFin.Location = new System.Drawing.Point(1074, 21);
+            this.txtHoraFin.Name = "txtHoraFin";
+            this.txtHoraFin.Size = new System.Drawing.Size(100, 20);
+            this.txtHoraFin.TabIndex = 35;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(939, 59);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(105, 13);
+            this.label22.TabIndex = 38;
+            this.label22.Text = "Iteraciones máximas:";
+            // 
+            // txtIteraciones
+            // 
+            this.txtIteraciones.Location = new System.Drawing.Point(1074, 56);
+            this.txtIteraciones.Name = "txtIteraciones";
+            this.txtIteraciones.Size = new System.Drawing.Size(100, 20);
+            this.txtIteraciones.TabIndex = 37;
+            this.txtIteraciones.TextChanged += new System.EventHandler(this.txtIteraciones_TextChanged);
+            // 
+            // chkEstadosInter
+            // 
+            this.chkEstadosInter.AutoSize = true;
+            this.chkEstadosInter.Checked = true;
+            this.chkEstadosInter.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEstadosInter.Location = new System.Drawing.Point(942, 97);
+            this.chkEstadosInter.Name = "chkEstadosInter";
+            this.chkEstadosInter.Size = new System.Drawing.Size(138, 17);
+            this.chkEstadosInter.TabIndex = 39;
+            this.chkEstadosInter.Text = "Ver estados intermedios";
+            this.chkEstadosInter.UseVisualStyleBackColor = true;
+            this.chkEstadosInter.CheckedChanged += new System.EventHandler(this.chkEstadosInter_CheckedChanged);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(939, 159);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(89, 13);
+            this.label23.TabIndex = 43;
+            this.label23.Text = "Iteraciones a ver:";
+            // 
+            // txtIteracionesHasta
+            // 
+            this.txtIteracionesHasta.Location = new System.Drawing.Point(1039, 156);
+            this.txtIteracionesHasta.Name = "txtIteracionesHasta";
+            this.txtIteracionesHasta.Size = new System.Drawing.Size(100, 20);
+            this.txtIteracionesHasta.TabIndex = 42;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(939, 124);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(82, 13);
+            this.label24.TabIndex = 41;
+            this.label24.Text = "Ver desde hora:";
+            // 
+            // txtHoraDesde
+            // 
+            this.txtHoraDesde.Location = new System.Drawing.Point(1039, 121);
+            this.txtHoraDesde.Name = "txtHoraDesde";
+            this.txtHoraDesde.Size = new System.Drawing.Size(100, 20);
+            this.txtHoraDesde.TabIndex = 40;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(11, 610);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(650, 16);
+            this.label25.TabIndex = 44;
+            this.label25.Text = "Tiempo promedio de espera de grupos de basket (Acum espera basket/cont grupos bas" +
+    "ket):";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(11, 642);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(623, 16);
+            this.label26.TabIndex = 45;
+            this.label26.Text = "Tiempo promedio de espera de grupos de futbol (Acum espera futbol/cont grupos fut" +
+    "bol):";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(12, 674);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(689, 16);
+            this.label27.TabIndex = 46;
+            this.label27.Text = "Tiempo promedio de espera de grupos de handball (Acum espera handball/cont grupos" +
+    " handball):";
+            // 
+            // lblPromB
+            // 
+            this.lblPromB.AutoSize = true;
+            this.lblPromB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromB.Location = new System.Drawing.Point(667, 612);
+            this.lblPromB.Name = "lblPromB";
+            this.lblPromB.Size = new System.Drawing.Size(26, 16);
+            this.lblPromB.TabIndex = 47;
+            this.lblPromB.Text = "      ";
+            // 
+            // lblPromF
+            // 
+            this.lblPromF.AutoSize = true;
+            this.lblPromF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromF.Location = new System.Drawing.Point(653, 645);
+            this.lblPromF.Name = "lblPromF";
+            this.lblPromF.Size = new System.Drawing.Size(26, 16);
+            this.lblPromF.TabIndex = 48;
+            this.lblPromF.Text = "      ";
+            // 
+            // lblPromH
+            // 
+            this.lblPromH.AutoSize = true;
+            this.lblPromH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPromH.Location = new System.Drawing.Point(707, 677);
+            this.lblPromH.Name = "lblPromH";
+            this.lblPromH.Size = new System.Drawing.Size(26, 16);
+            this.lblPromH.TabIndex = 49;
+            this.lblPromH.Text = "      ";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(12, 708);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(416, 16);
+            this.label28.TabIndex = 50;
+            this.label28.Text = "Tasa de ocupación de la cancha(Acum. Oc. Cancha/Reloj):";
+            // 
+            // lblTasaOcupacion
+            // 
+            this.lblTasaOcupacion.AutoSize = true;
+            this.lblTasaOcupacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTasaOcupacion.Location = new System.Drawing.Point(434, 708);
+            this.lblTasaOcupacion.Name = "lblTasaOcupacion";
+            this.lblTasaOcupacion.Size = new System.Drawing.Size(26, 16);
+            this.lblTasaOcupacion.TabIndex = 51;
+            this.lblTasaOcupacion.Text = "      ";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtH);
+            this.groupBox2.Controls.Add(this.label31);
+            this.groupBox2.Controls.Add(this.txtDHandball);
+            this.groupBox2.Controls.Add(this.label30);
+            this.groupBox2.Controls.Add(this.txtDFutbol);
+            this.groupBox2.Controls.Add(this.label29);
+            this.groupBox2.Controls.Add(this.txtDBasket);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(15, 152);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(891, 44);
+            this.groupBox2.TabIndex = 52;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Parámetros de acondicionamiento de cancha";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tasa D Basketball:";
+            // 
+            // txtDBasket
+            // 
+            this.txtDBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDBasket.Location = new System.Drawing.Point(116, 18);
+            this.txtDBasket.Name = "txtDBasket";
+            this.txtDBasket.Size = new System.Drawing.Size(100, 20);
+            this.txtDBasket.TabIndex = 35;
+            // 
+            // txtDFutbol
+            // 
+            this.txtDFutbol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDFutbol.Location = new System.Drawing.Point(324, 18);
+            this.txtDFutbol.Name = "txtDFutbol";
+            this.txtDFutbol.Size = new System.Drawing.Size(100, 20);
+            this.txtDFutbol.TabIndex = 37;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(241, 21);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(77, 13);
+            this.label29.TabIndex = 36;
+            this.label29.Text = "Tasa D Fútbol:";
+            // 
+            // txtDHandball
+            // 
+            this.txtDHandball.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDHandball.Location = new System.Drawing.Point(544, 18);
+            this.txtDHandball.Name = "txtDHandball";
+            this.txtDHandball.Size = new System.Drawing.Size(100, 20);
+            this.txtDHandball.TabIndex = 39;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(448, 21);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(90, 13);
+            this.label30.TabIndex = 38;
+            this.label30.Text = "Tasa D Handball:";
+            // 
+            // txtH
+            // 
+            this.txtH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtH.Location = new System.Drawing.Point(772, 18);
+            this.txtH.Name = "txtH";
+            this.txtH.Size = new System.Drawing.Size(100, 20);
+            this.txtH.TabIndex = 41;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(668, 21);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(98, 13);
+            this.label31.TabIndex = 40;
+            this.label31.Text = "Paso integración h:";
             // 
             // evento
             // 
@@ -198,6 +785,12 @@ namespace TP5
             // 
             this.reloj.HeaderText = "Reloj";
             this.reloj.Name = "reloj";
+            // 
+            // tiempo_acond
+            // 
+            this.tiempo_acond.HeaderText = "Tiempo Acond. Cancha";
+            this.tiempo_acond.Name = "tiempo_acond";
+            this.tiempo_acond.Width = 75;
             // 
             // fin_acond
             // 
@@ -408,503 +1001,12 @@ namespace TP5
             this.acum_ocu.Name = "acum_ocu";
             this.acum_ocu.Width = 75;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tiempo de acondicionamiento:";
-            // 
-            // txtAcond
-            // 
-            this.txtAcond.Location = new System.Drawing.Point(164, 25);
-            this.txtAcond.Name = "txtAcond";
-            this.txtAcond.Size = new System.Drawing.Size(100, 20);
-            this.txtAcond.TabIndex = 4;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.txtODesvF);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtODesvH);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.txtOMediaH);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.txtOMediaF);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.txtOAmpB);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.txtOMediaB);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtDesvH);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtMediaH);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtMediaF);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtDesvB);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtMediaB);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtAcond);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(14, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(892, 184);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parámetros (en minutos)";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(704, 115);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(63, 13);
-            this.label20.TabIndex = 34;
-            this.label20.Text = "Desviación:";
-            // 
-            // txtODesvF
-            // 
-            this.txtODesvF.Location = new System.Drawing.Point(773, 112);
-            this.txtODesvF.Name = "txtODesvF";
-            this.txtODesvF.Size = new System.Drawing.Size(100, 20);
-            this.txtODesvF.TabIndex = 33;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(704, 144);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 13);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Desviación:";
-            // 
-            // txtODesvH
-            // 
-            this.txtODesvH.Location = new System.Drawing.Point(773, 141);
-            this.txtODesvH.Name = "txtODesvH";
-            this.txtODesvH.Size = new System.Drawing.Size(100, 20);
-            this.txtODesvH.TabIndex = 31;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(544, 144);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(39, 13);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Media:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(470, 144);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 13);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Handball:";
-            // 
-            // txtOMediaH
-            // 
-            this.txtOMediaH.Location = new System.Drawing.Point(589, 141);
-            this.txtOMediaH.Name = "txtOMediaH";
-            this.txtOMediaH.Size = new System.Drawing.Size(100, 20);
-            this.txtOMediaH.TabIndex = 29;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(544, 115);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Media:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(470, 115);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 13);
-            this.label15.TabIndex = 25;
-            this.label15.Text = "Fútbol:";
-            // 
-            // txtOMediaF
-            // 
-            this.txtOMediaF.Location = new System.Drawing.Point(589, 112);
-            this.txtOMediaF.Name = "txtOMediaF";
-            this.txtOMediaF.Size = new System.Drawing.Size(100, 20);
-            this.txtOMediaF.TabIndex = 26;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(704, 86);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(50, 13);
-            this.label16.TabIndex = 24;
-            this.label16.Text = "Amplitud:";
-            // 
-            // txtOAmpB
-            // 
-            this.txtOAmpB.Location = new System.Drawing.Point(773, 83);
-            this.txtOAmpB.Name = "txtOAmpB";
-            this.txtOAmpB.Size = new System.Drawing.Size(100, 20);
-            this.txtOAmpB.TabIndex = 23;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(544, 86);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 13);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "Media:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(461, 60);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(136, 13);
-            this.label18.TabIndex = 21;
-            this.label18.Text = "Ocupación de cancha:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(470, 86);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(59, 13);
-            this.label19.TabIndex = 19;
-            this.label19.Text = "Basketball:";
-            // 
-            // txtOMediaB
-            // 
-            this.txtOMediaB.Location = new System.Drawing.Point(589, 83);
-            this.txtOMediaB.Name = "txtOMediaB";
-            this.txtOMediaB.Size = new System.Drawing.Size(100, 20);
-            this.txtOMediaB.TabIndex = 20;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(249, 144);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Desviación:";
-            // 
-            // txtDesvH
-            // 
-            this.txtDesvH.Location = new System.Drawing.Point(318, 141);
-            this.txtDesvH.Name = "txtDesvH";
-            this.txtDesvH.Size = new System.Drawing.Size(100, 20);
-            this.txtDesvH.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(89, 144);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Media:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(15, 144);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Handball:";
-            // 
-            // txtMediaH
-            // 
-            this.txtMediaH.Location = new System.Drawing.Point(134, 141);
-            this.txtMediaH.Name = "txtMediaH";
-            this.txtMediaH.Size = new System.Drawing.Size(100, 20);
-            this.txtMediaH.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(89, 115);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Media:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(15, 115);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Fútbol:";
-            // 
-            // txtMediaF
-            // 
-            this.txtMediaF.Location = new System.Drawing.Point(134, 112);
-            this.txtMediaF.Name = "txtMediaF";
-            this.txtMediaF.Size = new System.Drawing.Size(100, 20);
-            this.txtMediaF.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(249, 86);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Desviación:";
-            // 
-            // txtDesvB
-            // 
-            this.txtDesvB.Location = new System.Drawing.Point(318, 83);
-            this.txtDesvB.Name = "txtDesvB";
-            this.txtDesvB.Size = new System.Drawing.Size(100, 20);
-            this.txtDesvB.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(89, 86);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Media:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Llegadas:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Basketball:";
-            // 
-            // txtMediaB
-            // 
-            this.txtMediaB.Location = new System.Drawing.Point(134, 83);
-            this.txtMediaB.Name = "txtMediaB";
-            this.txtMediaB.Size = new System.Drawing.Size(100, 20);
-            this.txtMediaB.TabIndex = 6;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(939, 24);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(129, 13);
-            this.label21.TabIndex = 36;
-            this.label21.Text = "Hora de fin de simulación:";
-            // 
-            // txtHoraFin
-            // 
-            this.txtHoraFin.Location = new System.Drawing.Point(1074, 21);
-            this.txtHoraFin.Name = "txtHoraFin";
-            this.txtHoraFin.Size = new System.Drawing.Size(100, 20);
-            this.txtHoraFin.TabIndex = 35;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(939, 59);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(105, 13);
-            this.label22.TabIndex = 38;
-            this.label22.Text = "Iteraciones máximas:";
-            // 
-            // txtIteraciones
-            // 
-            this.txtIteraciones.Location = new System.Drawing.Point(1074, 56);
-            this.txtIteraciones.Name = "txtIteraciones";
-            this.txtIteraciones.Size = new System.Drawing.Size(100, 20);
-            this.txtIteraciones.TabIndex = 37;
-            this.txtIteraciones.TextChanged += new System.EventHandler(this.txtIteraciones_TextChanged);
-            // 
-            // chkEstadosInter
-            // 
-            this.chkEstadosInter.AutoSize = true;
-            this.chkEstadosInter.Checked = true;
-            this.chkEstadosInter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkEstadosInter.Location = new System.Drawing.Point(942, 97);
-            this.chkEstadosInter.Name = "chkEstadosInter";
-            this.chkEstadosInter.Size = new System.Drawing.Size(138, 17);
-            this.chkEstadosInter.TabIndex = 39;
-            this.chkEstadosInter.Text = "Ver estados intermedios";
-            this.chkEstadosInter.UseVisualStyleBackColor = true;
-            this.chkEstadosInter.CheckedChanged += new System.EventHandler(this.chkEstadosInter_CheckedChanged);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(939, 159);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(89, 13);
-            this.label23.TabIndex = 43;
-            this.label23.Text = "Iteraciones a ver:";
-            // 
-            // txtIteracionesHasta
-            // 
-            this.txtIteracionesHasta.Location = new System.Drawing.Point(1039, 156);
-            this.txtIteracionesHasta.Name = "txtIteracionesHasta";
-            this.txtIteracionesHasta.Size = new System.Drawing.Size(100, 20);
-            this.txtIteracionesHasta.TabIndex = 42;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(939, 124);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(82, 13);
-            this.label24.TabIndex = 41;
-            this.label24.Text = "Ver desde hora:";
-            // 
-            // txtHoraDesde
-            // 
-            this.txtHoraDesde.Location = new System.Drawing.Point(1039, 121);
-            this.txtHoraDesde.Name = "txtHoraDesde";
-            this.txtHoraDesde.Size = new System.Drawing.Size(100, 20);
-            this.txtHoraDesde.TabIndex = 40;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(11, 610);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(650, 16);
-            this.label25.TabIndex = 44;
-            this.label25.Text = "Tiempo promedio de espera de grupos de basket (Acum espera basket/cont grupos bas" +
-    "ket):";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(11, 642);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(623, 16);
-            this.label26.TabIndex = 45;
-            this.label26.Text = "Tiempo promedio de espera de grupos de futbol (Acum espera futbol/cont grupos fut" +
-    "bol):";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(12, 674);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(689, 16);
-            this.label27.TabIndex = 46;
-            this.label27.Text = "Tiempo promedio de espera de grupos de handball (Acum espera handball/cont grupos" +
-    " handball):";
-            // 
-            // lblPromB
-            // 
-            this.lblPromB.AutoSize = true;
-            this.lblPromB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPromB.Location = new System.Drawing.Point(667, 612);
-            this.lblPromB.Name = "lblPromB";
-            this.lblPromB.Size = new System.Drawing.Size(26, 16);
-            this.lblPromB.TabIndex = 47;
-            this.lblPromB.Text = "      ";
-            // 
-            // lblPromF
-            // 
-            this.lblPromF.AutoSize = true;
-            this.lblPromF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPromF.Location = new System.Drawing.Point(653, 645);
-            this.lblPromF.Name = "lblPromF";
-            this.lblPromF.Size = new System.Drawing.Size(26, 16);
-            this.lblPromF.TabIndex = 48;
-            this.lblPromF.Text = "      ";
-            // 
-            // lblPromH
-            // 
-            this.lblPromH.AutoSize = true;
-            this.lblPromH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPromH.Location = new System.Drawing.Point(707, 677);
-            this.lblPromH.Name = "lblPromH";
-            this.lblPromH.Size = new System.Drawing.Size(26, 16);
-            this.lblPromH.TabIndex = 49;
-            this.lblPromH.Text = "      ";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(12, 708);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(416, 16);
-            this.label28.TabIndex = 50;
-            this.label28.Text = "Tasa de ocupación de la cancha(Acum. Oc. Cancha/Reloj):";
-            // 
-            // lblTasaOcupacion
-            // 
-            this.lblTasaOcupacion.AutoSize = true;
-            this.lblTasaOcupacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTasaOcupacion.Location = new System.Drawing.Point(434, 708);
-            this.lblTasaOcupacion.Name = "lblTasaOcupacion";
-            this.lblTasaOcupacion.Size = new System.Drawing.Size(26, 16);
-            this.lblTasaOcupacion.TabIndex = 51;
-            this.lblTasaOcupacion.Text = "      ";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1290, 733);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lblTasaOcupacion);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.lblPromH);
@@ -932,6 +1034,8 @@ namespace TP5
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -940,8 +1044,6 @@ namespace TP5
         #endregion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtAcond;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDesvB;
@@ -990,8 +1092,18 @@ namespace TP5
         private System.Windows.Forms.Label lblPromH;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label lblTasaOcupacion;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtDHandball;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtDFutbol;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtDBasket;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtH;
+        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.DataGridViewTextBoxColumn evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_acond;
         private System.Windows.Forms.DataGridViewTextBoxColumn fin_acond;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_llg_basket;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd2_llg_basket;

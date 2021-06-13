@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Distribucion.cs" />
+    <Compile Include="classes\GestorIntegracionNumerica.cs" />
     <Compile Include="classes\GestorSimulacion.cs" />
     <Compile Include="classes\modelos\clientes\Grupo.cs" />
     <Compile Include="classes\modelos\estados\EnAcondicionamiento.cs" />
