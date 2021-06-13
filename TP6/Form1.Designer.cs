@@ -32,6 +32,43 @@ namespace TP5
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_acond = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prox_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prox_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prox_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_ocu_basket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rnd2_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempo_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fin_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado_cancha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cola = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cont_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.espera_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.espera_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.espera_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acum_ocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAcond = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -82,40 +119,6 @@ namespace TP5
             this.lblPromH = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.lblTasaOcupacion = new System.Windows.Forms.Label();
-            this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_acond = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prox_llg_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prox_llg_futbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prox_llg_handball = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_ocu_basket = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_ocu_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rnd2_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiempo_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fin_ocu_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado_cancha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cola = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cont_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cont_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cont_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.espera_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.espera_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.espera_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acum_ocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -160,6 +163,9 @@ namespace TP5
             this.rnd_ocu_basket,
             this.tiempo_ocu_basket,
             this.fin_ocu_basket,
+            this.rnd_ocu_basket2,
+            this.tiempo_ocu_basket2,
+            this.fin_ocu_basket2,
             this.rnd_ocu_f,
             this.rnd2_ocu_f,
             this.tiempo_ocu_f,
@@ -179,9 +185,228 @@ namespace TP5
             this.acum_ocu});
             this.dataGridView1.Location = new System.Drawing.Point(14, 202);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(1264, 380);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // evento
+            // 
+            this.evento.HeaderText = "Evento";
+            this.evento.Name = "evento";
+            this.evento.Width = 200;
+            // 
+            // reloj
+            // 
+            this.reloj.HeaderText = "Reloj";
+            this.reloj.Name = "reloj";
+            // 
+            // fin_acond
+            // 
+            this.fin_acond.HeaderText = "Fin Acond. Cancha";
+            this.fin_acond.Name = "fin_acond";
+            this.fin_acond.Width = 75;
+            // 
+            // rnd_llg_basket
+            // 
+            this.rnd_llg_basket.HeaderText = "RND 1 LLeg. Grupo Basket";
+            this.rnd_llg_basket.Name = "rnd_llg_basket";
+            this.rnd_llg_basket.Width = 50;
+            // 
+            // rnd2_llg_basket
+            // 
+            this.rnd2_llg_basket.HeaderText = "RND 2 Lleg. Grupo Basket";
+            this.rnd2_llg_basket.Name = "rnd2_llg_basket";
+            this.rnd2_llg_basket.Width = 50;
+            // 
+            // tiempo_llg_basket
+            // 
+            this.tiempo_llg_basket.HeaderText = "Tiempo Lleg. Grupo Basket";
+            this.tiempo_llg_basket.Name = "tiempo_llg_basket";
+            this.tiempo_llg_basket.Width = 75;
+            // 
+            // prox_llg_basket
+            // 
+            this.prox_llg_basket.HeaderText = "Prox Lleg. Grupo Basket";
+            this.prox_llg_basket.Name = "prox_llg_basket";
+            this.prox_llg_basket.Width = 75;
+            // 
+            // rnd_llg_futbol
+            // 
+            this.rnd_llg_futbol.HeaderText = "RND Lleg. Grupo Futbol";
+            this.rnd_llg_futbol.Name = "rnd_llg_futbol";
+            this.rnd_llg_futbol.Width = 50;
+            // 
+            // tiempo_llg_futbol
+            // 
+            this.tiempo_llg_futbol.HeaderText = "Tiempo Lleg. Grupo Futbol";
+            this.tiempo_llg_futbol.Name = "tiempo_llg_futbol";
+            this.tiempo_llg_futbol.Width = 75;
+            // 
+            // prox_llg_futbol
+            // 
+            this.prox_llg_futbol.HeaderText = "Prox. Lleg. Grupo Futbol";
+            this.prox_llg_futbol.Name = "prox_llg_futbol";
+            this.prox_llg_futbol.Width = 75;
+            // 
+            // rnd_llg_handball
+            // 
+            this.rnd_llg_handball.HeaderText = "RND 1 Lleg. Grupo Handball";
+            this.rnd_llg_handball.Name = "rnd_llg_handball";
+            this.rnd_llg_handball.Width = 50;
+            // 
+            // rnd2_llg_handball
+            // 
+            this.rnd2_llg_handball.HeaderText = "RND 2 Lleg. Grupo Handball";
+            this.rnd2_llg_handball.Name = "rnd2_llg_handball";
+            this.rnd2_llg_handball.Width = 50;
+            // 
+            // tiempo_llg_handball
+            // 
+            this.tiempo_llg_handball.HeaderText = "Tiempo Lleg Handball";
+            this.tiempo_llg_handball.Name = "tiempo_llg_handball";
+            this.tiempo_llg_handball.Width = 75;
+            // 
+            // prox_llg_handball
+            // 
+            this.prox_llg_handball.HeaderText = "Prox. Lleg. Grupo Handball";
+            this.prox_llg_handball.Name = "prox_llg_handball";
+            this.prox_llg_handball.Width = 75;
+            // 
+            // rnd_ocu_basket
+            // 
+            this.rnd_ocu_basket.HeaderText = "RND Oc. Cancha Basket 1";
+            this.rnd_ocu_basket.Name = "rnd_ocu_basket";
+            this.rnd_ocu_basket.Width = 50;
+            // 
+            // tiempo_ocu_basket
+            // 
+            this.tiempo_ocu_basket.HeaderText = "Tiempo Oc. Cancha Basket 1";
+            this.tiempo_ocu_basket.Name = "tiempo_ocu_basket";
+            this.tiempo_ocu_basket.Width = 75;
+            // 
+            // fin_ocu_basket
+            // 
+            this.fin_ocu_basket.HeaderText = "Fin Oc. Cancha Basket 1";
+            this.fin_ocu_basket.Name = "fin_ocu_basket";
+            this.fin_ocu_basket.Width = 75;
+            // 
+            // rnd_ocu_basket2
+            // 
+            this.rnd_ocu_basket2.HeaderText = "RND Oc. Cancha Basket 2";
+            this.rnd_ocu_basket2.Name = "rnd_ocu_basket2";
+            this.rnd_ocu_basket2.Width = 50;
+            // 
+            // tiempo_ocu_basket2
+            // 
+            this.tiempo_ocu_basket2.HeaderText = "Tiempo Oc. Cancha Basket 2";
+            this.tiempo_ocu_basket2.Name = "tiempo_ocu_basket2";
+            this.tiempo_ocu_basket2.Width = 75;
+            // 
+            // fin_ocu_basket2
+            // 
+            this.fin_ocu_basket2.HeaderText = "Fin Oc. Cancha Basket 2";
+            this.fin_ocu_basket2.Name = "fin_ocu_basket2";
+            this.fin_ocu_basket2.Width = 75;
+            // 
+            // rnd_ocu_f
+            // 
+            this.rnd_ocu_f.HeaderText = "RND 1 Oc. Cancha Futbol";
+            this.rnd_ocu_f.Name = "rnd_ocu_f";
+            this.rnd_ocu_f.Width = 50;
+            // 
+            // rnd2_ocu_f
+            // 
+            this.rnd2_ocu_f.HeaderText = "RND 2 Oc. Cancha Futbol";
+            this.rnd2_ocu_f.Name = "rnd2_ocu_f";
+            this.rnd2_ocu_f.Width = 50;
+            // 
+            // tiempo_ocu_f
+            // 
+            this.tiempo_ocu_f.HeaderText = "Tiempo Oc. Cancha Futbol";
+            this.tiempo_ocu_f.Name = "tiempo_ocu_f";
+            this.tiempo_ocu_f.Width = 75;
+            // 
+            // fin_ocu_f
+            // 
+            this.fin_ocu_f.HeaderText = "Fin Oc. Cancha Futbol";
+            this.fin_ocu_f.Name = "fin_ocu_f";
+            this.fin_ocu_f.Width = 75;
+            // 
+            // rnd_ocu_h
+            // 
+            this.rnd_ocu_h.HeaderText = "RND 1 Oc. Cancha Handball";
+            this.rnd_ocu_h.Name = "rnd_ocu_h";
+            this.rnd_ocu_h.Width = 50;
+            // 
+            // rnd2_ocu_h
+            // 
+            this.rnd2_ocu_h.HeaderText = "RND 2 Oc. Cancha Handball";
+            this.rnd2_ocu_h.Name = "rnd2_ocu_h";
+            this.rnd2_ocu_h.Width = 50;
+            // 
+            // tiempo_ocu_h
+            // 
+            this.tiempo_ocu_h.HeaderText = "Tiempo Oc. Cancha Handball";
+            this.tiempo_ocu_h.Name = "tiempo_ocu_h";
+            this.tiempo_ocu_h.Width = 75;
+            // 
+            // fin_ocu_h
+            // 
+            this.fin_ocu_h.HeaderText = "Fin Oc. Cancha Handball";
+            this.fin_ocu_h.Name = "fin_ocu_h";
+            this.fin_ocu_h.Width = 75;
+            // 
+            // estado_cancha
+            // 
+            this.estado_cancha.HeaderText = "Estado Cancha";
+            this.estado_cancha.Name = "estado_cancha";
+            // 
+            // cola
+            // 
+            this.cola.HeaderText = "Cola Cancha";
+            this.cola.Name = "cola";
+            this.cola.Width = 50;
+            // 
+            // cont_b
+            // 
+            this.cont_b.HeaderText = "Cont. Grupos Basket";
+            this.cont_b.Name = "cont_b";
+            this.cont_b.Width = 50;
+            // 
+            // cont_f
+            // 
+            this.cont_f.HeaderText = "Cont. Grupos Futbol";
+            this.cont_f.Name = "cont_f";
+            this.cont_f.Width = 50;
+            // 
+            // cont_h
+            // 
+            this.cont_h.HeaderText = "Cont. Grupos Handball";
+            this.cont_h.Name = "cont_h";
+            this.cont_h.Width = 50;
+            // 
+            // espera_b
+            // 
+            this.espera_b.HeaderText = "Acum. Espera Basket";
+            this.espera_b.Name = "espera_b";
+            this.espera_b.Width = 75;
+            // 
+            // espera_f
+            // 
+            this.espera_f.HeaderText = "Acum. Espera Futbol";
+            this.espera_f.Name = "espera_f";
+            this.espera_f.Width = 75;
+            // 
+            // espera_h
+            // 
+            this.espera_h.HeaderText = "Acum. Espera Handball";
+            this.espera_h.Name = "espera_h";
+            this.espera_h.Width = 75;
+            // 
+            // acum_ocu
+            // 
+            this.acum_ocu.HeaderText = "Acum. Oc. Cancha";
+            this.acum_ocu.Name = "acum_ocu";
+            this.acum_ocu.Width = 75;
             // 
             // label1
             // 
@@ -675,208 +900,6 @@ namespace TP5
             this.lblTasaOcupacion.TabIndex = 51;
             this.lblTasaOcupacion.Text = "      ";
             // 
-            // evento
-            // 
-            this.evento.HeaderText = "Evento";
-            this.evento.Name = "evento";
-            this.evento.Width = 200;
-            // 
-            // reloj
-            // 
-            this.reloj.HeaderText = "Reloj";
-            this.reloj.Name = "reloj";
-            // 
-            // fin_acond
-            // 
-            this.fin_acond.HeaderText = "Fin Acond. Cancha";
-            this.fin_acond.Name = "fin_acond";
-            this.fin_acond.Width = 75;
-            // 
-            // rnd_llg_basket
-            // 
-            this.rnd_llg_basket.HeaderText = "RND 1 LLeg. Grupo Basket";
-            this.rnd_llg_basket.Name = "rnd_llg_basket";
-            this.rnd_llg_basket.Width = 50;
-            // 
-            // rnd2_llg_basket
-            // 
-            this.rnd2_llg_basket.HeaderText = "RND 2 Lleg. Grupo Basket";
-            this.rnd2_llg_basket.Name = "rnd2_llg_basket";
-            this.rnd2_llg_basket.Width = 50;
-            // 
-            // tiempo_llg_basket
-            // 
-            this.tiempo_llg_basket.HeaderText = "Tiempo Lleg. Grupo Basket";
-            this.tiempo_llg_basket.Name = "tiempo_llg_basket";
-            this.tiempo_llg_basket.Width = 75;
-            // 
-            // prox_llg_basket
-            // 
-            this.prox_llg_basket.HeaderText = "Prox Lleg. Grupo Basket";
-            this.prox_llg_basket.Name = "prox_llg_basket";
-            this.prox_llg_basket.Width = 75;
-            // 
-            // rnd_llg_futbol
-            // 
-            this.rnd_llg_futbol.HeaderText = "RND Lleg. Grupo Futbol";
-            this.rnd_llg_futbol.Name = "rnd_llg_futbol";
-            this.rnd_llg_futbol.Width = 50;
-            // 
-            // tiempo_llg_futbol
-            // 
-            this.tiempo_llg_futbol.HeaderText = "Tiempo Lleg. Grupo Futbol";
-            this.tiempo_llg_futbol.Name = "tiempo_llg_futbol";
-            this.tiempo_llg_futbol.Width = 75;
-            // 
-            // prox_llg_futbol
-            // 
-            this.prox_llg_futbol.HeaderText = "Prox. Lleg. Grupo Futbol";
-            this.prox_llg_futbol.Name = "prox_llg_futbol";
-            this.prox_llg_futbol.Width = 75;
-            // 
-            // rnd_llg_handball
-            // 
-            this.rnd_llg_handball.HeaderText = "RND 1 Lleg. Grupo Handball";
-            this.rnd_llg_handball.Name = "rnd_llg_handball";
-            this.rnd_llg_handball.Width = 50;
-            // 
-            // rnd2_llg_handball
-            // 
-            this.rnd2_llg_handball.HeaderText = "RND 2 Lleg. Grupo Handball";
-            this.rnd2_llg_handball.Name = "rnd2_llg_handball";
-            this.rnd2_llg_handball.Width = 50;
-            // 
-            // tiempo_llg_handball
-            // 
-            this.tiempo_llg_handball.HeaderText = "Tiempo Lleg Handball";
-            this.tiempo_llg_handball.Name = "tiempo_llg_handball";
-            this.tiempo_llg_handball.Width = 75;
-            // 
-            // prox_llg_handball
-            // 
-            this.prox_llg_handball.HeaderText = "Prox. Lleg. Grupo Handball";
-            this.prox_llg_handball.Name = "prox_llg_handball";
-            this.prox_llg_handball.Width = 75;
-            // 
-            // rnd_ocu_basket
-            // 
-            this.rnd_ocu_basket.HeaderText = "RND Oc. Cancha Basket";
-            this.rnd_ocu_basket.Name = "rnd_ocu_basket";
-            this.rnd_ocu_basket.Width = 50;
-            // 
-            // tiempo_ocu_basket
-            // 
-            this.tiempo_ocu_basket.HeaderText = "Tiempo Oc. Cancha Basket";
-            this.tiempo_ocu_basket.Name = "tiempo_ocu_basket";
-            this.tiempo_ocu_basket.Width = 75;
-            // 
-            // fin_ocu_basket
-            // 
-            this.fin_ocu_basket.HeaderText = "Fin Oc. Cancha Basket";
-            this.fin_ocu_basket.Name = "fin_ocu_basket";
-            this.fin_ocu_basket.Width = 75;
-            // 
-            // rnd_ocu_f
-            // 
-            this.rnd_ocu_f.HeaderText = "RND 1 Oc. Cancha Futbol";
-            this.rnd_ocu_f.Name = "rnd_ocu_f";
-            this.rnd_ocu_f.Width = 50;
-            // 
-            // rnd2_ocu_f
-            // 
-            this.rnd2_ocu_f.HeaderText = "RND 2 Oc. Cancha Futbol";
-            this.rnd2_ocu_f.Name = "rnd2_ocu_f";
-            this.rnd2_ocu_f.Width = 50;
-            // 
-            // tiempo_ocu_f
-            // 
-            this.tiempo_ocu_f.HeaderText = "Tiempo Oc. Cancha Futbol";
-            this.tiempo_ocu_f.Name = "tiempo_ocu_f";
-            this.tiempo_ocu_f.Width = 75;
-            // 
-            // fin_ocu_f
-            // 
-            this.fin_ocu_f.HeaderText = "Fin Oc. Cancha Futbol";
-            this.fin_ocu_f.Name = "fin_ocu_f";
-            this.fin_ocu_f.Width = 75;
-            // 
-            // rnd_ocu_h
-            // 
-            this.rnd_ocu_h.HeaderText = "RND 1 Oc. Cancha Handball";
-            this.rnd_ocu_h.Name = "rnd_ocu_h";
-            this.rnd_ocu_h.Width = 50;
-            // 
-            // rnd2_ocu_h
-            // 
-            this.rnd2_ocu_h.HeaderText = "RND 2 Oc. Cancha Handball";
-            this.rnd2_ocu_h.Name = "rnd2_ocu_h";
-            this.rnd2_ocu_h.Width = 50;
-            // 
-            // tiempo_ocu_h
-            // 
-            this.tiempo_ocu_h.HeaderText = "Tiempo Oc. Cancha Handball";
-            this.tiempo_ocu_h.Name = "tiempo_ocu_h";
-            this.tiempo_ocu_h.Width = 75;
-            // 
-            // fin_ocu_h
-            // 
-            this.fin_ocu_h.HeaderText = "Fin Oc. Cancha Handball";
-            this.fin_ocu_h.Name = "fin_ocu_h";
-            this.fin_ocu_h.Width = 75;
-            // 
-            // estado_cancha
-            // 
-            this.estado_cancha.HeaderText = "Estado Cancha";
-            this.estado_cancha.Name = "estado_cancha";
-            // 
-            // cola
-            // 
-            this.cola.HeaderText = "Cola Cancha";
-            this.cola.Name = "cola";
-            this.cola.Width = 50;
-            // 
-            // cont_b
-            // 
-            this.cont_b.HeaderText = "Cont. Grupos Basket";
-            this.cont_b.Name = "cont_b";
-            this.cont_b.Width = 50;
-            // 
-            // cont_f
-            // 
-            this.cont_f.HeaderText = "Cont. Grupos Futbol";
-            this.cont_f.Name = "cont_f";
-            this.cont_f.Width = 50;
-            // 
-            // cont_h
-            // 
-            this.cont_h.HeaderText = "Cont. Grupos Handball";
-            this.cont_h.Name = "cont_h";
-            this.cont_h.Width = 50;
-            // 
-            // espera_b
-            // 
-            this.espera_b.HeaderText = "Acum. Espera Basket";
-            this.espera_b.Name = "espera_b";
-            this.espera_b.Width = 75;
-            // 
-            // espera_f
-            // 
-            this.espera_f.HeaderText = "Acum. Espera Futbol";
-            this.espera_f.Name = "espera_f";
-            this.espera_f.Width = 75;
-            // 
-            // espera_h
-            // 
-            this.espera_h.HeaderText = "Acum. Espera Handball";
-            this.espera_h.Name = "espera_h";
-            this.espera_h.Width = 75;
-            // 
-            // acum_ocu
-            // 
-            this.acum_ocu.HeaderText = "Acum. Oc. Cancha";
-            this.acum_ocu.Name = "acum_ocu";
-            this.acum_ocu.Width = 75;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -903,7 +926,7 @@ namespace TP5
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "TP5 - Simulación";
+            this.Text = "TP6 - Simulación";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -984,6 +1007,9 @@ namespace TP5
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_ocu_basket;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_ocu_basket;
         private System.Windows.Forms.DataGridViewTextBoxColumn fin_ocu_basket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rnd_ocu_basket2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_ocu_basket2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fin_ocu_basket2;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd_ocu_f;
         private System.Windows.Forms.DataGridViewTextBoxColumn rnd2_ocu_f;
         private System.Windows.Forms.DataGridViewTextBoxColumn tiempo_ocu_f;

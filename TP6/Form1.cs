@@ -22,7 +22,7 @@ namespace TP5
         {
             //Resetear grilla
             dataGridView1.Rows.Clear();
-            for (int i = dataGridView1.Columns.Count-1; i > 33; i--)
+            for (int i = dataGridView1.Columns.Count-1; i > 36; i--)
             {
                 dataGridView1.Columns.RemoveAt(i);
             }
@@ -98,23 +98,23 @@ namespace TP5
 
             //Calcular datos pedidos por el ejercicio y mostrarlos
             object[] ultimoEstado = resultados[resultados.Count - 1];
-            int contadorB = Convert.ToInt32(ultimoEstado[27]);
-            int contadorF = Convert.ToInt32(ultimoEstado[28]);
-            int contadorH = Convert.ToInt32(ultimoEstado[29]);
+            int contadorB = Convert.ToInt32(ultimoEstado[30]);
+            int contadorF = Convert.ToInt32(ultimoEstado[31]);
+            int contadorH = Convert.ToInt32(ultimoEstado[32]);
             double promB = 0;
             double promF = 0;
             double promH = 0;
             if(contadorB != 0)
             {
-                promB = this.truncar(Convert.ToDouble(ultimoEstado[30]) / contadorB, 4);
+                promB = this.truncar(Convert.ToDouble(ultimoEstado[33]) / contadorB, 4);
             }
             if (contadorF != 0)
             {
-                promF = this.truncar(Convert.ToDouble(ultimoEstado[31]) / contadorF, 4);
+                promF = this.truncar(Convert.ToDouble(ultimoEstado[34]) / contadorF, 4);
             }
             if (contadorH != 0)
             {
-                promH = this.truncar(Convert.ToDouble(ultimoEstado[32]) / contadorH, 4);
+                promH = this.truncar(Convert.ToDouble(ultimoEstado[35]) / contadorH, 4);
             }
 
 
@@ -122,7 +122,7 @@ namespace TP5
             lblPromF.Text = promF.ToString();
             lblPromH.Text = promH.ToString();
 
-            double tasaOcupacion = this.truncar(Convert.ToDouble(ultimoEstado[33])/Convert.ToDouble(ultimoEstado[1])*100 ,4);
+            double tasaOcupacion = this.truncar(Convert.ToDouble(ultimoEstado[36])/Convert.ToDouble(ultimoEstado[1])*100 ,4);
             lblTasaOcupacion.Text = tasaOcupacion.ToString() + "%";
         }
 
@@ -315,8 +315,8 @@ namespace TP5
             List<string> rndEventos = new List<string>();
             List<string> tiempoEventos = new List<string>();
             List<string> proxEventos = new List<string>();
-            List<int> iEventosNormales = new List<int> { 3, 10, 17, 21 };
-            for (int i = 3; i < 25; i+=3)
+            List<int> iEventosNormales = new List<int> { 3, 10, 20, 24 };
+            for (int i = 3; i < 28; i+=3)
             {
                 rndEventos.Add(String.IsNullOrEmpty((string)vector[i]) ? (string)vector[i] : this.truncar(Convert.ToDouble(vector[i]), 4).ToString());
                 if(iEventosNormales.Contains(i))
@@ -327,15 +327,15 @@ namespace TP5
                 tiempoEventos.Add(String.IsNullOrEmpty((string)vector[i+1]) ? (string)vector[i+1] : this.truncar(Convert.ToDouble(vector[i+1]), 4).ToString());
                 proxEventos.Add(String.IsNullOrEmpty((string)vector[i+2]) ? (string)vector[i+2] : this.truncar(Convert.ToDouble(vector[i+2]), 4).ToString());
             }
-            string estadoCancha = (string)vector[25];
-            string colaCancha = vector[26].ToString();
-            string contadorBasket = vector[27].ToString();
-            string contadorFutbol = vector[28].ToString();
-            string contadorHandball = vector[29].ToString();
-            string acumEsperaBasket = String.IsNullOrEmpty(vector[30].ToString()) ? (string)vector[30] : this.truncar(Convert.ToDouble(vector[30]), 4).ToString();
-            string acumEsperaFutbol = String.IsNullOrEmpty(vector[31].ToString()) ? (string)vector[31] : this.truncar(Convert.ToDouble(vector[31]), 4).ToString();
-            string acumEsperaHandball = String.IsNullOrEmpty(vector[32].ToString()) ? (string)vector[32] : this.truncar(Convert.ToDouble(vector[32]), 4).ToString();
-            string acumOcupacion = String.IsNullOrEmpty(vector[33].ToString()) ? (string)vector[33] : this.truncar(Convert.ToDouble(vector[33]), 4).ToString();
+            string estadoCancha = (string)vector[28];
+            string colaCancha = vector[29].ToString();
+            string contadorBasket = vector[30].ToString();
+            string contadorFutbol = vector[31].ToString();
+            string contadorHandball = vector[32].ToString();
+            string acumEsperaBasket = String.IsNullOrEmpty(vector[33].ToString()) ? (string)vector[33] : this.truncar(Convert.ToDouble(vector[33]), 4).ToString();
+            string acumEsperaFutbol = String.IsNullOrEmpty(vector[34].ToString()) ? (string)vector[34] : this.truncar(Convert.ToDouble(vector[34]), 4).ToString();
+            string acumEsperaHandball = String.IsNullOrEmpty(vector[35].ToString()) ? (string)vector[35] : this.truncar(Convert.ToDouble(vector[35]), 4).ToString();
+            string acumOcupacion = String.IsNullOrEmpty(vector[36].ToString()) ? (string)vector[36] : this.truncar(Convert.ToDouble(vector[36]), 4).ToString();
 
             string[] vectorSinClientes = new string[]
             {
@@ -344,8 +344,9 @@ namespace TP5
                 rndEventos[2], tiempoEventos[1], proxEventos[1],
                 rndEventos[3], rndEventos[4], tiempoEventos[2], proxEventos[2],
                 rndEventos[5], tiempoEventos[3], proxEventos[3],
-                rndEventos[6], rndEventos[7], tiempoEventos[4], proxEventos[4],
-                rndEventos[8], rndEventos[9], tiempoEventos[5], proxEventos[5],
+                rndEventos[6], tiempoEventos[4], proxEventos[4],
+                rndEventos[7], rndEventos[8], tiempoEventos[5], proxEventos[5],
+                rndEventos[9], rndEventos[10], tiempoEventos[6], proxEventos[6],
                 estadoCancha, colaCancha,
                 contadorBasket, contadorFutbol, contadorHandball,
                 acumEsperaBasket, acumEsperaFutbol, acumEsperaHandball,
@@ -353,7 +354,7 @@ namespace TP5
             };
 
             //Armar lista de datos de clientes formateada
-            foreach(object[] cliente in (List<object[]>)vector[34])
+            foreach(object[] cliente in (List<object[]>)vector[37])
             {
                 if(this.ordenDeLosClientesPorId.FindIndex(id => id==Convert.ToInt32(cliente[0])) == -1)
                 {
@@ -365,7 +366,7 @@ namespace TP5
             foreach (int id in this.ordenDeLosClientesPorId)
             {
                 bool clienteEncontrado = false;
-                foreach (object[] cliente in (List<object[]>)vector[34])
+                foreach (object[] cliente in (List<object[]>)vector[37])
                 {
                     if (id == Convert.ToInt32(cliente[0]))
                     {
@@ -385,11 +386,11 @@ namespace TP5
             }
 
             //Armar un nuevo vector con ambos iterables
-            string[] vectorCompleto = new string[34 + datosDeClientesEnOrden.Count];
-            Array.Copy(vectorSinClientes, vectorCompleto, 34);
-            for (int i = 34; i < vectorCompleto.Length; i++)
+            string[] vectorCompleto = new string[37 + datosDeClientesEnOrden.Count];
+            Array.Copy(vectorSinClientes, vectorCompleto, 37);
+            for (int i = 37; i < vectorCompleto.Length; i++)
             {
-                vectorCompleto[i] = datosDeClientesEnOrden[i - 34];
+                vectorCompleto[i] = datosDeClientesEnOrden[i - 37];
             }
 
             return vectorCompleto;

@@ -9,6 +9,7 @@ namespace TP5.classes.modelos.eventos
 {
     abstract class Evento
     {
+        static private Random generadorSemillas = new Random();
         protected double? random;
         protected double? tiempoEntreEventos;
         protected double? proximoEvento;
@@ -29,7 +30,7 @@ namespace TP5.classes.modelos.eventos
         public Evento()
         {
             this.proximoEvento = null;
-            this.generador = new GeneradorVariables();
+            this.generador = new GeneradorVariables(Evento.generadorSemillas.Next());
             this.random = null;
             this.tiempoEntreEventos = null;
         }

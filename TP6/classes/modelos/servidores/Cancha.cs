@@ -38,5 +38,6 @@ namespace TP5.classes.modelos.servidores
         public bool EstaLibre() => Estado.EstaLibre();
 
         public void SacarEquiposCancha() => GruposJugando.Clear();
+        public void SacarEquipoCancha(int index) => GruposJugando.RemoveAt(index);
     }
 }
