@@ -311,6 +311,50 @@ namespace TP5
                 return false;
             }
 
+            if(!Double.TryParse(txtDBasket.Text, out double DBasket))
+            {
+                MessageBox.Show("La tasa de limpieza (D) para grupos de basket debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(DBasket < 0)
+            {
+                MessageBox.Show("La tasa de limpieza (D) para grupos de basket debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtDFutbol.Text, out double DFutbol))
+            {
+                MessageBox.Show("La tasa de limpieza (D) para grupos de fútbol debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (DFutbol < 0)
+            {
+                MessageBox.Show("La tasa de limpieza (D) para grupos de fútbol debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtDHandball.Text, out double DHandball))
+            {
+                MessageBox.Show("La tasa de limpieza (D) para grupos de handball debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (DHandball < 0)
+            {
+                MessageBox.Show("La tasa de limpieza (D) para grupos de handball debe ser un numero positivo", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!Double.TryParse(txtH.Text, out double h))
+            {
+                MessageBox.Show("El paso de integración (h) debe ser un numero con coma flotante", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (h <= 0)
+            {
+                MessageBox.Show("El paso de integración (h) debe ser un numero positivo mayor a 0", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             return true;
         }
 
