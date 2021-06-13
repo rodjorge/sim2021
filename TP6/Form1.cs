@@ -10,19 +10,22 @@ namespace TP5
         List<int> ordenDeLosClientesPorId;
         List<string> ordenDeLosClientesPorDisciplina;
         GestorSimulacion simulador;
+        List<object[]> resultados;
+        int filaSelec;
         public Form1()
         {
             InitializeComponent();
             this.simulador = new GestorSimulacion();
             this.ordenDeLosClientesPorId = new List<int>();
             this.ordenDeLosClientesPorDisciplina = new List<string>();
+            this.resultados = new List<object[]>();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //Resetear grilla
             dataGridView1.Rows.Clear();
-            for (int i = dataGridView1.Columns.Count-1; i > 37; i--)
+            for (int i = dataGridView1.Columns.Count - 1; i > 37; i--)
             {
                 dataGridView1.Columns.RemoveAt(i);
             }
@@ -68,26 +71,26 @@ namespace TP5
                 new double[] { OMediaH, ODesvH },
                 new double[] { h }
             };
-            List<object[]> resultados;
+            this.resultados.Clear();
             if (chkEstadosInter.Checked)
             {
                 horaDesde = Convert.ToDouble(txtHoraDesde.Text);
                 iteracionesHasta = Convert.ToInt32(txtIteracionesHasta.Text);
-                resultados = this.simulador.simular(horaFin, iteraciones, parametros, horaDesde, iteracionesHasta);
+                this.resultados = this.simulador.simular(horaFin, iteraciones, parametros, horaDesde, iteracionesHasta);
             }
             else
-            { 
-                resultados = this.simulador.simular(horaFin, iteraciones, parametros);
+            {
+                this.resultados = this.simulador.simular(horaFin, iteraciones, parametros);
             }
 
-           //Formateo de resultados
-           List<string[]> resFormateados = new List<string[]>();
-            foreach (object[] fila in resultados) {
+            //Formateo de resultados
+            List<string[]> resFormateados = new List<string[]>();
+            foreach (object[] fila in this.resultados) {
                 resFormateados.Add(this.armarFila(fila));
             }
 
             //Chequear si el largo de los resultados formateados no excede la cantidad de columnas máxima posible
-            if(resFormateados[0].Length > 654)
+            if (resFormateados[0].Length > 654)
             {
                 MessageBox.Show("La cantidad de columnas generadas excede el máximo permitido", "Error de grilla", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -108,8 +111,11 @@ namespace TP5
                 dataGridView1.Rows.Add(fila);
             }
 
+            //Pintar la fila del ultimo vector estado
+            dataGridView1.Rows[dataGridView1.Rows.Count - 1].DefaultCellStyle.BackColor = System.Drawing.Color.CornflowerBlue;
+
             //Calcular datos pedidos por el ejercicio y mostrarlos
-            object[] ultimoEstado = resultados[resultados.Count - 1];
+            object[] ultimoEstado = this.resultados[resultados.Count - 1];
             int contadorB = Convert.ToInt32(ultimoEstado[31]);
             int contadorF = Convert.ToInt32(ultimoEstado[32]);
             int contadorH = Convert.ToInt32(ultimoEstado[33]);
@@ -449,6 +455,24 @@ namespace TP5
                 txtIteracionesHasta.Text = txtIteraciones.Text;
             }
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.filaSelec = dataGridView1.CurrentCell.RowIndex;
+            if(dataGridView1.CurrentCell.ColumnIndex == 2 && this.resultados[this.filaSelec][39] != null)
+            {
+                btnTablaInt.Enabled = true;
+            }
+            else
+            {
+                btnTablaInt.Enabled = false;
+            }
+        }
+
+        private void btnTablaInt_Click(object sender, EventArgs e)
+        {
+            new FormTablaIntegracion(this.resultados[this.filaSelec][39] as List<double?[]>).Show();
         }
     }
 }

@@ -111,21 +111,38 @@ namespace TP5.classes
                 int indexProxEvento = this.decidirProximoEvento();
                 this.relojMin = (double)this.eventos[indexProxEvento].ProximoEvento;
 
+                //Elimina los datos que no deben arrastrarse de los eventos
+                foreach (Evento evento in this.eventos)
+                {
+                    evento.borrarDatosTemporales();
+                }
+
                 //Chequeo de si la simulacion se pasó del tiempo limite ingresado
                 if (tiempo < this.relojMin)
                 {
                     this.ultimoVectorEstado[0] = "Fin de la simulación";
                     this.ultimoVectorEstado[1] = tiempo;
 
+                    //Actualizacion solo de la parte de eventos
+                    this.ultimoVectorEstado[2] = this.eventos[0].TiempoEntreEventos.ToString() ?? "";
+                    this.ultimoVectorEstado[3] = this.eventos[0].ProximoEvento.ToString() ?? "";
+                    lastIndex = 3;
+                    foreach (Evento evento in this.eventos.Skip(1))
+                    {
+                        this.ultimoVectorEstado[lastIndex + 1] = evento.Random.ToString() ?? "";
+                        if (evento.tieneDistribucionNormal())
+                        {
+                            lastIndex++;
+                            this.ultimoVectorEstado[lastIndex + 1] = (evento as EventoConNormal).Random2.ToString() ?? "";
+                        }
+                        this.ultimoVectorEstado[lastIndex + 2] = evento.TiempoEntreEventos.ToString() ?? "";
+                        this.ultimoVectorEstado[lastIndex + 3] = evento.ProximoEvento.ToString() ?? "";
+                        lastIndex += 3;
+                    }
+
                     vectoresEstadoPersistentes.Add(ultimoVectorEstado);
                     finPorReloj = true;
                     break;
-                }
-
-                //Elimina los datos que no deben arrastrarse de los eventos
-                foreach (Evento evento in this.eventos)
-                {
-                    evento.borrarDatosTemporales();
                 }
 
                 switch (indexProxEvento)

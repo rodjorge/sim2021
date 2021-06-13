@@ -11,3 +11,4 @@ C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP6\obj\Debug\TP6.
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP6\obj\Debug\TP6.csproj.CopyComplete
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP6\obj\Debug\TP5.exe
 C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP6\obj\Debug\TP5.pdb
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP6\obj\Debug\TP5.FormTablaIntegracion.resources

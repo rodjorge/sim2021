@@ -29,7 +29,7 @@ namespace TP5
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -127,6 +127,7 @@ namespace TP5
             this.espera_f = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.espera_h = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acum_ocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTablaInt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -147,14 +148,14 @@ namespace TP5
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.evento,
@@ -198,8 +199,9 @@ namespace TP5
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(14, 202);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1264, 380);
+            this.dataGridView1.Size = new System.Drawing.Size(1264, 372);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
@@ -1001,11 +1003,23 @@ namespace TP5
             this.acum_ocu.Name = "acum_ocu";
             this.acum_ocu.Width = 75;
             // 
+            // btnTablaInt
+            // 
+            this.btnTablaInt.Enabled = false;
+            this.btnTablaInt.Location = new System.Drawing.Point(15, 580);
+            this.btnTablaInt.Name = "btnTablaInt";
+            this.btnTablaInt.Size = new System.Drawing.Size(216, 23);
+            this.btnTablaInt.TabIndex = 53;
+            this.btnTablaInt.Text = "Mostrar tabla de integracion numérica";
+            this.btnTablaInt.UseVisualStyleBackColor = true;
+            this.btnTablaInt.Click += new System.EventHandler(this.btnTablaInt_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1290, 733);
+            this.Controls.Add(this.btnTablaInt);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lblTasaOcupacion);
             this.Controls.Add(this.label28);
@@ -1028,6 +1042,7 @@ namespace TP5
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "TP6 - Simulación";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1139,6 +1154,7 @@ namespace TP5
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_f;
         private System.Windows.Forms.DataGridViewTextBoxColumn espera_h;
         private System.Windows.Forms.DataGridViewTextBoxColumn acum_ocu;
+        private System.Windows.Forms.Button btnTablaInt;
     }
 }
 
