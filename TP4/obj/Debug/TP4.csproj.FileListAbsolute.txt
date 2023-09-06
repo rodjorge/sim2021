@@ -1,0 +1,18 @@
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\obj\Debug\TP4.csprojAssemblyReference.cache
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\obj\Debug\TP4.Main.resources
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\obj\Debug\TP4.Properties.Resources.resources
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\obj\Debug\TP4.csproj.GenerateResource.cache
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\obj\Debug\TP4.csproj.CoreCompileInputs.cache
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\bin\Debug\TP4.exe
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\bin\Debug\TP4.pdb
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\obj\Debug\TP4.exe
+D:\Jorge\Desktop\Cursado 2021\Simulacion\sim2021\TP4\obj\Debug\TP4.pdb
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\bin\Debug\TP4.exe
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\bin\Debug\TP4.pdb
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\obj\Debug\TP4.csprojAssemblyReference.cache
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\obj\Debug\TP4.Main.resources
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\obj\Debug\TP4.Properties.Resources.resources
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\obj\Debug\TP4.csproj.GenerateResource.cache
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\obj\Debug\TP4.csproj.CoreCompileInputs.cache
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\obj\Debug\TP4.exe
+C:\Users\gtben\OneDrive\Escritorio\Cosas de la Faculad\SIM\TP\TP4\obj\Debug\TP4.pdb

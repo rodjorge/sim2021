@@ -72,12 +72,12 @@ namespace Simulacion_tp3
             this.c = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVariables)).BeginInit();
             this.grpTipoDistribucion.SuspendLayout();
             this.grpParametros.SuspendLayout();
@@ -96,12 +96,12 @@ namespace Simulacion_tp3
             this.dtgVariables.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.orden,
             this.variable});
-            this.dtgVariables.Location = new System.Drawing.Point(196, 10);
+            this.dtgVariables.Location = new System.Drawing.Point(202, 12);
             this.dtgVariables.Name = "dtgVariables";
             this.dtgVariables.RowHeadersVisible = false;
             this.dtgVariables.RowTemplate.Height = 25;
             this.dtgVariables.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dtgVariables.Size = new System.Drawing.Size(151, 207);
+            this.dtgVariables.Size = new System.Drawing.Size(151, 354);
             this.dtgVariables.TabIndex = 0;
             // 
             // orden
@@ -432,7 +432,7 @@ namespace Simulacion_tp3
             this.dtgHistograma.Name = "dtgHistograma";
             this.dtgHistograma.ReadOnly = true;
             this.dtgHistograma.RowHeadersVisible = false;
-            this.dtgHistograma.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dtgHistograma.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgHistograma.Size = new System.Drawing.Size(717, 161);
             this.dtgHistograma.TabIndex = 0;
             // 
@@ -487,14 +487,41 @@ namespace Simulacion_tp3
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grupo 2";
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ardilles, Hernan";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 151);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Chavez, Juan";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Rodriguez, Jorge";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Gaiga, Marcela";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Panero, Agustin";
             // 
             // label2
             // 
@@ -506,41 +533,14 @@ namespace Simulacion_tp3
             this.label2.Text = "Gómez Toledo, Benjamin";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Panero, Agustin";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Gaiga, Marcela";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 126);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Rodriguez, Jorge";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 151);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Chavez, Juan";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Ardilles, Hernan";
             // 
             // Form1
             // 
